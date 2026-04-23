@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _site
+  preview:
+    port: 4200
+    browser: true
+
+website:
+  page-navigation: true
+  back-to-top-navigation: true
+  bread-crumbs: true
+  open-graph: true
+  search: true
+  twitter-card: true
+  title: "No Code Data Visualization"
+  site-url: "https://nocodeviz.netlify.app"
+  repo-url: ""
+  description: This is the teaching website of Arvind V., External Faculty, Srishti Manipal Institute of Art, Design, and Technology, Bangalore, India.
+  favicon: "content/materials/icon-park-twotone--concept-sharing.svg"
+  google-analytics: "" 
+  reader-mode: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
