@@ -16,7 +16,7 @@ website:
   search: true
   twitter-card: true
   title: "No Code Data Visualization"
-  site-url: "https://nocodeviz.netlify.app"
+  site-url: "https://nocodedataviz.netlify.app"
   repo-url: ""
   description: This is the teaching website of Arvind V., External Faculty, Srishti Manipal Institute of Art, Design, and Technology, Bangalore, India.
   favicon: "content/materials/icon-park-twotone--concept-sharing.svg"
@@ -36,10 +36,29 @@ website:
     logo: "content/materials/images/1book25.jpg"
     contents:
       - section: "No Code Data Viz"
-        href: content/courses/NoCodeViz/listing.qmd
+        href: content/courses/NoCodeDataViz/listing.qmd
         contents: 
-        - content/courses/NoCodeDataViz/Modules/05-NatureData/index.qmd
-
+        - content/courses/NoCodeDataViz/Modules/01-NatureofData/index.qmd
+        - content/courses/NoCodeDataViz/Modules/05-IntroductiontoOrange/index.qmd
+        - content/courses/NoCodeDataViz/Modules/10-SummaryStats/index.qmd
+        - content/courses/NoCodeDataViz/Modules/20-Counts/index.qmd
+        - content/courses/NoCodeDataViz/Modules/22-Quantity/index.qmd
+        - content/courses/NoCodeDataViz/Modules/24-Densities/index.qmd
+        - content/courses/NoCodeDataViz/Modules/26-2DDensities/index.qmd
+        - content/courses/NoCodeDataViz/Modules/28-Groups/index.qmd
+        - content/courses/NoCodeDataViz/Modules/30-Change/index.qmd
+        - content/courses/NoCodeDataViz/Modules/32-Rhythm/index.qmd
+        - content/courses/NoCodeDataViz/Modules/35-Proportions/index.qmd
+        - content/courses/NoCodeDataViz/Modules/40-Flows/index.qmd
+        - content/courses/NoCodeDataViz/Modules/50-Shares/index.qmd
+        - content/courses/NoCodeDataViz/Modules/54-Structures/index.qmd
+        - content/courses/NoCodeDataViz/Modules/60-Rankings/index.qmd
+        - content/courses/NoCodeDataViz/Modules/70-Maps/index.qmd
+        - content/courses/NoCodeDataViz/Modules/80-Time/index.qmd
+        - content/courses/NoCodeDataViz/Modules/100-Networks/index.qmd
+        - content/courses/NoCodeDataViz/Modules/140-Surveys/index.qmd
+        - content/courses/NoCodeDataViz/Modules/150-NoFreeHunch/index.qmd
+        
 format:
   html:
     theme:
@@ -47,6 +66,25 @@ format:
       - brand
     css: styles.css
     toc: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
+    citations-hover: true
+    footnotes-hover: true
+    bread-crumbs: true
+    format-links: true
+    df-print: paged
+    reference-location: document
+    cap-location: bottom
+    fig-align: center
+    fig-cap-location: bottom
+    
+    grid:
+      sidebar-width: 250px
+      body-width: 1000px
+      margin-width: 250px
+      gutter-width: 1.5rem
+
 
 
 

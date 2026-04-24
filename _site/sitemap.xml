@@ -1,95 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nocodeviz.netlify.app/about.html</loc>
-    <lastmod>2026-04-23T16:04:45.438Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/index.knit.html</loc>
+    <lastmod>2026-04-24T23:13:28.558Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/150-NoFreeHunch/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/index.html</loc>
+    <lastmod>2026-04-24T23:42:17.491Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/150-NoFreeHunch/index.html</loc>
     <lastmod>2026-04-23T16:26:15.731Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/10-SummaryStats/index.html</loc>
-    <lastmod>2026-04-23T16:26:15.609Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/10-SummaryStats/index.html</loc>
+    <lastmod>2026-04-24T05:55:32.341Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/54-Structures/index.html</loc>
-    <lastmod>2026-04-23T16:26:15.533Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/54-Structures/index.html</loc>
+    <lastmod>2026-04-24T23:34:18.481Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/80-Time/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/80-Time/index.html</loc>
     <lastmod>2026-04-23T16:26:15.509Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/35-Proportions/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/35-Proportions/index.html</loc>
     <lastmod>2026-04-23T16:26:15.320Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/140-Surveys/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/140-Surveys/index.html</loc>
     <lastmod>2026-04-23T16:26:15.281Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/40-Flows/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/40-Flows/index.html</loc>
     <lastmod>2026-04-23T16:26:15.112Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/24-Densities/index.html</loc>
-    <lastmod>2026-04-23T16:26:15.009Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/24-Densities/index.html</loc>
+    <lastmod>2026-04-24T06:05:05.674Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/20-Counts/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/20-Counts/index.html</loc>
     <lastmod>2026-04-24T04:10:18.024Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/22-Quantity/index.html</loc>
-    <lastmod>2026-04-23T16:26:14.401Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html</loc>
+    <lastmod>2026-04-24T23:13:06.427Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/listing.html</loc>
-    <lastmod>2026-04-23T16:29:08.916Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/listing.html</loc>
-    <lastmod>2026-04-23T16:18:05.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/32-Rhythm/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/32-Rhythm/index.html</loc>
     <lastmod>2026-04-23T16:26:14.334Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/01-NatureofData/index.html</loc>
-    <lastmod>2026-04-23T16:26:14.734Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/listing.html</loc>
+    <lastmod>2026-04-23T16:29:08.916Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/100-Networks/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/22-Quantity/index.html</loc>
+    <lastmod>2026-04-24T05:58:16.675Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/01-NatureofData/index.html</loc>
+    <lastmod>2026-04-24T05:49:53.979Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/100-Networks/index.html</loc>
     <lastmod>2026-04-23T16:26:14.972Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/30-Change/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/30-Change/index.html</loc>
     <lastmod>2026-04-23T16:26:15.066Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/28-Groups/index.html</loc>
-    <lastmod>2026-04-23T16:26:15.214Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/28-Groups/index.html</loc>
+    <lastmod>2026-04-24T14:36:17.648Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/35-Proportions/files/mosaic-tutorial.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/35-Proportions/files/mosaic-tutorial.html</loc>
     <lastmod>2026-04-23T16:26:15.474Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/05-IntroductiontoOrange/index.html</loc>
-    <lastmod>2026-04-23T16:26:15.521Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/05-IntroductiontoOrange/index.html</loc>
+    <lastmod>2026-04-24T05:51:21.989Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/70-Maps/index.html</loc>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/70-Maps/index.html</loc>
     <lastmod>2026-04-23T16:26:15.541Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/60-Rankings/index.html</loc>
-    <lastmod>2026-04-23T16:26:15.709Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/60-Rankings/index.html</loc>
+    <lastmod>2026-04-24T23:33:36.165Z</lastmod>
   </url>
   <url>
-    <loc>https://nocodeviz.netlify.app/index.html</loc>
-    <lastmod>2026-04-24T04:59:35.124Z</lastmod>
+    <loc>https://nocodedataviz.netlify.app/content/courses/listing.html</loc>
+    <lastmod>2026-04-23T16:18:05.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nocodedataviz.netlify.app/about.html</loc>
+    <lastmod>2026-04-23T16:04:45.438Z</lastmod>
   </url>
 </urlset>

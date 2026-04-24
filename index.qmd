@@ -196,7 +196,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
 
 <div class="ncv-recipe-grid">
 
-<a href="content/courses/NoCodeViz/Modules/01-NatureofData/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/01-NatureofData/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-blue">🗂️</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-blue">Foundations</span>
@@ -205,7 +205,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
 </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/20-Counts/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/20-Counts/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-teal">📊</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-teal">Categorical</span>
@@ -214,7 +214,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
   </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/22-Quantity/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/22-Quantity/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-amber">📏</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-amber">Quantities</span>
@@ -223,7 +223,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
   </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/28-Groups/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/28-Groups/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-purple">🔮</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-purple">Comparisons</span>
@@ -232,7 +232,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
   </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/35-Proportions/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/35-Proportions/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-rose">🥧</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-rose">Parts &amp; Wholes</span>
@@ -241,7 +241,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
   </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/70-Maps/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/70-Maps/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-green">🗺️</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-green">Space</span>
@@ -250,7 +250,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
   </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/80-Time/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/80-Time/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-indigo">⏱️</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-indigo">Time</span>
@@ -259,7 +259,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
   </div>
 </a>
 
-<a href="content/courses/NoCodeViz/Modules/100-Networks/index.html" class="ncv-module-card">
+<a href="content/courses/NoCodeDataViz/Modules/100-Networks/index.html" class="ncv-module-card">
   <div class="ncv-module-thumb mod-coral">🕸️</div>
   <div class="ncv-module-body">
  <span class="ncv-module-tag tag-coral">Relationships</span>
@@ -273,7 +273,7 @@ Browse the full listing or jump into any topic that sparks your curiosity.
 </div>
 
 <div style="text-align:center; margin-top: 2.5rem;">
-<a href="content/courses/NoCodeViz/listing.html" class="ncv-btn-primary"
+<a href="content/courses/NoCodeDataViz/listing.html" class="ncv-btn-primary"
 style="background: linear-gradient(90deg, var(--ncv-indigo), var(--ncv-purple));">
   View All Modules &rarr;
 </a>
@@ -296,11 +296,13 @@ and requires no programming whatsoever.
 
 <div class="ncv-tools-grid">
 
-<a href="https://orangedatamining.com/" target="_blank" class="ncv-tool-card">
+
+<a href="https://orangedatamining.com/" target="_blank"  class="ncv-tool-card">
   <div class="ncv-tool-icon">🍊</div>
   <h4>Orange Data Mining</h4>
   <p>Point-and-click data science from simple charts all the way to machine learning.</p>
 </a>
+
 
 <a href="https://app.rawgraphs.io/" target="_blank" class="ncv-tool-card">
   <div class="ncv-tool-icon">📐</div>
@@ -341,7 +343,7 @@ and requires no programming whatsoever.
 Join students at Srishti Manipal Institute in discovering how data can
 surprise, persuade, and inspire — no code required.
  </p>
- <a href="content/courses/NoCodeViz/listing.html" class="ncv-btn-white">
+ <a href="content/courses/NoCodeDataViz/listing.html" class="ncv-btn-white">
 Begin Module 1 &rarr;
  </a>
   </div>
