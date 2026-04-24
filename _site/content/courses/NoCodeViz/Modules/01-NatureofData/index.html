@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.16">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2021-11-01">
+
+<title> Data – No Code Data Visualization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<link href="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" rel="icon" type="image/svg+xml">
+<script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-da9e2aacabab3410d4df827583a2e2d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d1c196533b5b63111a0a81aa4114143.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-da9e2aacabab3410d4df827583a2e2d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap-12c21ef5c3ab2217a75673b68c130c44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark-743c48748220a1844cebc9e8c672a822.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-12c21ef5c3ab2217a75673b68c130c44.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="../../../../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../../styles.css">
+<meta property="og:title" content=" Data – No Code Data Visualization">
+<meta property="og:description" content="The Science of Surprise">
+<meta property="og:image" content="https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/01-NatureofData/preview.png">
+<meta property="og:site_name" content="No Code Data Visualization">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:alt" content="By Rudityas on Glazestock.com">
+<meta name="twitter:title" content=" Data – No Code Data Visualization">
+<meta name="twitter:description" content="The Science of Surprise">
+<meta name="twitter:image" content="https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/01-NatureofData/preview.png">
+<meta name="twitter:image-height" content="1200">
+<meta name="twitter:image-width" content="1200">
+<meta name="twitter:image:alt" content="By Rudityas on Glazestock.com">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" alt="" class="navbar-logo light-content">
+    <img src="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">No Code Data Visualization</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><iconify-icon icon="icon-park-twotone:data-user" width="1.2em" height="1.2em"></iconify-icon> Data</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../../../index.html" class="sidebar-logo-link">
+      <img src="../../../../../content/materials/images/1book25.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../../../../content/materials/images/1book25.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../../content/courses/NoCodeViz/listing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">No Code Data Viz</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/courses/NoCodeDataViz/Modules/05-NatureData/index.qmd</span>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-where-data" id="toc-sec-where-data" class="nav-link active" data-scroll-target="#sec-where-data"><i class="fa-solid fa-envelope" title="An envelope" aria-label="envelope"></i> Where does Data come from?</a></li>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-visualize" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-visualize" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-visualize"><i class="fa-solid fa-chart-simple" aria-label="chart-simple"></i> Why Visualize?</a></li>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-analyze" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-analyze" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-analyze"><i class="fa-solid fa-chart-simple" aria-label="chart-simple"></i> Why Analyze?</a></li>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d64692063617465676f72792d706c7573203e7d7d--what-are-data-types" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d64692063617465676f72792d706c7573203e7d7d--what-are-data-types" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d64692063617465676f72792d706c7573203e7d7d--what-are-data-types"><iconify-icon role="img" inline="" icon="mdi:category-plus" aria-label="Icon category-plus from mdi Iconify.design set." title="Icon category-plus from mdi Iconify.design set."></iconify-icon> What are Data Types?</a></li>
+  <li><a href="#sec-data-types" id="toc-sec-data-types" class="nav-link" data-scroll-target="#sec-data-types"><i class="fa-solid fa-glasses" aria-label="glasses"></i> How do we Spot Data Variable Types?</a></li>
+  <li><a href="#some-examples-of-data-variables" id="toc-some-examples-of-data-variables" class="nav-link" data-scroll-target="#some-examples-of-data-variables">Some Examples of Data Variables</a></li>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c73206175746f2d6772617068203e7d7d--what-is-a-data-visualization" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c73206175746f2d6772617068203e7d7d--what-is-a-data-visualization" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c73206175746f2d6772617068203e7d7d--what-is-a-data-visualization"><iconify-icon role="img" inline="" icon="material-symbols:auto-graph" aria-label="Icon auto-graph from material-symbols Iconify.design set." title="Icon auto-graph from material-symbols Iconify.design set."></iconify-icon> What is a Data Visualization?</a>
+  <ul class="collapse">
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920636172626f6e2063686172742d6e6574776f726b203e7d7d--data-viz-data-geometry" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920636172626f6e2063686172742d6e6574776f726b203e7d7d--data-viz-data-geometry" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920636172626f6e2063686172742d6e6574776f726b203e7d7d--data-viz-data-geometry"><iconify-icon role="img" inline="" icon="carbon:chart-network" aria-label="Icon chart-network from carbon Iconify.design set." title="Icon chart-network from carbon Iconify.design set."></iconify-icon> Data Viz = Data + Geometry</a></li>
+  </ul></li>
+  <li><a href="#sec-data-viz" id="toc-sec-data-viz" class="nav-link" data-scroll-target="#sec-data-viz"><iconify-icon role="img" inline="" icon="flat-color-icons:workflow" aria-label="Icon workflow from flat-color-icons Iconify.design set." title="Icon workflow from flat-color-icons Iconify.design set."></iconify-icon> Basic Types of Charts</a></li>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920666c75656e742d6d646c32206465636973696f6e2d736f6c6964203e7d7d--conclusion" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920666c75656e742d6d646c32206465636973696f6e2d736f6c6964203e7d7d--conclusion" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920666c75656e742d6d646c32206465636973696f6e2d736f6c6964203e7d7d--conclusion"><iconify-icon role="img" inline="" icon="fluent-mdl2:decision-solid" aria-label="Icon decision-solid from fluent-mdl2 Iconify.design set." title="Icon decision-solid from fluent-mdl2 Iconify.design set."></iconify-icon> Conclusion</a></li>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d--references" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d--references" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d--references"><iconify-icon role="img" inline="" icon="ooui:references-ltr" aria-label="Icon references-ltr from ooui Iconify.design set." title="Icon references-ltr from ooui Iconify.design set."></iconify-icon> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><iconify-icon icon="icon-park-twotone:data-user" width="1.2em" height="1.2em"></iconify-icon> Data</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Scientific Inquiry</div>
+    <div class="quarto-category">Experiments</div>
+    <div class="quarto-category">Observations</div>
+    <div class="quarto-category">Nature of Data</div>
+    <div class="quarto-category">Experience</div>
+    <div class="quarto-category">Measurement</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 1, 2021</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 24, 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    The Science of Surprise
+  </div>
+</div>
+
+
+</header>
+
+
+<div id="fig-kandinsky" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kandinsky-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kandinsky" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kandinsky-composition8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-kandinsky-composition8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://uploads4.wikiart.org/00280/images/wassily-kandinsky/37-262-ph-web-1-1.jpg!Portrait.jpg" class="img-fluid figure-img" data-ref-parent="fig-kandinsky">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kandinsky-composition8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Composition VIII
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kandinsky" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kandinsky-blue" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-kandinsky-blue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://uploads7.wikiart.org/images/wassily-kandinsky/blue-1922.jpg!PinterestLarge.jpg" class="img-fluid figure-img" data-ref-parent="fig-kandinsky">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kandinsky-blue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Blue
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kandinsky-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Kandinsky: Abstract Paintings, or Data Visualizations?
+</figcaption>
+</figure>
+</div>
+<section id="sec-where-data" class="level2">
+<h2 class="anchored" data-anchor-id="sec-where-data"><i class="fa-solid fa-envelope" title="An envelope" aria-label="envelope"></i> Where does Data come from?</h2>
+<p>We will need to form a basic understanding of human curiosity and then of basic scientific enterprise. Let us look at the <a href="https://r-for-artists.netlify.app/slides/10-nature-of-data/10-nature-of-data"><strong>slides</strong></a>.</p>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-visualize" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-visualize"><i class="fa-solid fa-chart-simple" aria-label="chart-simple"></i> Why Visualize?</h2>
+<ul>
+<li>We can digest information more easily when it is pictorial</li>
+<li>Our <a href="https://www.understood.org/en/articles/working-memory-what-it-is-and-how-it-works">Working Memories</a> are both <em>short-term</em> and <em>limited</em> in capacity. So a picture abstracts the details and presents us with <span style="background-color: yellow;">an overall summary</span>, an insight, or a story that is both easy to recall and easy on retention.</li>
+<li>Data Viz includes <span style="background-color: yellow;"><em>shapes</em> that carry strong cultural memories</span>; and impressions for us. These cultural memories help us to use data viz in a <em>universal way</em> to appeal to a wide variety of audiences. <span style="background-color: yellow;">(Do humans have a gene for geometry?</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><span style="background-color: yellow;">)</span>;</li>
+<li>It helps sift facts and mere statements: for example:</li>
+</ul>
+<div id="fig-rape-capital" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rape-capital-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/rape-capital.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rape-capital-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Rape Capital
+</figcaption>
+</figure>
+</div>
+<div id="fig-data_reveals-crime" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data_reveals-crime-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/data-reveals-crime.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data_reveals-crime-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Data Reveals Crime
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-analyze" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2066612063686172742d73696d706c65203e7d7d--why-analyze"><i class="fa-solid fa-chart-simple" aria-label="chart-simple"></i> Why Analyze?</h2>
+<p>For us to draw good inferences and make actionable plans based on data, it has to satisfy specific <em>statistical tests</em>. These tests tell us how <strong>significant</strong> the data are and whether the data are telling us a story that can be justified, or it is just a random coincidence. Depending upon our <em>Research Question</em>, different statistical tests will be applicable.</p>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d64692063617465676f72792d706c7573203e7d7d--what-are-data-types" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d64692063617465676f72792d706c7573203e7d7d--what-are-data-types"><iconify-icon role="img" inline="" icon="mdi:category-plus" aria-label="Icon category-plus from mdi Iconify.design set." title="Icon category-plus from mdi Iconify.design set."></iconify-icon> What are Data Types?</h2>
+<div class="quarto-layout-panel" data-layout="[[40,-5, 40]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 47.1%;justify-content: flex-start;">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/dwFsRZv4oHA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 5.9%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 47.1%;justify-content: flex-start;">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hZxnzfnt5v8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+</div>
+</div>
+<div id="fig-variable-types" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-variable-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../../materials/images/fig-variables-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-variable-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Variable Types
+</figcaption>
+</figure>
+</div>
+<div id="fig-tidy-data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tidydata.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Tidy Data
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Tidy Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each <strong>variable</strong> is a column; a column contains <em>one kind</em> of data. Each <strong>observation</strong> or <strong>case</strong> is a row.</p>
+</div>
+</div>
+</section>
+<section id="sec-data-types" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-data-types"><i class="fa-solid fa-glasses" aria-label="glasses"></i> How do we Spot Data Variable Types?</h2>
+<p><span style="background-color: yellow;">By asking questions!</span> Shown below is a table of different kinds of questions you could use to query a dataset. The variable or variables that “answer” the question would be in the category indicated by the question.</p>
+<div class="column-page">
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">No</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pronoun</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Answer</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable/Scale</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Example</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">What Operations?</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">What Human Purposes?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">How Many / Much / Heavy? Few? Seldom? Often? When?</td>
+<td style="text-align: left;">Quantities, with Scale and a Zero Value.Differences and Ratios /Products are meaningful.</td>
+<td style="text-align: left;">Quantitative/Ratio</td>
+<td style="text-align: left;">Length,Height,Temperature in Kelvin,Activity,Dose Amount,Reaction Rate,Flow Rate,Concentration,Pulse,Survival Rate</td>
+<td style="text-align: left;">Correlation</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">How Many / Much / Heavy? Few? Seldom? Often? When?</td>
+<td style="text-align: left;">Quantities with Scale. Differences are meaningful, but not products or ratios</td>
+<td style="text-align: left;">Quantitative/Interval</td>
+<td style="text-align: left;">pH,SAT score(200-800),Credit score(300-850),SAT score(200-800),Year of Starting College</td>
+<td style="text-align: left;">Mean,Standard Deviation</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">How, What Kind, What Sort</td>
+<td style="text-align: left;">A Manner / Method, Type or Attribute from a list, with list items in some " order" ( e.g. good, better, improved, best..)</td>
+<td style="text-align: left;">Qualitative/Ordinal</td>
+<td style="text-align: left;">Socioeconomic status (Low income, Middle income, High income),Education level (HighSchool, BS, MS, PhD),Satisfaction rating(Very much Dislike, Dislike, Neutral, Like, Very Much Like)</td>
+<td style="text-align: left;">Median,Percentile</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">What, Who, Where, Whom, Which</td>
+<td style="text-align: left;">Name, Place, Animal, Thing</td>
+<td style="text-align: left;">Qualitative/Nominal</td>
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">Count no. of cases,Mode</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>As you go from <a href="https://openintro-ims.netlify.app/data-hello.html#variable-types">Qualitative to Quantitative data types</a> in the table, I hope you can detect a movement from fuzzy groups/categories to more and more crystallized numbers.</p>
+<div id="fig-types-of-variables" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-types-of-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../../../content/materials/images/Ratio-Interval-Ordinal-Nominal.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-types-of-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Type of Variables
+</figcaption>
+</figure>
+</div>
+<p>Each variable/scale can be subjected to the operations of the previous group. In the words of <a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/what-is-the-difference-between-categorical-ordinal-and-interval-variables/">S.S. Stevens</a></p>
+<blockquote class="blockquote">
+<p>the basic operations needed to create each type of scale is cumulative: to an operation listed opposite a particular scale must be added all those operations preceding it.</p>
+</blockquote>
+</section>
+<section id="some-examples-of-data-variables" class="level2">
+<h2 class="anchored" data-anchor-id="some-examples-of-data-variables">Some Examples of Data Variables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example 1: <code>AllCountries</code> dataset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Country Code LandArea Population  Energy Rural
+1                      Afghanistan  AFG   652230     29.021      NA  76.0
+2                          Albania  ALB    27400      3.143    2088  53.3
+3                          Algeria  ALG  2381740     34.373   37069  34.8
+4                   American Samoa  ASA      200      0.066      NA   7.7
+5                          Andorra  AND      470      0.084      NA  11.1
+6                           Angola  ANG  1246700     18.021   10972  43.3
+7              Antigua and Barbuda  ANT      440      0.087      NA  69.5
+8                        Argentina  ARG  2736690     39.883   76359   8.0
+9                          Armenia  ARM    28480      3.077    2997  36.1
+10                           Aruba  ARU      180      0.105      NA  53.2
+11                       Australia  AUS  7682300     21.432  130113  11.3
+12                         Austria  AUT    82450      8.337   33246  32.8
+13                      Azerbaijan  AZE    82620      8.680   13367  48.1
+14                    Bahamas, The  BHS    10010      0.338      NA  16.3
+15                         Bahrain  BRN      760      0.776    9226  11.5
+16                      Bangladesh  BAN   130170    160.000   27944  72.9
+17                        Barbados  BAR      430      0.255      NA  60.2
+18                         Belarus  BLR   202900      9.681   28145  26.5
+19                         Belgium  BEL    30280     10.708   58583   2.6
+20                          Belize  BIZ    22810      0.322      NA  48.3
+21                           Benin  BEN   110620      8.662    3005  58.8
+22                         Bermuda  BER       50      0.064      NA   0.0
+23                          Bhutan  BHU    38390      0.687      NA  65.5
+24                         Bolivia  BOL  1083300      9.694    5694  34.4
+25          Bosnia and Herzegovina  BIH    51200      3.773    5990  52.6
+26                        Botswana  BOT   566730      1.921    2117  40.4
+27                          Brazil  BRA  8459420    191.972  248528  14.4
+28               Brunei Darussalam  BRU     5270      0.392    3629  25.2
+29                        Bulgaria  BUL   108610      7.623   19779  28.9
+30                    Burkina Faso  BUR   273600     15.234      NA  80.4
+31                         Burundi  BDI    25680      8.074      NA  89.6
+32                        Cambodia  CAM   176520     14.562    5220  78.4
+33                        Cameroon  CMR   472710     19.088    7102  43.2
+34                          Canada  CAN  9093510     33.311  266771  19.6
+35                      Cape Verde  CPV     4030      0.499      NA  40.4
+36                  Cayman Islands  CAY      240      0.054      NA   0.0
+37        Central African Republic  CAF   622980      4.339      NA  61.4
+38                            Chad  CHA  1259200     10.914      NA  73.3
+39                 Channel Islands           190      0.150      NA  68.9
+40                           Chile  CHI   743530     16.804   31446  11.6
+41                           China  CHN  9327480   1324.655 2116427  56.9
+42                        Colombia  COL  1109500     45.012   30770  25.5
+43                         Comoros  COM     1860      0.644      NA  71.9
+44                Congo, Dem. Rep.  COD  2267050     64.257   22250  66.0
+45                     Congo, Rep.  CGO   341500      3.615    1368  38.7
+46                      Costa Rica  CRC    51060      4.519    4897  36.7
+47                   Cote d'Ivoire  CIV   318000     20.591   10278  51.2
+48                         Croatia  CRO    55960      4.434    9075  42.7
+49                            Cuba  CUB   106440     11.205   12056  24.3
+50                          Cyprus  CYP     9240      0.862    2586  30.1
+51                  Czech Republic  CZE    77250     10.424   44632  26.5
+52                         Denmark  DEN    42430      5.494   19010  13.3
+53                        Djibouti  DJI    23180      0.849      NA  12.7
+54                        Dominica  DMA      750      0.073      NA  26.1
+55              Dominican Republic  DOM    48320      9.953    8162  31.0
+56                         Ecuador  ECU   248360     13.481   10346  34.4
+57                Egypt, Arab Rep.  EGY   995450     81.527   70710  57.3
+58                     El Salvador  ESA    20720      6.134    4882  39.3
+59               Equatorial Guinea  GEQ    28050      0.659      NA  60.6
+60                         Eritrea  ERI   101000      4.927     681  79.3
+61                         Estonia  EST    42390      1.341    5398  30.5
+62                        Ethiopia  ETH  1000000     80.713   31704  83.0
+63                  Faeroe Islands  FRO     1390      0.049      NA  58.6
+64                            Fiji  FIJ    18270      0.844      NA  47.6
+65                         Finland  FIN   303900      5.313   35255  36.7
+66                          France  FRA   547660     62.277  266495  22.6
+67                French Polynesia  ATF     3660      0.266      NA  48.4
+68                           Gabon  GAB   257670      1.448    2073  15.0
+69                     Gambia, The  GAM    10000      1.660      NA  43.6
+70                         Georgia  GEO    69490      4.307    2988  47.3
+71                         Germany  GER   348630     82.110  335284  26.4
+72                           Ghana  GHA   227540     23.351    9459  50.0
+73                       Gibraltar  GIB       10      0.031     159   0.0
+74                          Greece  GRE   128900     11.237   30419  39.0
+75                       Greenland  GRL   410450      0.056      NA  16.5
+76                         Grenada  GRN      340      0.104      NA  69.2
+77                            Guam  GUM      540      0.176      NA   6.8
+78                       Guatemala  GUA   107160     13.686    8072  51.4
+79                          Guinea  GUI   245720      9.833      NA  65.6
+80                   Guinea-Bissau  GBS    28120      1.575      NA  70.2
+81                          Guyana  GUY   196850      0.763      NA  71.6
+82                           Haiti  HAI    27560      9.876    2773  53.2
+83                        Honduras  HON   111890      7.319    4624  52.1
+84            Hong Kong SAR, China  HKG     1042      6.978   14138   0.0
+85                         Hungary  HUN    89610     10.038   26458  32.5
+86                         Iceland  ISL   100250      0.317    5255   7.7
+87                           India  IND  2973190   1139.965  620973  70.5
+88                       Indonesia  INA  1811570    227.345  198679  48.5
+89              Iran, Islamic Rep.  IRI  1628550     71.956  202053  31.5
+90                            Iraq  IRQ   437370     30.711   33992  33.4
+91                         Ireland  IRL    68890      4.426   14981  38.7
+92                     Isle of Man  IMN      570      0.081      NA  49.2
+93                          Israel  ISR    21640      7.309   22009   8.3
+94                           Italy  ITA   294140     59.832  176032  31.9
+95                         Jamaica  JAM    10830      2.687    4387  46.7
+96                           Japan  JPN   364500    127.704  495838  33.5
+97                          Jordan  JOR    88240      5.812    7061  21.6
+98                      Kazakhstan  KAZ  2699700     15.674   70921  42.1
+99                           Kenya  KEN   569140     38.765   18021  78.4
+100                       Kiribati  KIR      810      0.097      NA  56.2
+101               Korea, Dem. Rep.  PRK   120410     23.819   20260  37.3
+102                    Korea, Rep.  KOR    96920     48.607  226946  18.5
+103                         Kosovo         10887      1.795      NA   0.0
+104                         Kuwait  KUW    17820      2.728   26291   1.6
+105                Kyrgyz Republic  KGZ   191800      5.278    2860  63.7
+106                        Lao PDR  LAO   230800      6.205      NA  69.1
+107                         Latvia  LAT    62190      2.266    4484  31.9
+108                        Lebanon  LBN    10230      4.194    5242  13.0
+109                        Lesotho  LES    30360      2.049      NA  74.5
+110                        Liberia  LBR    96320      3.793      NA  39.9
+111                          Libya  LBA  1759540      6.294   18221  22.5
+112                  Liechtenstein  LIE      160      0.036      NA  85.7
+113                      Lithuania  LTU    62670      3.358    9177  33.0
+114                     Luxembourg  LUX     2590      0.489    4119  17.6
+115               Macao SAR, China  MAC       28      0.526      NA   0.0
+116                 Macedonia, FYR  MKD    25230      2.041    3103  33.1
+117                     Madagascar  MAD   581540     19.111      NA  70.5
+118                         Malawi  MAW    94080     14.846      NA  81.2
+119                       Malaysia  MAS   328550     27.014   72748  29.6
+120                       Maldives  MDV      300      0.305      NA  62.1
+121                           Mali  MLI  1220190     12.706      NA  67.8
+122                          Malta  MLT      320      0.412     819   5.7
+123               Marshall Islands  MHL      180      0.060      NA  28.9
+124                     Mauritania  MTN  1030700      3.215      NA  59.0
+125                      Mauritius  MRI     2030      1.269      NA  57.5
+126                        Mayotte  MYT      370      0.191      NA   0.0
+127                         Mexico  MEX  1943950    106.350  180605  22.8
+128          Micronesia, Fed. Sts.  FSM      700      0.110      NA  77.5
+129                        Moldova  MDA    32890      3.633    3150  58.2
+130                         Monaco  MON        2      0.033      NA   0.0
+131                       Mongolia  MGL  1553560      2.641    3152  42.8
+132                     Montenegro  MNE    13450      0.622      NA  39.8
+133                        Morocco  MAR   446300     31.606   14977  44.0
+134                     Mozambique  MOZ   786380     22.383    9314  63.2
+135                        Myanmar  MYA   653520     49.563   15669  67.4
+136                        Namibia  NAM   823290      2.130    1752  63.2
+137                          Nepal  NEP   143350     28.810    9799  82.8
+138                    Netherlands  NED    33760     16.446   79681  18.2
+139           Netherlands Antilles           800      0.195    2163   7.3
+140                  New Caledonia  NCL    18280      0.247      NA  35.2
+141                    New Zealand  NZL   263310      4.269   16935  13.4
+142                      Nicaragua  NCA   120340      5.667    3520  43.3
+143                          Niger  NIG  1266700     14.704      NA  83.5
+144                        Nigeria  NGR   910770    151.212  111156  51.6
+145       Northern Mariana Islands  MNP      460      0.085      NA   8.9
+146                         Norway  NOR   305470      4.768   29670  22.5
+147                           Oman  OMA   309500      2.785   16443  28.4
+148                       Pakistan  PAK   770880    166.111   82839  63.8
+149                          Palau  PLW      460      0.020      NA  19.5
+150                         Panama  PAN    74340      3.399    2899  26.8
+151               Papua New Guinea  PNG   452860      6.577      NA  87.5
+152                       Paraguay  PAR   397300      6.238    4360  39.7
+153                           Peru  PER  1280000     28.837   14710  28.6
+154                    Philippines  PHI   298170     90.348   41067  35.1
+155                         Poland  POL   304220     38.126   97881  38.7
+156                       Portugal  POR    91470     10.622   24159  40.5
+157                    Puerto Rico  PUR     8870      3.955      NA   1.7
+158                          Qatar  QAT    11590      1.281   24118   4.4
+159                        Romania  ROU   229900     21.514   39380  45.8
+160             Russian Federation  RUS 16376870    141.950  686757  27.2
+161                         Rwanda  RWA    24670      9.721      NA  81.7
+162                          Samoa  SAM     2830      0.179      NA  77.0
+163                     San Marino  SMR       60      0.031      NA   5.8
+164          Sao Tome and Principe  STP      960      0.160      NA  39.4
+165                   Saudi Arabia  KSA  2000000     24.807  161600  17.6
+166                        Senegal  SEN   192530     12.211    2859  57.6
+167                         Serbia  SRB    88360      7.350   16032  48.0
+168                     Seychelles  SEY      460      0.087      NA  45.7
+169                   Sierra Leone  SLE    71620      5.560      NA  62.2
+170                      Singapore  SIN      700      4.839   18523   0.0
+171                Slovak Republic  SVK    48100      5.407   18304  43.4
+172                       Slovenia  SVN    20140      2.021    7735  51.4
+173                Solomon Islands  SOL    27990      0.511      NA  82.0
+174                        Somalia  SOM   627340      8.926      NA  63.5
+175                   South Africa  RSA  1214470     48.793  134489  39.3
+176                          Spain  ESP   499110     45.556  138793  22.9
+177                      Sri Lanka  SRI    62710     20.156    8935  84.9
+178            St. Kitts and Nevis  SKN      260      0.049      NA  67.7
+179                      St. Lucia  LCA      610      0.170      NA  72.2
+180 St. Vincent and the Grenadines  VIN      390      0.109      NA  53.0
+181                          Sudan  SUD  2376000     41.348   15372  56.6
+182                       Suriname  SUR   156000      0.515      NA  25.1
+183                      Swaziland  SWZ    17200      1.168      NA  75.1
+184                         Sweden  SWE   410340      9.220   49592  15.5
+185                    Switzerland  SUI    40000      7.648   26701  26.5
+186           Syrian Arab Republic  SYR   183640     20.581   19701  45.8
+187                     Tajikistan  TJK   139960      6.836    2493  73.5
+188                       Tanzania  TAN   885800     42.484   18957  74.5
+189                       Thailand  THA   510890     67.386  107199  66.7
+190                    Timor-Leste  TLS    14870      1.098      NA  72.7
+191                           Togo  TOG    54390      6.459    2563  58.0
+192                          Tonga  TGA      720      0.104      NA  75.2
+193            Trinidad and Tobago  TRI     5130      1.333   19410  86.8
+194                        Tunisia  TUN   155360     10.328    9178  33.5
+195                         Turkey  TUR   769630     73.914   98502  31.3
+196                   Turkmenistan  TKM   469930      5.044   18814  51.4
+197       Turks and Caicos Islands  TCA      950      0.033      NA   8.1
+198                         Tuvalu  TUV       30         NA      NA  50.5
+199                         Uganda  UGA   197100     31.657      NA  87.0
+200                        Ukraine  UKR   579320     46.258  136143  32.0
+201           United Arab Emirates  UAE    83600      4.485   58439  22.1
+202                 United Kingdom  GBR   241930     61.407  208450  10.1
+203                  United States  USA  9147420    304.375 2283722  18.3
+204                        Uruguay  URU   175020      3.334    4181   7.7
+205                     Uzbekistan  UZB   425400     27.314   50501  63.2
+206                        Vanuatu  VAN    12190      0.234      NA  75.2
+207                  Venezuela, RB  VEN   882050     27.935   64097   6.7
+208                        Vietnam  VIE   310070     86.211   59415  72.2
+209          Virgin Islands (U.S.)  VIR      350      0.110      NA   5.1
+210             West Bank and Gaza  PLE     6020      3.937      NA  28.1
+211                    Yemen, Rep.  YEM   527970     22.917    7478  69.4
+212                         Zambia  ZAM   743390     12.620    7355  64.6
+213                       Zimbabwe  ZIM   386850     12.463    9506  62.7
+    Military Health  HIV Internet Developed BirthRate ElderlyPop LifeExpectancy
+1        4.4    3.7   NA      1.7        NA      46.5        2.2           43.9
+2         NA    8.2   NA     23.9         1      14.6        9.3           76.6
+3       13.0   10.6  0.1     10.2         1      20.8        4.6           72.4
+4         NA     NA   NA       NA        NA        NA         NA             NA
+5         NA   21.3   NA     70.5        NA      10.4         NA             NA
+6         NA    6.8  2.0      3.1         1      42.9        2.5           47.0
+7         NA   11.0   NA     75.0        NA        NA         NA             NA
+8         NA   13.7  0.5     28.1         2      17.3       10.5           75.3
+9       16.1    7.2  0.1      6.2         1      15.3       11.6           73.5
+10        NA     NA   NA     22.8        NA      11.7        9.2           74.7
+11       7.7   17.1  0.1     70.8         3      13.8       13.4           81.4
+12       2.4   15.8  0.3     72.9         3       9.3       17.0           80.2
+13      22.9    2.5  0.1     28.2         1      17.8        6.8           70.2
+14        NA   13.1  3.1     31.5        NA      16.7        6.6           73.5
+15      15.6   10.3   NA     51.9         3      18.0        2.3           75.9
+16      10.8    7.4  0.1      0.3         1      21.4        3.8           66.1
+17        NA   10.8  1.3       NA        NA      11.2       10.2           77.0
+18       4.3    8.2  0.2     32.1         2      11.1       13.8           70.5
+19       2.7   14.8  0.2     70.5         3      11.7       17.2           80.4
+20        NA   10.8  2.4     10.6        NA      24.7        4.1           76.3
+21       6.8    8.8  1.2      1.8         1      39.4        3.2           61.4
+22        NA     NA   NA     79.4        NA      12.5         NA           79.0
+23        NA   13.0  0.2      6.6        NA      21.5        4.7           66.1
+24        NA    8.2  0.2     10.8         1      27.1        4.7           65.7
+25       3.4   14.0   NA     34.7         1       9.1       13.8           75.1
+26        NA   16.6 24.9      6.2         1      24.5        3.7           54.2
+27       5.9    6.0   NA     37.5         1      16.2        6.6           72.4
+28        NA    7.0   NA     68.0         3      19.8        3.3           77.4
+29       7.9   11.2  0.1     39.5         2      10.2       17.3           73.0
+30      12.1   16.3  1.2      0.9        NA      47.2        2.0           53.0
+31        NA   11.8  3.5      0.8        NA      34.5        2.8           50.4
+32      13.9    9.0  0.6      0.5         1      24.7        3.4           61.0
+33       0.0    6.1  5.3      3.8         1      36.9        3.6           51.1
+34       7.4   17.2  0.2     75.3         3      11.3       13.6           81.0
+35       2.1   10.1   NA     20.6        NA      24.1        4.3           71.0
+36        NA     NA   NA     42.4        NA        NA         NA             NA
+37        NA   11.0  5.1      0.4        NA      35.4        3.9           47.0
+38        NA   13.8  3.4      1.2        NA      45.7        2.9           48.7
+39        NA     NA   NA       NA        NA       9.3       15.0           79.1
+40      17.9   15.6  0.4     32.5         2      14.9        8.8           78.6
+41      16.1   10.3   NA     22.5         1      12.1        7.9           73.1
+42      18.4   18.3  0.5     38.5         1      20.4        5.4           73.0
+43        NA    8.0  0.1      3.6        NA      32.4        3.1           65.3
+44        NA   17.5   NA      0.5         1      44.9        2.6           47.6
+45        NA    5.3  3.5      4.3         1      34.5        3.8           53.6
+46        NA   26.1  0.3     32.3         1      16.7        6.2           78.9
+47       8.8    4.6  3.7      3.2         1      35.0        3.8           57.4
+48       5.4   17.6  0.1     44.1         2       9.9       17.2           75.9
+49        NA   15.5  0.1     12.9         1      10.5       11.6           78.7
+50       2.5    5.8   NA     42.3         3      11.5       12.8           79.7
+51       3.8   13.3  0.1     62.3         3      11.5       14.7           77.0
+52       3.8   15.3  0.2     84.5         3      11.8       15.9           78.4
+53        NA   15.3  2.6      2.3        NA      28.4        3.2           55.4
+54        NA   11.8   NA     37.6        NA        NA         NA             NA
+55       3.8   10.4  0.9     20.8         1      22.5        5.9           72.6
+56        NA    6.9  0.4      9.7         1      20.8        6.4           75.1
+57       7.6    5.9  0.1     16.6         1      24.7        4.5           70.1
+58       2.9   11.9  0.8     10.6         1      20.2        7.0           71.3
+59        NA    7.0  4.7      1.8        NA      38.0        3.0           50.2
+60        NA    3.0  0.8      4.1        NA      37.0        2.4           59.5
+61       6.9   11.9  1.2     70.6         3      12.0       17.0           73.8
+62        NA   11.5   NA      0.4         1      38.2        3.1           55.2
+63        NA     NA   NA     77.3        NA        NA         NA             NA
+64        NA   10.2  0.1     12.2        NA      20.9        4.6           68.9
+65       3.8   12.6  0.1     83.5         3      11.2       16.5           79.6
+66       5.2   16.0  0.4     70.4         3      12.9       16.6           80.9
+67        NA     NA   NA     33.9        NA      18.0        5.7           74.5
+68        NA    6.6  5.3      6.2         1      27.3        4.3           60.4
+69        NA   11.6  1.7      6.9        NA      36.8        2.8           55.9
+70      29.3    7.3  0.1     23.8         1      12.1       14.5           71.5
+71       4.5   18.0  0.1     78.1         3       8.3       20.0           79.7
+72       1.9    8.5  1.8      4.3         1      32.4        3.6           56.6
+73        NA     NA   NA     58.0         3        NA         NA             NA
+74       7.7   13.0  0.1     40.8         3      10.5       18.2           79.9
+75        NA     NA   NA     63.9        NA      14.8         NA           68.4
+76        NA   11.3   NA     23.2        NA      19.4        7.2           75.3
+77        NA     NA   NA     48.4        NA      18.3        6.8           75.6
+78       3.6   15.9  0.8     14.3         1      33.0        4.4           70.3
+79        NA    4.3  1.4      0.9        NA      39.6        3.2           57.8
+80        NA    4.0  2.5      2.4        NA      41.2        3.4           47.8
+81        NA   14.5  1.2     26.9        NA      17.9        5.9           67.1
+82        NA    9.5  2.0     10.1         1      27.6        4.3           61.2
+83       3.8   15.5  0.8      9.6         1      27.5        4.2           72.2
+84        NA     NA   NA     59.1         3      11.3       12.5           82.3
+85       2.7   10.2  0.1     60.9         2       9.9       16.1           73.7
+86       0.1   13.1  0.3     90.5         3      15.2       11.7           81.3
+87      14.7    4.4  0.3      4.5         1      22.8        4.8           63.7
+88       5.3    6.2  0.2      7.9         1      18.6        5.9           70.8
+89      12.2    8.7  0.2     32.0         1      18.9        4.9           71.4
+90       0.0    3.1   NA      1.0         1      31.2        3.3           67.9
+91       1.6   16.0  0.2     65.5         3      17.0       11.1           79.1
+92        NA     NA   NA       NA        NA        NA         NA             NA
+93      17.1   10.0  0.2     47.9         3      21.5       10.0           81.0
+94       4.2   13.6  0.3     44.4         3       9.6       20.1           81.2
+95       1.6    5.7  1.7     57.3         2      16.7        7.7           71.8
+96        NA   17.9  0.1     75.2         3       8.7       21.4           82.6
+97      18.1   16.3   NA     27.4         1      25.7        3.6           72.7
+98       7.9    8.3  0.1     10.9         2      22.8        7.4           67.0
+99       8.9    5.8  6.3      8.7         1      38.8        2.7           54.2
+100       NA   16.8   NA      2.1        NA        NA         NA             NA
+101       NA     NA   NA       NA         1      13.7        9.4           67.2
+102     13.6   12.3  0.1     80.2         3       9.4       10.4           79.8
+103       NA     NA   NA       NA        NA      19.0         NA           69.4
+104     14.4    6.1   NA     36.7         3      17.7        2.1           78.0
+105     21.4   11.5  0.2     16.1         1      24.4        5.4           67.4
+106      3.6    3.7  0.2      3.5        NA      27.3        3.6           65.0
+107      6.4   10.2  0.6     63.2         2      10.6       17.2           72.4
+108     13.1   12.3  0.1     22.5         1      15.7        7.3           72.0
+109      3.1    8.2 23.6      3.6        NA      28.9        4.7           45.0
+110       NA   17.2  1.6      0.5        NA      38.3        3.1           58.3
+111       NA    5.5   NA      5.1         2      23.3        4.1           74.3
+112       NA     NA   NA     66.0        NA       9.9         NA           82.6
+113      4.9   12.8  0.1     54.6         2      10.4       16.0           71.8
+114       NA   13.7  0.3     80.9         3      11.5       14.0           80.1
+115       NA     NA   NA     49.2        NA       8.2        7.1           80.7
+116      5.8   13.6   NA     46.0         2      10.9       11.6           74.2
+117      9.3   14.6  0.2      1.7        NA      35.9        3.1           60.3
+118       NA   12.1 11.2      2.1        NA      40.2        3.1           53.1
+119      9.8    6.9  0.5     55.8         2      20.4        4.6           74.4
+120       NA   13.8  0.1     23.5        NA      18.7        4.3           71.6
+121     14.7   11.1  1.0      1.6        NA      42.6        2.3           48.4
+122      1.5   12.3  0.1     49.5         2      10.0       14.0           79.4
+123       NA   14.6   NA      3.7        NA        NA         NA             NA
+124       NA    4.9  0.7      1.9        NA      33.6        2.6           56.7
+125       NA    8.3  0.9     22.2        NA      12.9        7.0           72.6
+126       NA     NA   NA       NA        NA      25.1        3.1           76.1
+127       NA   15.0  0.3     21.9         1      18.3        6.2           75.1
+128       NA   18.9   NA     14.5        NA      25.3        3.7           68.6
+129      1.9   13.0  0.4     23.4         1      12.3       11.1           68.4
+130       NA   15.8   NA       NA        NA        NA         NA             NA
+131       NA    7.5  0.1     12.5         1      18.8        3.9           66.6
+132       NA   13.6   NA     41.0        NA      12.1       12.8           74.1
+133     10.9    6.6  0.1     32.6         1      20.4        5.3           71.3
+134       NA   12.6 11.4      1.6         1      39.2        3.2           47.9
+135       NA    0.7  0.6      0.2         1      20.5        5.5           61.6
+136       NA   12.1 13.7      5.3         1      27.6        3.6           61.0
+137       NA   11.3  0.4      1.7         1      25.4        4.0           66.7
+138      3.5   16.2  0.2     87.9         3      11.2       14.7           80.3
+139       NA     NA   NA       NA         3      13.3       10.1           76.0
+140       NA     NA   NA     34.5        NA      16.2        7.2           76.1
+141       NA   18.3  0.1     71.4         3      15.2       12.5           80.4
+142      3.2   18.7  0.2      3.3         1      24.6        4.4           73.1
+143       NA   14.8  0.8      0.5        NA      53.5        2.0           51.4
+144     10.8    6.4  3.6     15.9         1      39.8        3.1           47.9
+145       NA     NA   NA       NA        NA        NA         NA             NA
+146      4.2   16.7  0.1     90.5         3      12.7       14.6           80.6
+147       NA    4.9  0.1     20.0         2      22.0        2.9           75.9
+148     18.0    3.1  0.1     11.1         1      30.1        4.0           66.5
+149       NA   16.6   NA       NA        NA        NA         NA             NA
+150       NA   13.5  0.9     27.6         1      20.6        6.4           75.7
+151       NA    7.4  0.9      1.8        NA      31.4        2.4           61.1
+152      5.8   12.3  0.3     14.3         1      24.6        5.0           71.9
+153      6.5   15.6  0.4     24.7         1      21.1        5.7           73.3
+154      4.9    6.1  0.1      6.2         1      24.7        4.1           71.8
+155      5.7   10.9  0.1     53.1         2      10.9       13.3           75.5
+156      4.8   15.4  0.5     44.4         2       9.8       17.5           78.5
+157       NA     NA   NA     25.3        NA      11.8       13.3           78.6
+158       NA    6.8  0.1     25.5         3      12.1        1.1           75.9
+159      4.4   11.8  0.1     32.2         1      10.3       14.9           72.6
+160     16.3    9.2  1.0     32.0         3      12.1       13.3           67.8
+161       NA   18.2  2.9      3.1        NA      41.1        2.5           50.1
+162       NA   14.9   NA      5.0        NA      23.5        4.8           71.8
+163       NA   13.6   NA     54.8        NA      11.0         NA           82.8
+164       NA   13.2   NA     15.5        NA      32.1        4.1           65.5
+165       NA    8.4   NA     31.3         3      23.4        2.9           73.1
+166       NA   11.9  0.8      7.1         1      38.4        2.4           55.6
+167      6.1   14.1  0.1     49.8         2       9.4       14.5           73.6
+168      3.1   10.1   NA     39.0        NA      17.8         NA           73.2
+169     11.2    4.2  1.6      0.3        NA      40.3        1.9           47.6
+170     26.7    7.8  0.1     69.6         3      10.2        9.4           80.7
+171      4.6   15.4  0.1     71.2         3      10.6       12.0           74.7
+172      4.1   12.9  0.1     57.5         3      10.8       16.0           78.8
+173       NA   14.4   NA      2.0        NA      30.4        3.1           66.3
+174       NA     NA  0.6      1.1        NA      44.1        2.7           49.8
+175      4.3   10.4 17.9      8.6         2      22.0        4.4           51.5
+176      4.6   15.2  0.4     58.2         3      11.4       16.9           81.9
+177     18.5    7.9  0.1      5.8         1      18.8        7.3           74.1
+178       NA    8.0   NA     32.5        NA        NA         NA             NA
+179       NA   10.8   NA     58.8        NA        NA        6.8             NA
+180       NA    9.5   NA     60.5        NA      17.6        6.9           71.7
+181       NA    9.8  1.0     10.2         1      31.3        3.6           58.1
+182       NA   13.6  1.0     21.1        NA      19.0        6.3           69.0
+183       NA    8.5 25.9      6.9        NA      29.9        3.3           45.8
+184       NA   13.8  0.1     89.0         3      11.9       17.7           81.1
+185      4.7   19.9  0.4     68.9         3      10.0       16.7           82.0
+186       NA    4.6   NA     17.3         1      28.0        3.2           74.2
+187       NA    5.0  0.2      8.8         1      28.1        3.7           66.7
+188       NA   18.0  5.8      1.2         1      41.5        3.1           55.6
+189      8.3   14.2  1.3     23.9         1      14.5        7.4           68.9
+190       NA   11.9   NA       NA        NA      40.0        2.9           61.1
+191     13.0    8.0  3.2      5.4         1      32.9        3.5           62.5
+192       NA   14.2   NA      8.1        NA      27.7        5.8           71.9
+193       NA    8.8  1.5     34.2         3      14.8        6.6           69.3
+194      4.4   10.4  0.1     27.1         1      17.7        6.7           74.3
+195      9.7   12.8  0.1     34.4         1      18.2        5.8           71.9
+196       NA    7.0   NA      1.5         1      21.9        4.3           64.8
+197       NA     NA   NA       NA        NA        NA         NA             NA
+198       NA    8.0   NA       NA        NA        NA         NA             NA
+199     17.0   10.5  6.4      7.9        NA      46.2        2.6           52.7
+200      7.2    8.6  1.1     22.5         2      11.0       15.9           68.3
+201       NA    8.9   NA     72.0         3      14.0        1.0           77.7
+202      5.8   15.1  0.2     78.2         3      12.9       16.3           79.6
+203     18.6   18.7  0.6     75.8         3      14.3       12.6           78.4
+204      5.2   13.8  0.5     40.2         1      14.6       13.7           76.0
+205       NA    8.6  0.1      9.0         1      21.7        4.6           67.8
+206       NA   13.5   NA      7.3        NA      30.2        3.3           70.3
+207       NA    8.4   NA     25.9         2      21.2        5.3           73.5
+208       NA    9.3  0.4     24.2         1      17.2        6.3           74.4
+209       NA     NA   NA     27.3        NA      12.3       12.8           78.9
+210       NA     NA   NA      9.0        NA      35.5        2.9           73.5
+211       NA    4.3   NA      1.6         1      36.8        2.4           62.9
+212       NA   15.3 13.6      5.5         1      42.9        3.0           45.4
+213       NA     NA 15.1     11.4         1      29.9        4.0           44.2
+            CO2         GDP       Cell Electricity   kwhPerCap
+1    0.02503483    501.4709  37.807108          NA        &lt;NA&gt;
+2    1.31285501   3678.2317 141.928961  1747.09801  Under 2500
+3    3.23296040   4494.8867  92.421261   970.98246  Under 2500
+4            NA          NA         NA          NA        &lt;NA&gt;
+5    6.52783463          NA  77.176423          NA        &lt;NA&gt;
+6    1.35108829   4422.5428  46.689242   202.15450  Under 2500
+7    5.14927314  13654.8825 184.715365          NA        &lt;NA&gt;
+8    4.84405274   9124.3351 141.788248  2758.76650 2500 - 5000
+9    1.80188835   3030.7144 125.008570  1550.41574  Under 2500
+10  21.68383147          NA 122.618339          NA        &lt;NA&gt;
+11  18.56961909          NA 100.766723 11113.30785   Over 5000
+12   8.12359651  45209.3961 145.991321  7944.38916   Over 5000
+13   5.37910914   5722.2160 100.575468  1620.51603  Under 2500
+14   6.46223562  21984.5601 124.936056          NA        &lt;NA&gt;
+15  21.36030575          NA 124.184224  9214.43461   Over 5000
+16   0.31982018    674.9316  46.169222   251.62867  Under 2500
+17   4.97142700  15034.8844 128.072191          NA        &lt;NA&gt;
+18   6.54194022   5765.0417 108.876245  3298.62207 2500 - 5000
+19   9.79272936  43144.3434 111.718571  7903.02925   Over 5000
+20   1.32062093   4064.4038  56.339135          NA        &lt;NA&gt;
+21   0.48668175    749.5070  79.943507    91.26028  Under 2500
+22   6.05454829          NA 136.532508          NA        &lt;NA&gt;
+23   1.04567820   2088.4346  54.317988          NA        &lt;NA&gt;
+24   1.33436039   1978.8543  72.300123   558.34992  Under 2500
+25   8.28682670   4408.8380  80.148420  2867.01402  Under 2500
+26   2.47615384   7402.9310 117.761623  1503.34885  Under 2500
+27   2.05290330  10710.0660 104.102441  2206.19653  Under 2500
+28  27.53860331          NA 109.070490  8661.76497   Over 5000
+29   6.62940776   6325.3923 140.316306  4400.84687 2500 - 5000
+30   0.11959208    535.5799  34.658747          NA        &lt;NA&gt;
+31   0.02262046    192.1238  13.724451          NA        &lt;NA&gt;
+32   0.33293811    795.1665  57.650424   130.77784  Under 2500
+33   0.28266671   1142.5918  41.612828   271.23820  Under 2500
+34  16.33348118  46235.6430  70.472740 15466.70263   Over 5000
+35   0.63201955   3322.7673  74.974143          NA        &lt;NA&gt;
+36  10.08018808          NA 177.647163          NA        &lt;NA&gt;
+37   0.06143450    457.3941  23.176282          NA        &lt;NA&gt;
+38   0.04646669    675.8290  23.285665          NA        &lt;NA&gt;
+39           NA          NA         NA          NA        &lt;NA&gt;
+40   4.35286679  12431.0314 116.002127  3283.01860 2500 - 5000
+41   5.30848878   4428.4646  64.186155  2631.40276  Under 2500
+42   1.50425459   6225.0778  93.758460  1047.04854  Under 2500
+43   0.17886932    736.4376  22.494454          NA        &lt;NA&gt;
+44   0.04507820    199.2718  17.213021   103.85597  Under 2500
+45   0.50469367   2942.8439  93.957801   146.39268  Under 2500
+46   1.77263206   7690.9923  65.144465  1812.54207  Under 2500
+47   0.36946165   1154.1449  75.540334   203.46226  Under 2500
+48   5.25570253  13754.4394 143.803658  3711.83348 2500 - 5000
+49   2.78859687          NA   8.909370  1347.55405  Under 2500
+50   7.94345688  28779.1855  93.695810  4620.01352   Over 5000
+51  11.22331772  18245.1739 136.162693  6114.03754   Over 5000
+52   8.37781074  55890.6823 124.544929  6246.49766   Over 5000
+53   0.61285523          NA  18.635087          NA        &lt;NA&gt;
+54   1.88302352   6883.2692 144.854406          NA        &lt;NA&gt;
+55   2.23663542   5214.5370  89.578889  1358.19139  Under 2500
+56   1.90827354   4008.2380 102.184561  1115.44553  Under 2500
+57   2.68529021   2698.3651  87.105605  1548.59358  Under 2500
+58   0.99726916   3425.5973 124.339491   845.07184  Under 2500
+59   7.26947716  19997.8376  57.008771          NA        &lt;NA&gt;
+60   0.08375326    402.9575   3.526578    51.00041        &lt;NA&gt;
+61  13.64312455  14344.5107 123.376549  5950.28916   Over 5000
+62   0.08945206    358.2541   7.856936    45.75813  Under 2500
+63  14.56326522          NA 122.045660          NA        &lt;NA&gt;
+64   1.48653175   3705.7992 116.194896          NA        &lt;NA&gt;
+65  10.63577891  44512.0119 156.424089 15241.61194   Over 5000
+66   5.87313281  39459.5474  96.490849  7488.43452   Over 5000
+67   3.36840414          NA  79.734751          NA        &lt;NA&gt;
+68   1.70415842   8642.8037 106.943844   922.49549  Under 2500
+69   0.25102515    466.6320  85.532986          NA        &lt;NA&gt;
+70   1.18700481   2620.2338  71.707959  1585.19996  Under 2500
+71   9.58054535  40152.2189 127.976768  6778.66131   Over 5000
+72   0.36931379   1283.4585  71.486863   265.10634  Under 2500
+73  14.39905077          NA 102.585146  5947.29467   Over 5000
+74   8.70452432  26599.6969 108.602031  5540.22243   Over 5000
+75  10.22083156          NA 101.441610          NA        &lt;NA&gt;
+76   2.36870318   7400.6420 116.709256          NA        &lt;NA&gt;
+77           NA          NA         NA          NA        &lt;NA&gt;
+78   0.87022256   2862.3670 125.568553   548.11220  Under 2500
+79   0.14577298    451.8909  40.073776          NA        &lt;NA&gt;
+80   0.19422710    579.7939  39.208724          NA        &lt;NA&gt;
+81   2.02969219   2949.8155  73.611949          NA        &lt;NA&gt;
+82   0.25008268    671.4269  40.027030    35.68445  Under 2500
+83   1.18756147   2026.2181 125.058101   678.26204  Under 2500
+84   5.52806412  31757.8114 189.818770  5924.58272   Over 5000
+85   5.44304410  12851.9783 120.013782  3773.15381 2500 - 5000
+86   7.02406321  39616.8403 109.662002 51259.18763   Over 5000
+87   1.52872926   1474.9808  64.238243   596.82208  Under 2500
+88   1.72814037   2945.5767  91.715988   590.15352  Under 2500
+89   7.44790273          NA  91.248733  2237.50863  Under 2500
+90   3.41094044   2564.7269  74.927827  1068.58104  Under 2500
+91   9.85255767  47170.2043 104.910129  6033.94258   Over 5000
+92           NA          NA         NA          NA        &lt;NA&gt;
+93   5.15320668  28504.1457 129.514991  6607.61996   Over 5000
+94   7.43945486  33916.8772 135.574118  5270.53963   Over 5000
+95   4.54144686   5274.0369 114.839359  1901.61745 2500 - 5000
+96   9.46064684  42831.0475  94.710267  7819.18287   Over 5000
+97   3.69488111   4559.8703 109.475773  2111.91885  Under 2500
+98  15.11766117   9135.7229 121.159840  4495.13344 2500 - 5000
+99   0.27024223    775.2790  61.632283   147.43227  Under 2500
+100  0.30389922   1518.6546  10.045607          NA        &lt;NA&gt;
+101  3.24836505          NA   1.774069   732.68706  Under 2500
+102 10.47524603  20756.6887 103.871593  8979.71157   Over 5000
+103          NA   3059.1283         NA          NA        &lt;NA&gt;
+104 30.11475892          NA 160.775699 17609.96355   Over 5000
+105  1.17626916    860.3953  91.329861  1401.89861  Under 2500
+106  0.25453433   1176.6628  64.561578          NA        &lt;NA&gt;
+107  3.34968011  10704.6722 102.817047  2874.71273 2500 - 5000
+108  4.10356847   9226.5709  68.000001  3130.10038  Under 2500
+109          NA    982.1203  32.183218          NA        &lt;NA&gt;
+110  0.16638750    246.9132  39.340511          NA        &lt;NA&gt;
+111  9.48529649          NA 171.515467  4170.10836 2500 - 5000
+112          NA          NA  98.523535          NA        &lt;NA&gt;
+113  4.50551634  10933.4975 147.289542  3430.79831 2500 - 5000
+114 21.49245472 105437.6707 143.723892 14423.95582   Over 5000
+115  2.57450966  51429.8896 206.428514          NA        &lt;NA&gt;
+116  5.75636339   4459.6815 104.506632  3441.80606 2500 - 5000
+117  0.09774273    421.0012  39.791021          NA        &lt;NA&gt;
+118  0.08771404    342.6829  20.384547          NA        &lt;NA&gt;
+119  7.57280214   8372.8310 121.319599  3613.53081 2500 - 5000
+120  2.99194167   6041.6320 156.497143          NA        &lt;NA&gt;
+121  0.04108260    601.9196  47.663813          NA        &lt;NA&gt;
+122  6.21329287  19991.3046 110.280147  4423.04435 2500 - 5000
+123  1.87233359   3015.2087   7.032089          NA        &lt;NA&gt;
+124  0.60648284   1051.0218  79.339830          NA        &lt;NA&gt;
+125  3.11543014   7593.3679  92.950904          NA        &lt;NA&gt;
+126          NA          NA         NA          NA        &lt;NA&gt;
+127  4.30123666   9123.4059  80.550431  1942.84080  Under 2500
+128  0.56483369   2678.1985  24.776705          NA        &lt;NA&gt;
+129  1.33733639   1630.7398  88.854489  1018.06062  Under 2500
+130          NA          NA         NA          NA        &lt;NA&gt;
+131  4.08425986   2249.7659  91.091041  1410.57559  Under 2500
+132  3.10058886   6510.1050 185.276093          NA        &lt;NA&gt;
+133  1.52948485   2795.5424 100.096606   755.56692  Under 2500
+134  0.10360844    409.8278  30.884736   453.35221  Under 2500
+135  0.27038609          NA   1.238454   103.69449  Under 2500
+136  1.80315140   5330.1759  67.206911  1576.21635  Under 2500
+137  0.12254898          NA  30.693449    90.95313  Under 2500
+138 10.56512793  46914.6580 116.239781  6895.66391   Over 5000
+139          NA          NA         NA          NA   Over 5000
+140 12.76809550          NA  86.933465          NA        &lt;NA&gt;
+141  7.75250650          NA 114.932002  9346.35525   Over 5000
+142  0.76846204   1131.8241  65.141738   459.52615  Under 2500
+143  0.05887499    357.7122  24.533287          NA        &lt;NA&gt;
+144  0.63555509   1222.4773  55.104176   120.50769  Under 2500
+145          NA          NA         NA          NA        &lt;NA&gt;
+146 10.48447741  84538.2426 113.098599 23549.68992   Over 5000
+147 17.34931131          NA 165.543238  5723.89120 2500 - 5000
+148  0.97453197   1018.8728  59.205821   449.32276  Under 2500
+149 10.51443544   8369.7508  70.887065          NA        &lt;NA&gt;
+150  2.02915643   7588.8939 184.716733  1735.46268  Under 2500
+151  0.32194819   1382.2806  27.836161          NA        &lt;NA&gt;
+152  0.66097609   2840.3496  91.636331  1055.99402  Under 2500
+153  1.42411329   5401.3701 100.132880  1135.71410  Under 2500
+154  0.92218769   2140.1216  85.669057   593.45874  Under 2500
+155  8.29009238  12293.0352 120.458303  3590.83208 2500 - 5000
+156  5.30109797  21504.8142 142.771033  4814.58610 2500 - 5000
+157          NA          NA  73.742341          NA        &lt;NA&gt;
+158 49.05058379          NA 132.434857 14420.76901   Over 5000
+159  4.40000006   7537.7097 114.914589  2266.71746  Under 2500
+160 12.03700823  10439.6424 167.681992  6135.57279   Over 5000
+161  0.07037760    529.7124  33.403232          NA        &lt;NA&gt;
+162  0.88745882   3132.5446  91.434939          NA        &lt;NA&gt;
+163          NA          NA  76.108328          NA        &lt;NA&gt;
+164  0.80289893   1189.9043  61.970290          NA        &lt;NA&gt;
+165 16.56906506  15835.9360 187.861460  7427.21549   Over 5000
+166  0.42216570   1041.8455  67.105513   196.00450  Under 2500
+167  6.79347451   5268.8173 135.964997  4224.39767 2500 - 5000
+168  7.84376006  10824.7237 135.899451          NA        &lt;NA&gt;
+169  0.23783986    324.6704  34.085858          NA        &lt;NA&gt;
+170  6.67340352  41122.1895 143.937991  7948.91331   Over 5000
+171  6.94655299  16061.2506 109.046839  4924.71289   Over 5000
+172  8.48847632  22850.6665 103.367512  6103.44129   Over 5000
+173  0.38810241   1261.0388   5.574675          NA        &lt;NA&gt;
+174  0.07274603          NA   6.946832          NA        &lt;NA&gt;
+175  8.93320268   7275.3440 100.761533  4532.02190 2500 - 5000
+176  7.22819501  30541.6065 111.742411  6006.34818   Over 5000
+177  0.57457514   2375.4493  83.218382   408.48333  Under 2500
+178  4.87957419  12436.5749 161.444220          NA        &lt;NA&gt;
+179  2.32682367   6883.9599 103.045977          NA        &lt;NA&gt;
+180  1.84730440   6446.1458 120.540916          NA        &lt;NA&gt;
+181  0.33929477   1424.6388  40.536035   114.27009  Under 2500
+182  4.73445151          NA 176.045868          NA        &lt;NA&gt;
+183  0.94994715   3073.4359  61.776172          NA        &lt;NA&gt;
+184  5.32014351  48935.6650 113.550147 14141.72048   Over 5000
+185  5.28160585  67463.7111 121.082502  8021.09447   Over 5000
+186  3.64594113   2892.7552  57.203677  1562.82192  Under 2500
+187  0.47019734    819.9896  86.366558  1985.29054  Under 2500
+188  0.15295192    527.0378  46.795895    85.67542  Under 2500
+189  4.18545608   4608.1014 100.811367  2044.82506  Under 2500
+190  0.17660030    623.4686  53.417293          NA        &lt;NA&gt;
+191  0.24565848    523.1431  40.685388   110.81254  Under 2500
+192  1.71038772   3347.4639  52.182437          NA        &lt;NA&gt;
+193 37.39346000  15359.2693 141.206815  5661.69466   Over 5000
+194  2.42161382   4198.5426 105.356912  1311.25714  Under 2500
+195  4.00401691  10094.0344  84.904001  2297.79686  Under 2500
+196  9.72668366   3966.8230  63.419817  2445.94423  Under 2500
+197  4.38489989          NA         NA          NA        &lt;NA&gt;
+198          NA   3190.2721  25.440114          NA        &lt;NA&gt;
+199  0.11958349    508.9283  38.379613          NA        &lt;NA&gt;
+200  6.99404810   3006.9153 117.567053  3200.46555 2500 - 5000
+201 24.98402577  39624.7019 145.453540 11463.62888   Over 5000
+202  8.51646101  36143.9380 129.862760  5692.47674   Over 5000
+203 17.94172893  47198.5045  90.244059 12903.80675   Over 5000
+204  2.49778858  11995.8243 132.192670  2670.90152  Under 2500
+205  4.57299282   1384.2722  74.402454  1635.92885  Under 2500
+206  0.40201104   2915.7124 119.048116          NA        &lt;NA&gt;
+207  6.06882921  13589.7722  96.691142  3151.56426 2500 - 5000
+208  1.49648501   1224.1911 177.140859   917.57474  Under 2500
+209          NA          NA         NA          NA        &lt;NA&gt;
+210  0.52155419          NA         NA          NA        &lt;NA&gt;
+211  1.03349439          NA  46.086659   218.83373  Under 2500
+212  0.15254961   1252.6957  38.269716   635.03311  Under 2500
+213  0.72889159    594.5215  59.658970  1026.21518  Under 2500</code></pre>
+</div>
+</div>
+<section id="questions" class="level4">
+<h4 class="anchored" data-anchor-id="questions">Questions</h4>
+<p>Q1. How many people in Andorra have internet access?<br>
+A1. This leads to the <code>Internet</code> variable, which is a Quantitative variable, a proportion.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The answer is <span class="math inline">\(70.5\%\)</span>. Q2. What would be the units for <code>LifeExpectancy</code>? A2. Decimal Years.</p>
+</section>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example 2:<code>StudentSurveys</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>         Year Gender Smoke   Award HigherSAT Exercise TV Height Weight Siblings
+1      Senior      M    No Olympic      Math     10.0  1     71    180        4
+2   Sophomore      F   Yes Academy      Math      4.0  7     66    120        2
+3   FirstYear      M    No   Nobel      Math     14.0  5     72    208        2
+4      Junior      M    No   Nobel      Math      3.0  1     63    110        1
+5   Sophomore      F    No   Nobel    Verbal      3.0  3     65    150        1
+6   Sophomore      F    No   Nobel    Verbal      5.0  4     65    114        2
+7   FirstYear      F    No Olympic      Math     10.0 10     66    128        1
+8   Sophomore      M    No Olympic      Math     13.0  8     74    235        1
+9      Junior      F    No   Nobel    Verbal      3.0  6     61     NA        2
+10  FirstYear      F    No   Nobel      Math     12.0  1     60    115        7
+11  Sophomore      F    No Olympic      Math     12.0  6     65    140        1
+12  FirstYear      M    No Olympic      Math     10.0  5     63    200        2
+13  Sophomore      M    No Olympic      Math     12.0  8     68    162        3
+14     Junior      F    No   Nobel    Verbal      6.0  1     68    135        2
+15  FirstYear      M    No   Nobel    Verbal      9.0  5     68    193        1
+16  FirstYear      F    No Olympic      Math     10.0  2     63    110        1
+17  FirstYear      F    No Olympic    Verbal      3.0 15     63     99        2
+18  Sophomore      M    No   Nobel    Verbal      7.0  3     72    165        2
+19  Sophomore      F    No   Nobel      Math      2.0  1     62    120        1
+20  Sophomore      F    No Olympic    Verbal     14.0  2     67    154        1
+21  Sophomore      F    No   Nobel      Math     10.0  5     65    110        1
+22  Sophomore      F    No   Nobel      Math     14.0  2     68    145        8
+23  FirstYear      M    No Olympic      Math     20.0 20     73    195        3
+24  Sophomore      M    No Olympic      Math      7.0 10     74    200        1
+25  Sophomore      M    No Olympic      Math     12.0  3     70    167        1
+26  Sophomore      M    No   Nobel      Math     10.0  5     71    175        3
+27  Sophomore      F    No Academy    Verbal      6.0  8     67    155        1
+28     Junior      M    No   Nobel      Math     14.0  2     74    185        1
+29  FirstYear      M    No Olympic      Math     12.0  6     68    190        1
+30     Senior      M    No Olympic    Verbal     10.0  4     72    165        1
+31     Junior      M    No Academy      Math      8.0  8     62    175        2
+32  Sophomore      F    No   Nobel      Math      0.0  2     66    126        5
+33  FirstYear      M    No Olympic      Math     10.0 20     70    187        3
+34     Senior      M    No   Nobel    Verbal      6.0 10     72    170        2
+35  FirstYear      F    No Olympic      Math      5.0  2     67    158        4
+36  Sophomore      F    No Olympic      Math     24.0  5     62    119        1
+37  FirstYear      M    No Olympic      Math      2.0  5     73    205        1
+38  Sophomore      F    No Academy      Math     10.0  5     67    129        1
+39  Sophomore      F    No Academy    Verbal      6.0  5     67    145        0
+40     Junior      F    No   Nobel    Verbal      5.0  5     64    130        0
+41     Senior      M    No   Nobel    Verbal      5.0  5     72    215        3
+42  Sophomore      F    No   Nobel    Verbal     12.0  4     64    135        2
+43  Sophomore      F    No Olympic    Verbal      2.0  5     70    145        0
+44  FirstYear      F    No Olympic      Math      7.0  8     60     98        2
+45  FirstYear      M    No Olympic      Math     15.0  2     71    150        1
+46     Junior      M    No Olympic    Verbal      5.0 14     73    159        1
+47     Senior      M    No Olympic    Verbal      7.0 20     72    174        1
+48  Sophomore      M    No Olympic      Math     15.0 20     74    160        1
+49     Senior      M    No Olympic      Math      8.0 10     70    165        1
+50  Sophomore      F    No Olympic      Math     14.0  3     69    161        1
+51  FirstYear      M    No Olympic    Verbal     14.0  1     68    160        2
+52     Senior      F    No   Nobel      Math      4.0 14     64    130        2
+53     Junior      M    No Olympic      Math     15.0  0     72    175        2
+54     Senior      M    No Olympic      Math      4.0 20     70    255        2
+55     Junior      M    No Olympic    Verbal     15.0  2     65    160        4
+56  FirstYear      M    No Academy    Verbal      3.0  6     72    160        0
+57     Junior      F    No Academy      Math      3.0 15     63     95        0
+58  Sophomore      F    No Olympic      Math     15.0  3     64    115        2
+59  Sophomore      F    No Academy      Math     20.0  2     64    120        1
+60  FirstYear      F    No   Nobel    Verbal      3.0  1     65    135        2
+61  Sophomore      M    No Academy      Math      6.0  7     73    180        1
+62     Senior      M    No   Nobel      Math     12.0  7     71    155        0
+63  FirstYear      F    No Olympic    Verbal      4.0  3     66    110        2
+64  FirstYear      M    No Olympic    Verbal     20.0 12     73    215        2
+65  FirstYear      M    No Olympic      Math     15.0  6     70    175        2
+66  Sophomore      F    No Olympic      Math     10.0  3     65    140        3
+67  FirstYear      M    No Olympic    Verbal     10.0 20     72    195        2
+68  Sophomore      M    No   Nobel    Verbal      4.0  8     73    185        2
+69  Sophomore      M    No   Nobel    Verbal      9.0  0     70    185        2
+70     Senior      M    No Olympic    Verbal     12.0 12     79    209        1
+71     Senior      F    No Olympic      Math      2.0  6     67    145        3
+72  Sophomore      F    No Olympic    Verbal     15.0  4     66    140        1
+73  FirstYear      F    No   Nobel    Verbal     10.0  4     66    146        1
+74  FirstYear      F    No Olympic    Verbal      7.0  6     68    130        2
+75  Sophomore      F    No   Nobel      Math      3.0  5     67    140        1
+76  FirstYear      F    No Olympic    Verbal      4.0  3     66    130        1
+77  FirstYear      F    No Olympic               15.0  3     66    140        1
+78  Sophomore      F    No Olympic      Math      8.0  8     65    160        3
+79  Sophomore      F    No   Nobel      Math      5.0  8     66    120        1
+80  Sophomore      M    No Academy      Math     10.0 20     76    150        1
+81  Sophomore      M    No Olympic      Math     15.0  5     69    155        1
+82  FirstYear      F    No Olympic      Math      4.0  4     64    128        3
+83  FirstYear      F    No Olympic      Math      5.0  4     64    143        2
+84     Junior      F    No   Nobel    Verbal      6.0  3     65    155        2
+85  FirstYear      F    No Olympic      Math     18.0  2     67    119        2
+86  Sophomore      F    No Academy      Math     16.0  4     66    138        1
+87     Senior      M    No Academy    Verbal      4.0  5     72    240        1
+88  FirstYear      F    No   Nobel    Verbal      3.0  2     65    160        1
+89  FirstYear      M    No Olympic    Verbal     20.0  3     69    191        3
+90  FirstYear      M    No   Nobel      Math      5.0  8     69    165        5
+91  Sophomore      M    No Olympic      Math     10.0  6     73    200        2
+92  FirstYear      F    No Olympic    Verbal      2.0  4     62    125        1
+93  Sophomore      F    No   Nobel    Verbal      4.0  5     69    140        2
+94  Sophomore      M    No   Nobel      Math     14.0  5     73    206        1
+95  FirstYear      M    No   Nobel      Math      7.0  5     76    275        1
+96  Sophomore      M    No Olympic      Math     12.0  8     70    142        1
+97  Sophomore      F    No   Nobel    Verbal     14.0  2     67    140        6
+98  Sophomore      M    No   Nobel    Verbal      3.0 10     68    145        5
+99  Sophomore      M    No   Nobel      Math      5.0  4     72    128        1
+100 FirstYear      M    No Olympic      Math     15.0  5     74    165        1
+101    Senior      F    No   Nobel    Verbal      5.0 20     62    140        1
+102 Sophomore      F    No   Nobel      Math      4.0 14     69    130        1
+103 FirstYear      M    No   Nobel      Math      8.0  2     70    170        3
+104 Sophomore      M    No Olympic      Math     14.0  4     69    160        2
+105 Sophomore      M    No Olympic      Math      5.0  8     72    165        2
+106                F    No Olympic    Verbal     12.0  7     78    145        1
+107 Sophomore      M    No Olympic      Math     15.0  5     67    155        1
+108 Sophomore      M    No Olympic      Math      3.0  3     73    155        3
+109 Sophomore      F    No   Nobel      Math     12.0  1     63    113        1
+110 Sophomore      M    No Olympic      Math     12.0  5     70    155        1
+111 Sophomore      M    No   Nobel      Math      6.0 20     NA    173        1
+112 Sophomore      M    No   Nobel      Math      2.0  8     65    195        2
+113 Sophomore      F    No   Nobel    Verbal      3.0  3     73    120        1
+114 FirstYear      M    No Olympic      Math     24.0  6     78    225        2
+115 FirstYear      F    No   Nobel    Verbal      3.0  1     65    160        1
+116 Sophomore      F    No   Nobel    Verbal      6.0  1     63    120        2
+117 Sophomore      F    No   Nobel    Verbal     12.0 10     68    138        1
+118 Sophomore      M    No   Nobel               18.0  3     72    260        2
+119 Sophomore      M    No   Nobel      Math      2.0  7     70    150        2
+120 FirstYear      F    No   Nobel    Verbal     12.0  3     67    135        3
+121 Sophomore      F    No   Nobel    Verbal      5.0 10     72    165        1
+122 FirstYear      M    No Olympic      Math      3.0  3     68    142        3
+123 Sophomore      M    No   Nobel    Verbal      3.0  3     78    210        6
+124 Sophomore      M    No Olympic      Math     21.0 25     69    171        1
+125 Sophomore      F    No Olympic    Verbal     12.0  2     80    150        4
+126 Sophomore      M    No Olympic      Math      3.0 15     71    188        3
+127 Sophomore      M    No   Nobel    Verbal     20.0  6     70    195        0
+128 FirstYear      M    No Olympic      Math      8.0 13     75    230        2
+129 Sophomore      F    No Olympic    Verbal      2.0  3     64    140        2
+130 Sophomore      M    No   Nobel    Verbal     15.0  2     78    200        1
+131    Senior      F    No   Nobel      Math      6.0  5     68    140        0
+132 FirstYear      F    No   Nobel    Verbal      2.0  1     69    180        5
+133 Sophomore      F    No   Nobel      Math      1.0  4     63    160        1
+134 Sophomore      F    No Olympic    Verbal     13.0  5     64    135        3
+135 Sophomore      F    No   Nobel      Math     12.0 10     63    140        2
+136 Sophomore      F    No Olympic      Math     10.0  4     72    155        2
+137 Sophomore      M    No   Nobel      Math     10.0  3     63    235        5
+138 FirstYear      F    No Olympic      Math     10.0  2     63    140        3
+139 Sophomore      F    No   Nobel    Verbal      3.0  4     68    130        2
+140    Junior      F    No Olympic      Math      2.0  3     67    125        5
+141 FirstYear      M    No Olympic      Math     10.0  3     71    222        1
+142 FirstYear      F    No Academy    Verbal      4.0  3     65    128        3
+143 FirstYear      M    No Olympic      Math      8.0  2     72    183        2
+144    Junior      M    No Olympic    Verbal     18.0 20     75    175        0
+145 FirstYear      F    No   Nobel    Verbal      5.0  3     59    125        1
+146 Sophomore      F    No Academy      Math      4.0  4     69    156        1
+147 FirstYear      F    No Olympic      Math     20.0  3     63    145        3
+148 Sophomore      M    No Olympic      Math     14.0  4     74    195        4
+149 Sophomore      M    No Olympic      Math      8.0 13     70    185        2
+150 FirstYear      F    No   Nobel      Math      4.0  5     64    150        1
+151 Sophomore      F    No   Nobel      Math      5.0  5     67    140        0
+152 FirstYear      M    No Olympic    Verbal     14.0  4     66    150        1
+153 FirstYear      F    No   Nobel      Math      4.0  3     67    150        0
+154 Sophomore      M    No   Nobel      Math      4.0 10     73    220        1
+155    Senior      M    No Olympic    Verbal     15.0 10     71    195        2
+156 Sophomore      F    No Olympic      Math     12.0  7     66    140        1
+157 FirstYear      F    No Academy      Math     10.0 10     68    135        2
+158 Sophomore      F    No Olympic    Verbal      6.0  3     67    138        1
+159    Senior      F    No Olympic    Verbal     12.0  5     69    170        2
+160 Sophomore      F    No Olympic    Verbal     10.0  2     66    145        1
+161 FirstYear      M    No Olympic    Verbal     14.0  5     68    135        2
+162 FirstYear      F    No   Nobel    Verbal      5.0  4     68    140        0
+163 Sophomore      M    No Olympic      Math     18.0  5     71    155        2
+164    Senior      M    No Olympic      Math     10.0 10     70    155        1
+165 Sophomore      M    No Olympic    Verbal      8.0  2     66    155        1
+166 Sophomore      F    No   Nobel    Verbal      8.0 10     65    135        2
+167    Junior      M    No   Nobel    Verbal      3.0 15     70    165        1
+168 FirstYear      M    No Academy      Math      5.0 20     71    160        2
+169 Sophomore      M    No   Nobel    Verbal      4.0 21     71    175        1
+170 Sophomore      M    No Olympic      Math      8.0 10     70    183        3
+171 Sophomore      F    No   Nobel    Verbal      3.0 10     65    140        2
+172 Sophomore      F    No   Nobel    Verbal     12.0  4     67    140        1
+173    Junior      F    No   Nobel      Math      5.0 10     61    110        2
+174 Sophomore      F    No   Nobel    Verbal      5.0  3     68    125        0
+175    Senior      F    No Olympic    Verbal     15.0  2     65    125        2
+176 FirstYear      M    No Olympic      Math     10.0  7     70    180        2
+177 Sophomore      M    No Olympic      Math     10.0 10     72    195        2
+178 Sophomore      F    No Academy      Math     10.0  6     66    128        3
+179 FirstYear      M    No Olympic      Math     14.0  2     71    172        1
+180 Sophomore      F    No Olympic      Math      6.0  4     64    150        1
+181 Sophomore      M    No Olympic      Math      4.0 27     73    188        1
+182 Sophomore      F    No Olympic    Verbal     14.0  2     60    110        2
+183 Sophomore      F    No Olympic      Math      5.0 15     64    125        1
+184 Sophomore      F    No Olympic      Math     16.0 10     65    135        3
+185 FirstYear      F    No Olympic    Verbal     14.0  3     65    130        2
+186 Sophomore      M    No Olympic      Math     10.0 10     73    230        2
+187 Sophomore      M    No   Nobel      Math     11.0 10     69    198        1
+188 Sophomore      F    No Olympic                4.0 10     66    127        1
+189 Sophomore      M    No Olympic      Math     12.0  5     66    150        1
+190 Sophomore      M    No Olympic      Math      5.0  4     73    175        3
+191    Junior      M    No   Nobel      Math      8.0 14     71    160        3
+192    Junior      F    No   Nobel      Math      8.0  6     65    140        2
+193 Sophomore      M    No   Nobel    Verbal      3.0  5     75    200        1
+194 Sophomore      F    No   Nobel      Math      8.0  2     63    130        1
+195 Sophomore      M    No Olympic      Math     20.0 14     74    210        3
+196 Sophomore      M    No Olympic      Math     10.0  5     70    210        2
+197 Sophomore      F    No   Nobel      Math      3.0  3     63    145        4
+198 Sophomore      M    No Olympic      Math      4.0  6     75    156        3
+199 FirstYear      M    No Olympic      Math      8.0 10     71    207        0
+200 FirstYear      F    No Olympic      Math     15.0  5     68    150        1
+201 Sophomore      F    No Olympic    Verbal     14.0 10     68    137        2
+202 FirstYear      M    No Olympic      Math     14.0  2     72    153        2
+203    Junior      F    No   Nobel      Math     12.0  5     63    175        2
+204 Sophomore      F    No   Nobel      Math      6.0  2     65    136        3
+205 Sophomore      F    No   Nobel    Verbal      3.0 10     65    104        2
+206 FirstYear      F    No Olympic      Math     12.0  3     67    122        3
+207 Sophomore      M    No   Nobel      Math      5.0 40     72    192        1
+208 FirstYear      M    No Olympic      Math      8.0 10     71    218        1
+209 Sophomore      M    No   Nobel      Math      1.0 14     68    170        4
+210 FirstYear      M    No   Nobel    Verbal     10.0  4     72    220        2
+211 Sophomore      F    No Academy      Math      7.0  2     64    150        1
+212    Senior      M    No Olympic    Verbal      5.0  7     71    135        4
+213    Senior      F    No   Nobel      Math     10.0  2     62    155        1
+214 Sophomore      F    No Olympic      Math     12.0  5     65    135        1
+215 Sophomore      M    No Olympic      Math     15.0 15     68    140        1
+216 FirstYear      F    No Olympic    Verbal     10.0  5     67    120        1
+217 Sophomore      F    No Olympic      Math      7.0 12     68    135        3
+218 Sophomore      F    No   Nobel      Math       NA  4     64    135        1
+219 Sophomore      M    No   Nobel      Math     15.0  0     72    165        2
+220    Junior      M    No Olympic      Math     10.0 15     71    180        1
+221 Sophomore      M    No Olympic      Math     15.0  0     72    165        2
+222 Sophomore      M    No Olympic      Math     12.0  6     72    175        2
+223 Sophomore      M    No Olympic      Math     10.0  5     71    200        1
+224 Sophomore      M    No   Nobel    Verbal     12.0 10     71    138        0
+225    Senior      M    No Olympic      Math      5.0  3     71    265        1
+226 Sophomore      F    No Academy      Math     14.0 16     61    105        1
+227 Sophomore      F    No   Nobel      Math      3.0  9     68    130        3
+228 Sophomore      M    No Olympic    Verbal     12.0  2     70    165        1
+229 Sophomore      F    No   Nobel    Verbal     15.0  5     67    145        1
+230 FirstYear      F    No Academy      Math      3.0  6     64    138        1
+231 Sophomore      F    No Olympic    Verbal     25.0 12     71    193        2
+232 Sophomore      M    No   Nobel      Math      5.0  1     71    170        1
+233 Sophomore      M    No   Nobel    Verbal      6.0  0     69    155        1
+234 Sophomore      M    No Olympic      Math     27.0  2     70    155        1
+235    Junior      F    No   Nobel    Verbal      8.0 10     65    140        2
+236 Sophomore      F    No   Nobel    Verbal      3.0  1     65    130        1
+237 Sophomore      M    No Olympic    Verbal     17.0 14     72    180        3
+238 FirstYear      M    No Olympic    Verbal     40.0  2     67    140        2
+239 Sophomore      M    No Academy      Math      5.0 10     74    210        1
+240 Sophomore      M    No   Nobel    Verbal      0.0  7     NA    150        0
+241 Sophomore      F    No   Nobel    Verbal     27.0  2     62    115        1
+242 Sophomore      M    No   Nobel    Verbal      3.0  5     75    225        3
+243 FirstYear      M    No Academy      Math      3.0  7     67    170        2
+244 Sophomore      F    No Olympic    Verbal     11.0 20     63    120        0
+245    Senior      M    No   Nobel    Verbal      2.0  4     71    170        1
+246 Sophomore      F    No Academy    Verbal      9.0  1     63    130        2
+247 FirstYear      M    No   Nobel      Math     12.0  8     70    182        1
+248 Sophomore      M    No   Nobel    Verbal     15.0  2     67    138        1
+249 Sophomore      M    No   Nobel      Math      2.0  5     74    180        2
+250 Sophomore      M    No Olympic      Math     20.0  6     69    230        0
+251    Junior      M    No Olympic      Math     12.0  5     70    222        2
+252 FirstYear      M    No Academy    Verbal      5.0  2     70    145        4
+253 Sophomore      M    No   Nobel      Math     10.0  4     70    150        1
+254    Senior      M    No   Nobel    Verbal      2.0  2     68    190        0
+255 Sophomore      M    No Olympic    Verbal     12.0 20     76    195        3
+256 Sophomore      F    No   Nobel    Verbal      5.0  2     59    115        1
+257    Junior      F    No Olympic    Verbal      3.0  1     66    140        1
+258 Sophomore      M    No   Nobel    Verbal     12.0 10     68    155        1
+259 Sophomore      M    No   Nobel      Math      8.0  3     72    150        2
+260 Sophomore      M    No Academy      Math      8.0  4     69    155        2
+261 Sophomore      M    No   Nobel    Verbal      5.0  3     NA    130        2
+262 FirstYear      M    No Olympic      Math      6.0 14     75    210        3
+263                F    No   Nobel    Verbal      8.0 10     63    105        3
+264    Junior      M    No Olympic               10.0 10     71    192        1
+265 FirstYear      F    No Olympic      Math     18.0  3     72    220        3
+266    Junior      F    No   Nobel    Verbal     12.0  0     64    134        1
+267 Sophomore      M    No Olympic      Math     10.0  5     68    160        1
+268    Junior      M    No   Nobel    Verbal     10.0  5     68    135        1
+269 Sophomore      M    No Olympic    Verbal      5.0  2     67    140        1
+270 Sophomore      F    No Olympic    Verbal      7.0  2     66    135        0
+271 FirstYear      M    No Olympic      Math      3.0  5     74    145        1
+272 FirstYear      F    No Olympic    Verbal      7.0  4     64    140        2
+273 Sophomore      F    No   Nobel      Math      3.0  2     NA     NA        2
+274 Sophomore      F    No Academy    Verbal      4.0  3     65    138        2
+275 FirstYear      F    No   Nobel    Verbal      8.0  4     64     NA        2
+276 Sophomore      F    No Olympic    Verbal      7.0  5     64    130        2
+277    Senior      M    No   Nobel      Math      7.0  9     72    210        2
+278    Senior      M    No   Nobel    Verbal      3.0  1     69    233        1
+279 FirstYear      F    No Olympic      Math      7.0  7     70    180        6
+280 FirstYear      M    No Olympic      Math     14.0  6     67    185        1
+281 Sophomore      M    No Olympic    Verbal      5.0  6     76    189        3
+282 FirstYear      F    No Olympic      Math     14.0  5     66    127        1
+283    Senior      M    No   Nobel      Math      5.0  4     63    135        1
+284 Sophomore      F    No Academy    Verbal      5.0  5     66    140        0
+285 Sophomore      F    No   Nobel      Math      2.0 20     68    162        2
+286 Sophomore      F    No   Nobel    Verbal      1.0  3     67    215        0
+287    Senior      M    No Olympic      Math     15.0  5     73    200        2
+288 Sophomore      F    No   Nobel    Verbal      5.0  1     62    120        1
+289 FirstYear      M    No   Nobel      Math      5.0  2     67    165        3
+290 FirstYear      M    No Olympic    Verbal     15.0 14     71    175        2
+291 Sophomore      F    No Olympic    Verbal      5.0  3     66    160        2
+292 Sophomore      M    No   Nobel    Verbal     20.0  0     68    145        1
+293    Junior      F    No Academy      Math      3.0  5     60    180        3
+294 FirstYear      F    No   Nobel    Verbal      7.0  0     71    170        1
+295 Sophomore      M    No Olympic      Math     20.0 10     75    235        2
+296 Sophomore      F    No Olympic               10.0 10     65    155        1
+297    Senior      M    No   Nobel      Math      6.0 15     65    140        3
+298 Sophomore      F    No Olympic      Math      6.0  1     66    145        2
+299 FirstYear      M    No   Nobel    Verbal     10.0  3     71    175        2
+300 Sophomore      M    No Olympic      Math      9.0  6     76    210        2
+301 FirstYear      F    No Olympic    Verbal      1.5 20     67    130        1
+302 Sophomore      M    No Olympic      Math     20.0 28     72    195        1
+303 Sophomore      M    No   Nobel      Math      8.0  3     67    165        1
+304 Sophomore      M    No Olympic    Verbal     21.0  1     73    180        6
+305 Sophomore      F    No Olympic    Verbal     10.0  5     60    145        1
+306 Sophomore      M    No   Nobel      Math      8.0 12     70    163        2
+307    Junior      M    No Olympic    Verbal     10.0  1     75    160        1
+308    Junior      F    No Olympic               18.0  7     67    150        1
+309 Sophomore      M    No Olympic      Math     15.0  6     71    170        3
+310 Sophomore      F    No   Nobel    Verbal      8.0  5     NA    110        3
+311    Senior      M    No   Nobel      Math      6.0  2     66    170        1
+312 Sophomore      M    No Olympic      Math     12.0  3     69    145        2
+313 FirstYear      F    No Olympic    Verbal     10.0  4     69    160        1
+314    Junior      F    No Academy      Math      7.0  4     63    130        1
+315 Sophomore      F    No Olympic      Math      5.0  5     65    155        1
+316 FirstYear      F    No Academy    Verbal      6.0  4     65     NA        1
+317    Senior      M    No   Nobel    Verbal      5.0  5     72    160        2
+318 Sophomore      F    No   Nobel    Verbal      5.0  5     66    151        1
+319 Sophomore      M    No Olympic    Verbal     30.0 10     74    180        1
+320    Senior      F    No Olympic      Math      5.0  4     64    130        2
+321    Junior      M   Yes   Nobel      Math     12.0  5     75    185        1
+322    Senior      M   Yes   Nobel    Verbal      0.0  1     73    198        1
+323 FirstYear      M   Yes Olympic    Verbal     12.0  5     72    175        2
+324    Senior      F   Yes   Nobel      Math      0.0 14     67    123        1
+325    Junior      F   Yes   Nobel      Math     15.0 10     64    145        1
+326 FirstYear      M   Yes Olympic      Math     18.0 15     67    190        0
+327 Sophomore      F   Yes Olympic      Math     12.0  5     65    130        2
+328 Sophomore      M   Yes   Nobel    Verbal      2.0  3     70    185        4
+329 FirstYear      M   Yes Olympic      Math     12.0 20     68    165        1
+330 Sophomore      M   Yes Academy      Math      3.0  5     70    165        3
+331    Junior      M   Yes Olympic      Math      3.0  3     67    150        2
+332 FirstYear      M   Yes   Nobel      Math      4.0  3     72    160        1
+333    Junior      F   Yes Olympic      Math     12.0  2     64    142        3
+334 FirstYear      M   Yes Olympic    Verbal     25.0  5     72    165        1
+335    Junior      M   Yes   Nobel    Verbal      3.0  4     75    175        0
+336 Sophomore      M   Yes Olympic      Math      6.0  6     69    175        2
+337 Sophomore      F   Yes Olympic    Verbal      7.0  8     68    190        1
+338 Sophomore      M   Yes   Nobel    Verbal      7.0  2     72    180        2
+339 Sophomore      M   Yes   Nobel                6.0  2     74    185        1
+340 Sophomore      M   Yes   Nobel    Verbal      6.0  2     NA     NA        1
+341 Sophomore      F   Yes Olympic    Verbal     13.0  4     64    135        3
+342 Sophomore      M   Yes Olympic    Verbal     25.0  8     73    195        1
+343    Senior      M   Yes Olympic      Math      8.0 12     71    175        0
+344 Sophomore      M   Yes Olympic      Math      5.0  5     70    165        1
+345 FirstYear      M   Yes   Nobel      Math     11.0  6     68    135        1
+346 Sophomore      F   Yes   Nobel    Verbal     18.0  5     69    140        1
+347 Sophomore      M   Yes Olympic      Math     10.0 NA     NA    182        2
+348 FirstYear      M   Yes Olympic      Math      6.0 14     72    155        1
+349 FirstYear      F   Yes   Nobel    Verbal      2.0  1     68    180        2
+350    Senior      M   Yes   Nobel      Math      5.0 25     69    170        1
+351 Sophomore      F   Yes Olympic      Math      5.0  3     66    135        3
+352 FirstYear      M   Yes Olympic      Math      6.0 25     72    165        2
+353 Sophomore      F   Yes   Nobel      Math     10.0 10     65    137        0
+354 Sophomore      M   Yes   Nobel      Math      4.0  1     70    147        2
+355    Senior      F   Yes Olympic      Math      5.0  4     66    150        1
+356    Junior      F   Yes   Nobel      Math     17.0  2     67    155        2
+357 Sophomore      M   Yes   Nobel    Verbal      7.0 10     71    160        2
+358 Sophomore      F   Yes   Nobel    Verbal      2.0  0     83    130        1
+359 Sophomore      M   Yes Olympic      Math      8.0 10     61    180        2
+360 Sophomore      F   Yes   Nobel    Verbal      1.0  1     65    150        2
+361 FirstYear      M   Yes Olympic    Verbal     14.0  5     77    205        2
+362 Sophomore      F   Yes Olympic      Math     12.0  5     60    115        0
+    BirthOrder VerbalSAT MathSAT  SAT  GPA Pulse Piercings    Sex
+1            4       540     670 1210 3.13    54         0   Male
+2            2       520     630 1150 2.50    66         3 Female
+3            1       550     560 1110 2.55   130         0   Male
+4            1       490     630 1120 3.10    78         0   Male
+5            1       720     450 1170 2.70    40         6 Female
+6            2       600     550 1150 3.20    80         4 Female
+7            1       640     680 1320 2.77    94         8 Female
+8            1       660     710 1370 3.30    77         0   Male
+9            2       550     550 1100 2.80    60         7 Female
+10           8       670     700 1370 3.70    94         2 Female
+11           2       500     670 1170 2.09    63         2 Female
+12           2       580     600 1180   NA    72         0   Male
+13          NA       530     620 1150 2.90    54         0   Male
+14           3       650     650 1300 3.08    66         4 Female
+15           1       700     650 1350   NA    72         0   Male
+16           2       590     610 1200 3.86    59         4 Female
+17           1       600     600 1200 3.00    88         4 Female
+18           1       700     650 1350 3.00    59         0   Male
+19           1       610     800 1410 3.35    64         2 Female
+20           2       550     450 1000 3.30    72         5 Female
+21           2       550     640 1190 3.40    74         2 Female
+22           8       560     570 1130 2.90    70         2 Female
+23           4       560     620 1180 3.50    58         0   Male
+24           2       550     650 1200 3.00    48         0   Male
+25           2       550     680 1230 3.30    74         0   Male
+26           2       700     720 1420 3.70    60         0   Male
+27           1       610     590 1200 3.48    74         2 Female
+28           2       570     580 1150 3.40    70         0   Male
+29           1       550     560 1110 2.50    74         0   Male
+30           2       500     500 1000 3.30    60         0   Male
+31           3       610     620 1230 3.50    55         0   Male
+32           6       610     650 1260 3.79    82         1 Female
+33           2       500     560 1060 3.30    68         0   Male
+34           2       640     640 1280 2.90    83         0   Male
+35           2       490     520 1010 2.68    53         2 Female
+36           2       560     580 1140 3.28    72         4 Female
+37           1       560     640 1200 3.51    86         0   Male
+38           1       470     600 1070 2.60    67         4 Female
+39           1       680     670 1350 3.85    89         2 Female
+40          NA       570     570 1140 2.40    48         4 Female
+41           1       630     590 1220 3.40    64         0   Male
+42           3       580     540 1120 2.40    73         7 Female
+43           1       550     500 1050 3.00    80         2 Female
+44           2       490     550 1040 3.10    85         5 Female
+45           1       590     650 1240 2.94    60         0   Male
+46           1       620     620 1240 3.31    61         0   Male
+47           2       560     550 1110 3.30    80         0   Male
+48           2       630     690 1320 2.90    70         0   Male
+49           2       600     630 1230 3.40    61         0   Male
+50           2       550     650 1200 3.16    58         2 Female
+51           1       590     580 1170   NA    42         0   Male
+52           2       640     730 1370 3.84    88         4 Female
+53           1       650     670 1320 3.60    68         1   Male
+54           2       420     520  940 2.36    68         0   Male
+55           4       500     480  980 2.90    35         0   Male
+56           1       620     600 1220 3.00    90         0   Male
+57           1       600     660 1260 3.30    88         4 Female
+58           2       580     680 1260 3.70    67         2 Female
+59           1       490     520 1010 2.90    71         2 Female
+60           3       630     620 1250 3.60    68         2 Female
+61           2       600     670 1270 3.56    73         0   Male
+62           1       590     610 1200 3.70    55         2   Male
+63           1       550     520 1070 4.00    78         5 Female
+64           3       600     600 1200 3.40    96         0   Male
+65           3       500     540 1040   NA    63         0   Male
+66           4       600     650 1250 3.30    73         5 Female
+67           2       600     600 1200 3.10    60         1   Male
+68           1       650     530 1180 2.50    80         0   Male
+69           1       650     650 1300 3.20    96         0   Male
+70           1       560     520 1080 3.10    49         0   Male
+71           2       540     640 1180 3.50    62         5 Female
+72           1       640     600 1240 3.00    68         6 Female
+73           2       690     620 1310 3.25    52         5 Female
+74           1       600     580 1180 2.40    71         2 Female
+75           2       610     650 1260 3.22    72         2 Female
+76           1       610     420 1030   NA    65         1 Female
+77           1       600     600 1200   NA    90         0 Female
+78           3       580     640 1220 3.64    77         4 Female
+79           1       560     580 1140 3.50    68         2 Female
+80           1       620     680 1300 2.50    60         0   Male
+81           1       620     660 1280 3.40    65         0   Male
+82           1       630     650 1280   NA    60         2 Female
+83           2       430     610 1040 3.25    84         3 Female
+84           1       640     640 1280 3.70    80         7 Female
+85           1       490     590 1080 2.10    66         1 Female
+86           2       550     560 1110 2.80    70         7 Female
+87           1       690     550 1240 3.49    70         0   Male
+88           1       550     550 1100 3.83    72         3 Female
+89           1       600     580 1180   NA    66         0   Male
+90           4       530     610 1140 2.70    69         0   Male
+91           3       520     620 1140 2.80    89         0   Male
+92           1       660     520 1180 3.13    79         2 Female
+93           3       800     680 1480 3.62    98         4 Female
+94           1       560     660 1220 2.00    48         0   Male
+95           2       610     640 1250 3.60    71         0   Male
+96           2       660     680 1340 4.00    51         0   Male
+97           7       650     550 1200 3.10    67         2 Female
+98           6       680     570 1250 2.60    66         0   Male
+99           1       550     600 1150 3.70    66         0   Male
+100          1       660     710 1370 3.57    60         0   Male
+101          1       650     550 1200 2.90    77         2 Female
+102          2       620     630 1250 3.15    80         2 Female
+103          2       530     590 1120 3.88    70         0   Male
+104          2       670     720 1390 3.50    65         0   Male
+105          2       640     710 1350 2.80    57         0   Male
+106          1       680     640 1320   NA    37         4 Female
+107          2       670     700 1370 2.90    84         0   Male
+108          2       730     740 1470 3.21    56         0   Male
+109          2       580     600 1180 3.50    69         4 Female
+110          2       610     640 1250 3.33    62         0   Male
+111          1       580     680 1260 3.00    79         0   Male
+112          1       620     630 1250 3.50    55         0   Male
+113          1       680     670 1350 3.95    89         0 Female
+114          1       570     670 1240 2.10    78         0   Male
+115          2       500     450  950 3.00    83         5 Female
+116          1       800     750 1550 3.00    58         3 Female
+117          2       610     540 1150 3.75    77         4 Female
+118          3       550     550 1100 2.50    50         1   Male
+119          3       600     620 1220 3.40    87         0   Male
+120          4       660     550 1210 3.40    74         7 Female
+121          1       640     560 1200 3.14    76         7 Female
+122          4       560     580 1140 2.60    50         0   Male
+123          5       600     600 1200 3.40    70         0   Male
+124          1       480     530 1010 2.70    84         0   Male
+125          1       650     600 1250 3.15    68         2 Female
+126          1       520     600 1120 2.20    66         0   Male
+127          1       640     640 1280 3.50    76         0   Male
+128          1       610     620 1230 2.90    65         0   Male
+129          3       450     400  850 2.50    65         4 Female
+130          1       700     600 1300 3.50    68         0   Male
+131          1       540     680 1220 3.60    78         2 Female
+132          3       550     540 1090 3.10    74         2 Female
+133          1       640     680 1320 3.00    76         4 Female
+134          2       560     540 1100 3.00    79         5 Female
+135          3       530     700 1230 3.80    81         4 Female
+136          1       620     650 1270 3.15    56         2 Female
+137          3       550     560 1110 2.75    48         0   Male
+138          2       520     540 1060 2.80    68         4 Female
+139          3       660     580 1240 3.00    62         2 Female
+140          4       470     600 1070 3.10    70         2 Female
+141          1       570     580 1150 2.27    46         0   Male
+142          1       560     550 1110 2.80    88         2 Female
+143          2       520     540 1060 3.02    68         0   Male
+144          1       560     500 1060 2.93    74         0   Male
+145          1       600     600 1200 3.20    88         2 Female
+146          1       400     420  820 3.00    67         3 Female
+147          4       540     630 1170 3.00    61         0 Female
+148          2       400     460  860 2.70    62         0   Male
+149          1       530     725 1255 3.20    69         0   Male
+150          1       530     600 1130 2.90    59         5 Female
+151         NA       517     561 1078 3.00    79         2 Female
+152          1       620     580 1200 2.72    56         0   Male
+153          1       590     640 1230 3.30    85         2 Female
+154          2       590     610 1200   NA    72         0   Male
+155          3       620     600 1220 2.22    69         0   Male
+156          2       540     690 1230 3.26    61         2 Female
+157          3       490     540 1030 3.50    95         7 Female
+158          1       540     520 1060 3.10    58         2 Female
+159          3       640     600 1240 3.30    57         2 Female
+160          1       620     620 1240 3.29    80         2 Female
+161          3       680     540 1220   NA    60         0   Male
+162          1       800     670 1470 3.69    69         2 Female
+163          2       510     650 1160 2.65    73         0   Male
+164          2       620     690 1310 3.25    62         0   Male
+165          1       670     650 1320 2.80    64         0   Male
+166          3       560     510 1070 3.36    86         2 Female
+167          1       630     600 1230 2.97    73         0   Male
+168          1       590     740 1330 3.31    71         0   Male
+169          1       630     620 1250 3.05    72         0   Male
+170          2       470     500  970 2.20    84         4   Male
+171          3       550     540 1090 3.30   120         4 Female
+172          1       690     660 1350 3.45    77         6 Female
+173          2       660     700 1360 3.83    80         4 Female
+174          1       600     590 1190 3.00    80         4 Female
+175          2       700     560 1260 3.35    54         8 Female
+176          3       660     690 1350 2.40    54         0   Male
+177          3       540     650 1190 3.10    78         0   Male
+178          3       520     630 1150 3.40    72         2 Female
+179          1       550     580 1130 2.82    78         0   Male
+180          1       600     620 1220 2.90    69         2 Female
+181          1       600     640 1240 3.40    80         0   Male
+182          1       520     480 1000 3.20    76         7 Female
+183          1       490     610 1100 3.20    74         5 Female
+184          1       600     650 1250 3.80    70         0 Female
+185          2       620     520 1140 3.57    72         2 Female
+186          2       530     620 1150 3.33    60         0   Male
+187          2       550     620 1170 2.90    71         0   Male
+188          2       600     600 1200 3.20    70         0 Female
+189          2       610     680 1290 3.10    53         1   Male
+190          1       550     600 1150 3.25    70         0   Male
+191          4       560     580 1140 3.40    75         0   Male
+192          3       670     710 1380 3.80    84         2 Female
+193          1       610     600 1210 3.38    66         0   Male
+194          1       660     720 1380 3.88    72         4 Female
+195          3       630     660 1290 2.75    70         0   Male
+196          2       520     580 1100 2.90    49         0   Male
+197          5       670     750 1420 3.60    81         5 Female
+198          1       550     710 1260 2.80    77         0   Male
+199          1       560     680 1240 2.20    72         1   Male
+200          2       390     410  800   NA    38         4 Female
+201          2       600     500 1100 3.30    60         0 Female
+202          3       560     690 1250 2.85    64         0   Male
+203          3       610     660 1270 3.37    65         2 Female
+204          1       710     760 1470 3.50    72         2 Female
+205          2       710     680 1390 3.55    54         6 Female
+206          4       560     640 1200 3.20    82         2 Female
+207          1       600     630 1230 2.47    82         0   Male
+208          2       540     560 1100 2.72    62         0   Male
+209          5       600     640 1240 3.40    52         0   Male
+210          2       600     570 1170   NA    66         0   Male
+211          1       550     560 1110 3.40    55         5 Female
+212          3       550     550 1100 3.10    63         0   Male
+213          1       620     660 1280 3.10    78         2 Female
+214          1       550     650 1200 2.94    65         3 Female
+215          2       570     580 1150 3.00    64         0   Male
+216          1       530     520 1050   NA    70         2 Female
+217          1       570     600 1170 3.60    70         2 Female
+218          1       620     640 1260 3.60    65         2 Female
+219          1       520     670 1190 3.50    71         0   Male
+220          2       620     640 1260 3.40    54         0   Male
+221          1       520     670 1190 3.50    71         0   Male
+222          2       680     750 1430 3.00    54         0   Male
+223          2       630     710 1340 2.75    70         0   Male
+224          1       730     650 1380 3.56    65         0   Male
+225          1       440     460  900 2.70    82         0   Male
+226          2       670     700 1370 3.68    63         2 Female
+227          3       500     560 1060 3.50    71         4 Female
+228          1       630     560 1190 3.50    75         0   Male
+229          2       680     620 1300 3.40    60         5 Female
+230          1       530     580 1110 2.60    54         2 Female
+231          2       630     620 1250 3.25    68         0 Female
+232          1       600     620 1220 3.30    70         0   Male
+233          1       700     560 1260 3.20    90         0   Male
+234          1       590     620 1210 2.90    72         0   Male
+235          1       670     670 1340 3.85    41         2 Female
+236          1       780     640 1420 3.40    80         0 Female
+237          3       660     620 1280 3.40    68         0   Male
+238          2       600     580 1180   NA    64         2   Male
+239          2       510     530 1040 2.70    78         0   Male
+240          1       800     740 1540 3.81    65         0   Male
+241          2       740     660 1400 3.40    64         9 Female
+242          1       780     620 1400 3.23    78         0   Male
+243          3       440     560 1000 3.10    42         0   Male
+244          1       700     550 1250 2.89    60         6 Female
+245          1       660     560 1220 2.81    59         0   Male
+246          3       520     510 1030 3.00    54         4 Female
+247          2       600     620 1220 3.77    70         0   Male
+248          2       760     640 1400 3.30    52         0   Male
+249          1       680     740 1420 3.00    88         0   Male
+250          1       520     590 1110 2.90    60         5   Male
+251          1       510     730 1240 3.50    66         5   Male
+252          4       600     600 1200 3.60    55         0   Male
+253          1       650     680 1330 3.70    74         0   Male
+254          1       700     670 1370 3.20    59         0   Male
+255          1       650     620 1270 2.87    84         0   Male
+256          2       520     520 1040 3.30    68         0 Female
+257          2       580     530 1110 3.30    74         2 Female
+258          1       600     600 1200 3.45    58         0   Male
+259          1       520     710 1230 3.10    62         0   Male
+260          1       750     780 1530 3.71    84         0   Male
+261          1       650     650 1300 3.30    72         0   Male
+262          2       550     580 1130 3.30    52         0   Male
+263          1       650     600 1250   NA    80         6 Female
+264          1       640     640 1280 3.73    68         0   Male
+265          4       660     670 1330 3.13    71         2 Female
+266          2       640     640 1280 3.89    55         2 Female
+267          1       530     650 1180 3.05    68         0   Male
+268          1       690     650 1340 3.20    61         0   Male
+269          1       630     610 1240 3.25    80         0   Male
+270          1       600     550 1150 2.90    66         5 Female
+271          2       560     620 1180 3.00    70         0   Male
+272          1       720     690 1410 3.50    78         4 Female
+273          2       610     640 1250 3.50    88         2 Female
+274          2       720     690 1410 3.60    72         2 Female
+275          2       590     560 1150 3.40    65         5 Female
+276          2       620     570 1190 3.25    63         5 Female
+277          2       550     690 1240 2.70    70         0   Male
+278          1       800     670 1470 3.78    72         0   Male
+279          7       670     690 1360 4.00    63         2 Female
+280          1       550     600 1150 3.00    68         0   Male
+281          2       620     470 1090 3.30    64         1   Male
+282          1       520     620 1140 2.80    64         6 Female
+283          1       440     640 1080 2.50    60         0   Male
+284          1       720     700 1420 3.50    68         6 Female
+285          1       390     530  920 2.80    70         2 Female
+286          1       560     560 1120 3.40    63         4 Female
+287          1       570     610 1180 3.00    57         0   Male
+288          1       660     600 1260 3.27    84         2 Female
+289          4       620     640 1260 3.50    74         5   Male
+290          3       660     570 1230 3.00    61         0   Male
+291          1       630     610 1240 3.60    78         5 Female
+292          2       610     600 1210 3.25    65         0   Male
+293          4       540     680 1220 3.00    68         0 Female
+294          1       570     570 1140 2.75    76         6 Female
+295          1       600     670 1270 2.90    54         0   Male
+296          1       600     600 1200 3.00    56         3 Female
+297          3       530     640 1170 3.00    88         0   Male
+298          2       560     580 1140 2.90    77         3 Female
+299          2       560     560 1120 3.36    52         1   Male
+300          2       500     580 1080 3.25    62         0   Male
+301          1       560     480 1040 3.50    80         2 Female
+302          1       500     700 1200 2.76    60         0   Male
+303          2       640     650 1290   NA    67         0   Male
+304          3       660     570 1230 2.75    51         0   Male
+305          2       550     550 1100 3.25    81         2 Female
+306          1       630     680 1310 3.00    62         0   Male
+307          2       700     600 1300 2.80    84         0   Male
+308          1       560     560 1120 3.40    75         5 Female
+309          1       580     650 1230 3.25    60         0   Male
+310          3       800     600 1400 3.50    76        10 Female
+311          2       460     520  980 3.05    65         0   Male
+312          2       700     740 1440 3.18    65         0   Male
+313          2       660     650 1310 3.00    64         2 Female
+314          1       500     550 1050 2.23    75         7 Female
+315          1       600     630 1230 3.40    93         2 Female
+316          2       650     620 1270 3.30    75         2 Female
+317          3       640     620 1260 3.43    82         0   Male
+318          1       620     550 1170 3.88    80         2 Female
+319          1       570     480 1050 3.45    69         0   Male
+320          3       540     560 1100 3.00    85         2 Female
+321          2       670     680 1350 3.00    76         0   Male
+322          1       620     620 1240 3.18    76         0   Male
+323          3       650     600 1250 2.20    65         0   Male
+324          1       560     570 1130 3.29    67         4 Female
+325          1       480     690 1170 3.50    64         8 Female
+326          1       460     520  980 2.80    71         0   Male
+327          3       500     610 1110 2.90    65         2 Female
+328          3       680     680 1360 3.50    83         0   Male
+329          1       550     650 1200 2.50    65         0   Male
+330          2       630     680 1310 3.25    77         0   Male
+331          2       620     640 1260 2.90    66         0   Male
+332          2       560     620 1180 3.66    62         0   Male
+333          3       590     630 1220 3.01    58         4 Female
+334          1       530     510 1040 2.25    48         3   Male
+335          1       690     500 1190 3.20    61         0   Male
+336          1       550     600 1150 3.35    50         0   Male
+337          1       600     600 1200 3.00    72         2 Female
+338          2       610     600 1210 3.00    74         0   Male
+339          2       600     600 1200 3.48    80         0   Male
+340          1       750     500 1250 2.88    90         0   Male
+341          2       470     420  890 2.60    72         6 Female
+342          1       550     490 1040 2.75    64         0   Male
+343          1       540     600 1140 3.30    72         0   Male
+344          1       530     600 1130 3.25    70         0   Male
+345          1       540     670 1210 3.30    84         0   Male
+346          1       680     580 1260 3.20    87         4 Female
+347          1       510     530 1040 2.60    60        NA   Male
+348          2       500     650 1150 3.00    60         0   Male
+349          3       680     610 1290 3.25    80         5 Female
+350          1       500     650 1150 3.30    70         0   Male
+351          2       570     580 1150 3.25    78         4 Female
+352          1       540     550 1090 2.83    75         0   Male
+353          1       550     560 1110 3.30    42         5 Female
+354          2       680     750 1430 3.60    80         0   Male
+355          2       630     730 1360 3.70    72         2 Female
+356          1       650     670 1320 2.83    96         6 Female
+357          3       680     650 1330 3.30    95         0   Male
+358          1       550     540 1090 3.44    80         3 Female
+359          1       600     620 1220 3.00    74         0   Male
+360          2       540     450  990 3.27    78         2 Female
+361          2       550     550 1100 2.30    72         0   Male
+362          1       500     510 1010 2.60    91         5 Female</code></pre>
+</div>
+</div>
+<section id="questions-1" class="level2">
+<h2 class="anchored" data-anchor-id="questions-1">Questions</h2>
+<p>Q.1. <em>What kind</em> of students are these?<br>
+A.1. The <em>variables</em> <code>Gender</code>, and <code>Year</code> both answer to this Question. And they are both Qualitative/Categorical variables, of course.<br>
+Q.2. <em>What is</em> their status in their respective families?<br>
+A.2. Hmm…they are either first-born, or second-born, or third…etc. While this is <strong>recorded</strong> as a number, it is <strong>still a Qualitative</strong> variable<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>! Think! Can you do math operations with <code>BirthOrder</code>? Like <code>mean</code> or <code>median</code>?<br>
+Q.3.<strong>How big</strong> are the families?<br>
+A.3. Clearly, the variable that answers is <code>Siblings</code> and since the question is synonymous with “how many”, this is a Quantitative variable.<br>
+</p>
+</section>
+</div>
+</div>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c73206175746f2d6772617068203e7d7d--what-is-a-data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c73206175746f2d6772617068203e7d7d--what-is-a-data-visualization"><iconify-icon role="img" inline="" icon="material-symbols:auto-graph" aria-label="Icon auto-graph from material-symbols Iconify.design set." title="Icon auto-graph from material-symbols Iconify.design set."></iconify-icon> What is a Data Visualization?</h2>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920636172626f6e2063686172742d6e6574776f726b203e7d7d--data-viz-data-geometry" class="level3">
+<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920636172626f6e2063686172742d6e6574776f726b203e7d7d--data-viz-data-geometry"><iconify-icon role="img" inline="" icon="carbon:chart-network" aria-label="Icon chart-network from carbon Iconify.design set." title="Icon chart-network from carbon Iconify.design set."></iconify-icon> Data Viz = Data + Geometry</h3>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206661362d736f6c696420736861706573203e7d7d--shapes" class="level4">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206661362d736f6c696420736861706573203e7d7d--shapes"><iconify-icon role="img" inline="" icon="fa6-solid:shapes" aria-label="Icon shapes from fa6-solid Iconify.design set." title="Icon shapes from fa6-solid Iconify.design set."></iconify-icon> Shapes</h4>
+<p><span style="background: yellow;">Data Visualization is the act of “mapping” a <strong>geometric aspect/aesthetic</strong> to a <strong>variable</strong> in data.</span> The aesthetic then varies in accordance with the data variable, creating (part of) a chart.</p>
+<p>What might be the geometric aesthetics available to us? An <span style="background: yellow;">aesthetic</span> is a geometric property, such as <code>x-coordinate</code>, <code>y-coordinate</code>, <code>length/breadth/height</code>,<code>radius</code>,<code>shape</code>,<code>size</code>, <code>linewidth</code>, <code>linetype</code>, and even <code>colour</code>…</p>
+<div id="fig-common-geometric-aesthetics" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-common-geometric-aesthetics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../../../../content/materials/images/common-aesthetics-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-common-geometric-aesthetics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Common Geometric Aesthetics in Charts
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732066756e6374696f6e203e7d7d--mapping" class="level4">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732066756e6374696f6e203e7d7d--mapping"><iconify-icon role="img" inline="" icon="material-symbols:function" aria-label="Icon function from material-symbols Iconify.design set." title="Icon function from material-symbols Iconify.design set."></iconify-icon> Mapping</h4>
+<p>What does this “mapping” mean? <span style="background: yellow;"><strong>That the geometric aesthetics are used to <em>represent</em> qualitative or quantitative variables from your data, by varying in accordance to the data variable</strong></span>.</p>
+<p>For instance, <code>length</code> or <code>height</code> of a <code>bar</code> can be made proportional to the<code>age</code> or <code>income</code> of a person. <code>Colour</code> of points can be mapped to <code>gender</code>, with a unique <code>colour</code> for each <code>gender</code>. <code>Position</code> along an axis x can vary in accordance with a <code>height</code> variable and position along the y axis can vary with a <code>bodyWeight</code> variable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A chart may use more than one aesthetic: <code>position</code>, <code>shape</code>, <code>colour</code>, <code>height</code> and <code>angle</code>,<code>pattern</code> or <code>texture</code> to name several. Usually, each aesthetic is mapped to <strong>just one</strong> variable to ensure there is no cognitive error. There is of course a choice and you should be able to <strong>map</strong> any kind of variable to any geometric aspect/aesthetic that may be available.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Natural Mapping
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that here is also a “natural” mapping between aesthetic and [<strong>kind of variable</strong>] <a href="#sec-data-types" class="quarto-xref">Section&nbsp;5</a>, Quantitative or Qualitative. For instance, <code>shape</code> is rarely mapped to a Quantitative variable; we understand this because the nature of variation between the Quantitative variable and the <code>shape</code> aesthetic is not similar (i.e.&nbsp;not continuous). Bad choices may lead to bad, or worse, misleading charts!</p>
+</div>
+</div>
+<p>In the above chart, it is pretty clear what kind of variable is plotted on the <code>x-axis</code> and the <code>y-axis</code>. What about <code>colour</code>? Could this be considered a <code>z-axis</code> in the chart? There are also other aspects that you can choose (not explicitly shown here) such as the <code>plot theme</code>(colours, fonts, backgrounds etc), which may <strong>not be mapped</strong> to data, but are nonetheless choices to be made. We will get acquainted with this aspect as we build charts.</p>
+</section>
+</section>
+</section>
+<section id="sec-data-viz" class="level2">
+<h2 class="anchored" data-anchor-id="sec-data-viz"><iconify-icon role="img" inline="" icon="flat-color-icons:workflow" aria-label="Icon workflow from flat-color-icons Iconify.design set." title="Icon workflow from flat-color-icons Iconify.design set."></iconify-icon> Basic Types of Charts</h2>
+<p>We can think of simple visualizations as <span style="background: yellow;">combinations of aesthetics, mapped to combinations of variables</span>. Some examples:</p>
+<table class="caption-top table">
+<caption>Geometries , Combinations, and Graphs</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable #1</th>
+<th>Variable #2</th>
+<th>Chart Names</th>
+<th>Chart Shape</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quant</td>
+<td>None</td>
+<td>Histogram and Density</td>
+<td><iconify-icon role="img" inline="" icon="mdi-light:chart-histogram" style="font-size: 4em;" aria-label="Icon chart-histogram from mdi-light Iconify.design set." title="Icon chart-histogram from mdi-light Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="mdi:chart-bell-curve" style="font-size: 4em;" aria-label="Icon chart-bell-curve from mdi Iconify.design set." title="Icon chart-bell-curve from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:box-plot" style="font-size: 4em;" aria-label="Icon box-plot from carbon Iconify.design set." title="Icon box-plot from carbon Iconify.design set."></iconify-icon></td>
+</tr>
+<tr class="even">
+<td>Qual</td>
+<td>None</td>
+<td>Bar Chart</td>
+<td><iconify-icon role="img" inline="" icon="ion:bar-chart" style="font-size: 4em;" aria-label="Icon bar-chart from ion Iconify.design set." title="Icon bar-chart from ion Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="ic:outline-stacked-bar-chart" style="font-size: 4em;" aria-label="Icon outline-stacked-bar-chart from ic Iconify.design set." title="Icon outline-stacked-bar-chart from ic Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:chart-bar-stacked" style="font-size: 4em;" aria-label="Icon chart-bar-stacked from carbon Iconify.design set." title="Icon chart-bar-stacked from carbon Iconify.design set."></iconify-icon></td>
+</tr>
+<tr class="odd">
+<td>Quant</td>
+<td>Quant</td>
+<td>Scatter Plot, Line Chart, Bubble Plot, Area Chart</td>
+<td><iconify-icon role="img" inline="" icon="ph:chart-scatter-bold" style="font-size: 4em;" aria-label="Icon chart-scatter-bold from ph Iconify.design set." title="Icon chart-scatter-bold from ph Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="healthicons:chart-line" style="font-size: 4em;" aria-label="Icon chart-line from healthicons Iconify.design set." title="Icon chart-line from healthicons Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:chart-bubble" style="font-size: 4em;" aria-label="Icon chart-bubble from carbon Iconify.design set." title="Icon chart-bubble from carbon Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="ic:twotone-area-chart" style="font-size: 4em;" aria-label="Icon twotone-area-chart from ic Iconify.design set." title="Icon twotone-area-chart from ic Iconify.design set."></iconify-icon></td>
+</tr>
+<tr class="even">
+<td>Quant</td>
+<td>Qual</td>
+<td>Pie Chart, Donut Chart, Column Chart, Box-Whisker Plot, Radar Chart, Bump Chart, Tree Diagram, Choropleth and Symbol Maps</td>
+<td><iconify-icon role="img" inline="" icon="teenyicons:pie-chart-solid" style="font-size: 4em;" aria-label="Icon pie-chart-solid from teenyicons Iconify.design set." title="Icon pie-chart-solid from teenyicons Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="teenyicons:donut-chart-outline" style="font-size: 4em;" aria-label="Icon donut-chart-outline from teenyicons Iconify.design set." title="Icon donut-chart-outline from teenyicons Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="fa6-solid:chart-column" style="font-size: 4em;" aria-label="Icon chart-column from fa6-solid Iconify.design set." title="Icon chart-column from fa6-solid Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="fluent:data-whisker-20-regular" style="font-size: 4em;" aria-label="Icon data-whisker-20-regular from fluent Iconify.design set." title="Icon data-whisker-20-regular from fluent Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:chart-radar" style="font-size: 4em;" aria-label="Icon chart-radar from carbon Iconify.design set." title="Icon chart-radar from carbon Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:chart-parallel" style="font-size: 4em;" aria-label="Icon chart-parallel from carbon Iconify.design set." title="Icon chart-parallel from carbon Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="mdi:family-tree" style="font-size: 4em;" aria-label="Icon family-tree from mdi Iconify.design set." title="Icon family-tree from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="arcticons:emoji-world-map" style="font-size: 4em;" aria-label="Icon emoji-world-map from arcticons Iconify.design set." title="Icon emoji-world-map from arcticons Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="gis:statistic-map" style="font-size: 4em;" aria-label="Icon statistic-map from gis Iconify.design set." title="Icon statistic-map from gis Iconify.design set."></iconify-icon></td>
+</tr>
+<tr class="odd">
+<td>Qual</td>
+<td>Qual</td>
+<td>Stacked Bar Chart, Mosaic Chart, Sankey, Chord Diagram, Network Diagram</td>
+<td><iconify-icon role="img" inline="" icon="iwwa:chart-style4" style="font-size: 4em;" aria-label="Icon chart-style4 from iwwa Iconify.design set." title="Icon chart-style4 from iwwa Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:chart-marimekko" style="font-size: 4em;" aria-label="Icon chart-marimekko from carbon Iconify.design set." title="Icon chart-marimekko from carbon Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:sankey-diagram-alt" style="font-size: 4em;" aria-label="Icon sankey-diagram-alt from carbon Iconify.design set." title="Icon sankey-diagram-alt from carbon Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="carbon:network-4" style="font-size: 4em;" aria-label="Icon network-4 from carbon Iconify.design set." title="Icon network-4 from carbon Iconify.design set."></iconify-icon></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920666c75656e742d6d646c32206465636973696f6e2d736f6c6964203e7d7d--conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e69667920666c75656e742d6d646c32206465636973696f6e2d736f6c6964203e7d7d--conclusion"><iconify-icon role="img" inline="" icon="fluent-mdl2:decision-solid" aria-label="Icon decision-solid from fluent-mdl2 Iconify.design set." title="Icon decision-solid from fluent-mdl2 Iconify.design set."></iconify-icon> Conclusion</h2>
+<p>So there we have it:</p>
+<ul>
+<li>Questions lead to Types of Variables (Quant and Qual)<br>
+</li>
+<li>Further Questions lead to <em>relationships</em> between them, which we describe using Data Visualizations<br>
+</li>
+<li>Data Visualizations are Data mapped onto Geometry&nbsp;</li>
+<li>Multiple Variable-to-Geometry Mappings = A Complete Data Visualization<br>
+</li>
+</ul>
+<p>You might think of all these Questions, Answers, Mapping as being equivalent to <strong>metaphors</strong> as a language in itself. So creating a chart is like stacking up a set of metaphors.</p>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d--references" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff-7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d--references"><iconify-icon role="img" inline="" icon="ooui:references-ltr" aria-label="Icon references-ltr from ooui Iconify.design set." title="Icon references-ltr from ooui Iconify.design set."></iconify-icon> References</h2>
+<ol type="1">
+<li>Randomized Trials:<br></li>
+</ol>
+{{&lt; youtube eGRd8jBdNYg &gt;}}
+<ol start="2" type="1">
+<li><p>Martyn Shuttleworth, Lyndsay T Wilson (Jun 26, 2009). <em>What is the Scientific Method?</em> Retrieved Mar 12, 2024 from Explorable.com: <a href="https://explorable.com/what-is-the-scientific-method" class="uri">https://explorable.com/what-is-the-scientific-method</a></p></li>
+<li><p><u><a href="https://safetyculture.com/topics/design-of-experiments/" class="uri">https://safetyculture.com/topics/design-of-experiments/</a></u></p></li>
+<li><p><a href="https://openintro-ims.netlify.app/data-hello.html#variable-types">Open Intro Stats: Types of Variables</a><br>
+</p></li>
+<li><p>Lock, Lock, Lock, Lock, and Lock. <em>Statistics: Unlocking the Power of Data</em>, Third Edition, Wiley, 2021. <a href="https://www.wiley.com/en-br/Statistics:+Unlocking+the+Power+of+Data,+3rd+Edition-p-9781119674160)" class="uri">https://www.wiley.com/en-br/Statistics:+Unlocking+the+Power+of+Data,+3rd+Edition-p-9781119674160)</a><br>
+</p></li>
+<li><p>Claus Wilke. <em>Fundamentals of Data Visualization</em>. <a href="https://clauswilke.com/dataviz/" class="uri">https://clauswilke.com/dataviz/</a></p></li>
+<li><p>Tim C. Hesterberg (2015). <em>What Teachers Should Know About the Bootstrap: Resampling in the Undergraduate Statistics Curriculum</em>, The American Statistician, 69:4, 371-386, <u><a href="DOI:10.1080/00031305.2015.1089789" class="uri">DOI:10.1080/00031305.2015.1089789</a></u>. <u><a href="hesterberg2015.pdf">PDF here</a></u></p></li>
+</ol>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.xcode.in/genes-and-personality/how-genes-influence-your-math-ability/" class="uri">https://www.xcode.in/genes-and-personality/how-genes-influence-your-math-ability/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>How might this data have been obtained? By asking people in a survey and getting <strong>Yes/No</strong> answers!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Qualitative variables are called <em>Factor variables</em> in R, and are stored, internally, as numeric variables together with their levels. The actual values of the numeric variable are 1, 2, and so on.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{2021,
+  author = {},
+  title = {\textless Iconify-Icon Icon=“icon-Park-Twotone:data-User”
+    Width=“1.2em”
+    Height=“1.2em”\textgreater\textless/Iconify-Icon\textgreater{}
+    {Data}},
+  date = {2021-11-01},
+  url = {https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/01-NatureofData/},
+  langid = {en},
+  abstract = {The Science of Surprise}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2021" class="csl-entry quarto-appendix-citeas" role="listitem">
+<span>“&lt;Iconify-Icon Icon=<span>‘icon-Park-Twotone:data-User’</span>
+Width=<span>‘1.2em’</span>
+Height=<span>‘1.2em’</span>&gt;&lt;/Iconify-Icon&gt; Data.”</span> 2021.
+November 1, 2021. <a href="https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/01-NatureofData/">https://nocodeviz.netlify.app/content/courses/NoCodeViz/Modules/01-NatureofData/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nocodeviz\.netlify\.app");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

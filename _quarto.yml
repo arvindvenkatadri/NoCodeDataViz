@@ -5,6 +5,9 @@ project:
     port: 4200
     browser: true
 
+execute:
+  freeze: auto
+
 website:
   page-navigation: true
   back-to-top-navigation: true
@@ -24,6 +27,18 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+  sidebar:
+    style: "docked"
+    background: secondary
+    alignment: left
+    collapse-level: 2
+    search: true
+    logo: "content/materials/images/1book25.jpg"
+    contents:
+      - section: "No Code Data Viz"
+        href: content/courses/NoCodeViz/listing.qmd
+        contents: 
+        - content/courses/NoCodeDataViz/Modules/05-NatureData/index.qmd
 
 format:
   html:

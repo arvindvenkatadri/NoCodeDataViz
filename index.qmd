@@ -1,11 +1,363 @@
 ---
-title: "NoCodeDataViz"
+title: "No Code Data Viz"
+sidebar: false
+toc: false
+page-layout: full
+body-classes: ncv-page
 ---
 
-This is a Quarto website.
+<!-- ============================================================
+  HERO
+  ============================================================ -->
+<section class="ncv-hero">
+  <div class="ncv-hero-eyebrow">✦ Srishti Manipal Institute · Bangalore</div>
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+  <h1>
+ <span class="highlight">No Code</span><br>Data Visualization
+  </h1>
 
-```{r}
-1 + 1
-```
+  <p class="ncv-hero-sub">
+ "It is a truth universally acknowledged, that a Srishti Art and Design student,
+ in possession of a good Mac, must be terrified of coding."
+  </p>
+  <p class="ncv-hero-attribution">— Code and Prejudice · Jane Austen · 1813</p>
+
+  <p class="ncv-hero-desc">
+ A complete course in data storytelling, visualization, and analysis —
+ using only point-and-click tools. No code. No intimidation. Just insight.
+  </p>
+
+  <a href="content/courses/NoCodeViz/listing.html" class="ncv-btn-primary">
+ Start the Course &rarr;
+  </a>
+  <a href="#about" class="ncv-btn-outline">Learn More</a>
+</section>
+
+
+<!-- ============================================================
+  STATS BAR
+  ============================================================ -->
+<div class="ncv-stats">
+  <div class="ncv-stat">
+  <div class="ncv-stat-number">20+</div>
+  <div class="ncv-stat-label">Learning Modules</div>
+</div>
+
+<div class="ncv-stat">
+  <div class="ncv-stat-number">30+</div>
+  <div class="ncv-stat-label">Real Datasets</div>
+</div>
+
+<div class="ncv-stat">
+  <div class="ncv-stat-number">3</div>
+  <div class="ncv-stat-label">Visualization Tools</div>
+</div>
+<div class="ncv-stat">
+  <div class="ncv-stat-number">100+</div>
+  <div class="ncv-stat-label">Curated Resources</div>
+</div>
+</div>
+
+
+<!-- ============================================================
+  ABOUT
+  ============================================================ -->
+<section class="ncv-section" id="about">
+<div class="ncv-container">
+  <span class="ncv-section-label">What is this?</span>
+  <h2 class="ncv-section-title">Data Science for Curious Minds<br>— No Code Required</h2>
+  <p class="ncv-section-body">
+This course takes art and design students on a journey through data — exploring,
+visualizing, questioning, and storytelling — using only free, visual, drag-and-drop tools.
+  </p>
+
+<div class="ncv-about-grid">
+
+  <div class="ncv-about-card">
+  <div class="ncv-about-icon">🎨</div>
+  <h3>Designed for Designers</h3>
+  <p>Built for students at Srishti who think visually. Data becomes a design material —
+  something to sketch with, arrange, and make beautiful.</p>
+</div>
+ 
+<div class="ncv-about-card">
+  <div class="ncv-about-icon">📊</div>
+  <h3>Real Data, Real Stories</h3>
+  <p>From Olympic swimming results to life expectancy trends — every module
+  uses authentic datasets drawn from human experience.</p>
+</div>
+
+<div class="ncv-about-card">
+  <div class="ncv-about-icon">🔬</div>
+  <h3>From Charts to Inference</h3>
+  <p>Go beyond making pretty pictures. Learn to ask sharp questions, spot patterns,
+  and test whether your insights actually matter — statistically.</p>
+</div>
+</div>
+</div>
+</section>
+
+<hr class="ncv-divider">
+
+
+<!-- ============================================================
+  THE RECIPE
+  ============================================================ -->
+<section class="ncv-section ncv-section-dark" id="recipe">
+<div class="ncv-container">
+  <span class="ncv-section-label">The Curriculum</span>
+  <h2 class="ncv-section-title">The Recipe</h2>
+  <p class="ncv-section-body" style="color: rgba(255,255,255,0.65);">
+Great data analysis is like good cooking. We follow a recipe —
+from sourcing raw ingredients to serving a finished dish.
+  </p>
+
+<div class="ncv-recipe-grid">
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">1</div>
+  <div>
+  <h3>🛒 Get the Ingredients Together</h3>
+  <p>Learn to shop for data. Appreciate how it was gathered, what it looks like,
+ and how to spot a good variable.</p>
+  </div>
+</div>
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">2</div>
+  <div>
+  <h3>🔪 Wash, Clean, Peel, Grate, Fry</h3>
+  <p>Rapidly create different kinds of charts and tables.
+ Experiment with colour, size, and filtering.</p>
+  </div>
+</div>
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">3</div>
+  <div>
+ <h3>🍴 Sample and Taste</h3>
+ <p>Ask questions of your chart. Does it need more salt?
+ Try to answer with graphs, tables, or plain numbers.</p>
+  </div>
+</div>
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">4</div>
+  <div>
+ <h3>✨ The Element of Surprise</h3>
+ <p>Use your sense of surprise. Develop the intuition
+ that matches data types to the right visual form.</p>
+  </div>
+</div>
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">5</div>
+  <div>
+ <h3>🧪 Does it Matter?</h3>
+ <p>How significant is your insight? Learn when a pattern is real
+ and when it's just noise in the data.</p>
+  </div>
+</div>
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">6</div>
+  <div>
+ <h3>🍽️ Lay the Table</h3>
+ <p>Tell the story. Annotate graphs with text and insight.
+ Export clean, shareable documents. Decide what to do next.</p>
+  </div>
+</div>
+
+<div class="ncv-recipe-card">
+  <div class="ncv-recipe-num">7</div>
+  <div>
+ <h3>🔁 Replicate and Reproduce</h3>
+ <p>The best analysts are systematic. Learn to document
+ your process and run the same recipe on new data.</p>
+  </div>
+</div>
+
+  </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  MODULES
+  ============================================================ -->
+<section class="ncv-section ncv-section-alt" id="modules">
+  <div class="ncv-container">
+ <span class="ncv-section-label">What you'll explore</span>
+ <h2 class="ncv-section-title">Module Highlights</h2>
+ <p class="ncv-section-body">
+Each module dives into a specific type of data or visual story.
+Browse the full listing or jump into any topic that sparks your curiosity.
+ </p>
+
+<div class="ncv-recipe-grid">
+
+<a href="content/courses/NoCodeViz/Modules/01-NatureofData/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-blue">🗂️</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-blue">Foundations</span>
+ <h3>The Nature of Data</h3>
+ <p>Variables, types, and the science of surprise. What does data actually look like?</p>
+</div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/20-Counts/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-teal">📊</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-teal">Categorical</span>
+ <h3>Counts &amp; Bar Charts</h3>
+ <p>Visualizing single qualitative variables. Happy families are all alike.</p>
+  </div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/22-Quantity/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-amber">📏</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-amber">Quantities</span>
+ <h3>Quantities</h3>
+ <p>When data is numeric — histograms, dot plots, and distribution shapes.</p>
+  </div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/28-Groups/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-purple">🔮</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-purple">Comparisons</span>
+ <h3>Groups &amp; Comparisons</h3>
+ <p>Side-by-side comparisons across categories and dimensions.</p>
+  </div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/35-Proportions/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-rose">🥧</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-rose">Parts &amp; Wholes</span>
+ <h3>Proportions</h3>
+ <p>Pies, donuts, treemaps — when the part-to-whole relationship is the story.</p>
+  </div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/70-Maps/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-green">🗺️</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-green">Space</span>
+ <h3>Maps &amp; Space</h3>
+ <p>Choropleths, cartograms, and geocoding. Where does your data live?</p>
+  </div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/80-Time/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-indigo">⏱️</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-indigo">Time</span>
+ <h3>Change Over Time</h3>
+ <p>Line charts, slope graphs, and bump charts for temporal stories.</p>
+  </div>
+</a>
+
+<a href="content/courses/NoCodeViz/Modules/100-Networks/index.html" class="ncv-module-card">
+  <div class="ncv-module-thumb mod-coral">🕸️</div>
+  <div class="ncv-module-body">
+ <span class="ncv-module-tag tag-coral">Relationships</span>
+ <h3>Networks</h3>
+ <p>Nodes, edges, and connections. Who is linked to whom, and how?</p>
+  </div>
+</a>
+
+
+
+</div>
+
+<div style="text-align:center; margin-top: 2.5rem;">
+<a href="content/courses/NoCodeViz/listing.html" class="ncv-btn-primary"
+style="background: linear-gradient(90deg, var(--ncv-indigo), var(--ncv-purple));">
+  View All Modules &rarr;
+</a>
+</div>
+</div>
+</section>
+
+
+<!-- ============================================================
+  TOOLS
+  ============================================================ -->
+<section class="ncv-section" id="tools">
+ <div class="ncv-container">
+ <span class="ncv-section-label">Zero Coding. Zero Barriers.</span>
+ <h2 class="ncv-section-title">The Toolkit</h2>
+ <p class="ncv-section-body">
+Every tool in this course is free, runs in a browser or on your laptop,
+and requires no programming whatsoever.
+ </p>
+
+<div class="ncv-tools-grid">
+
+<a href="https://orangedatamining.com/" target="_blank" class="ncv-tool-card">
+  <div class="ncv-tool-icon">🍊</div>
+  <h4>Orange Data Mining</h4>
+  <p>Point-and-click data science from simple charts all the way to machine learning.</p>
+</a>
+
+<a href="https://app.rawgraphs.io/" target="_blank" class="ncv-tool-card">
+  <div class="ncv-tool-icon">📐</div>
+  <h4>RAWGraphs</h4>
+  <p>Browser-based. No login. Beautiful unusual charts in minutes.</p>
+</a>
+
+<a href="https://academy.datawrapper.de/" target="_blank" class="ncv-tool-card">
+  <div class="ncv-tool-icon">✍️</div>
+  <h4>Datawrapper</h4>
+  <p>Publication-quality charts and maps. Used by major newsrooms worldwide.</p>
+</a>
+
+<a href="https://flourish.studio/" target="_blank" class="ncv-tool-card">
+  <div class="ncv-tool-icon">🌸</div>
+  <h4>Flourish Studio</h4>
+  <p>Stunning animated data stories and scrollytelling with zero code.</p>
+</a>
+
+<a href="https://observablehq.com/plot/" target="_blank" class="ncv-tool-card">
+  <div class="ncv-tool-icon">🔭</div>
+  <h4>Observable Plot</h4>
+  <p>Explore and share data in the browser. A no-code mode available too.</p>
+</a>
+
+</div>
+</div>
+</section>
+
+
+<!-- ============================================================
+  CTA
+  ============================================================ -->
+<section class="ncv-cta">
+<div style="position:relative; z-index:1;">
+ <h2>Ready to Tell Your Data Story?</h2>
+ <p>
+Join students at Srishti Manipal Institute in discovering how data can
+surprise, persuade, and inspire — no code required.
+ </p>
+ <a href="content/courses/NoCodeViz/listing.html" class="ncv-btn-white">
+Begin Module 1 &rarr;
+ </a>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  AUTHOR
+  ============================================================ -->
+
+<div class="ncv-author">
+  <div class="ncv-author-avatar">AV</div>
+  <div class="ncv-author-info">
+ <h4>Arvind V.</h4>
+ <p>External Faculty · Srishti Manipal Institute of Art, Design &amp; Technology<br>
+ Bangalore, India</p>
+  </div>
+</div>
+

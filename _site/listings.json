@@ -1,0 +1,31 @@
+[
+  {
+    "listing": "/content/courses/NoCodeViz/listing.html",
+    "items": [
+      "/content/courses/NoCodeViz/Modules/01-NatureofData/index.html",
+      "/content/courses/NoCodeViz/Modules/05-IntroductiontoOrange/index.html",
+      "/content/courses/NoCodeViz/Modules/10-SummaryStats/index.html",
+      "/content/courses/NoCodeViz/Modules/20-Counts/index.html",
+      "/content/courses/NoCodeViz/Modules/24-Densities/index.html",
+      "/content/courses/NoCodeViz/Modules/22-Quantity/index.html",
+      "/content/courses/NoCodeViz/Modules/28-Groups/index.html",
+      "/content/courses/NoCodeViz/Modules/30-Change/index.html",
+      "/content/courses/NoCodeViz/Modules/32-Rhythm/index.html",
+      "/content/courses/NoCodeViz/Modules/35-Proportions/index.html",
+      "/content/courses/NoCodeViz/Modules/40-Flows/index.html",
+      "/content/courses/NoCodeViz/Modules/54-Structures/index.html",
+      "/content/courses/NoCodeViz/Modules/60-Rankings/index.html",
+      "/content/courses/NoCodeViz/Modules/70-Maps/index.html",
+      "/content/courses/NoCodeViz/Modules/80-Time/index.html",
+      "/content/courses/NoCodeViz/Modules/100-Networks/index.html",
+      "/content/courses/NoCodeViz/Modules/140-Surveys/index.html",
+      "/content/courses/NoCodeViz/Modules/150-NoFreeHunch/index.html"
+    ]
+  },
+  {
+    "listing": "/content/courses/listing.html",
+    "items": [
+      "/content/courses/NoCodeViz/listing.html"
+    ]
+  }
+]

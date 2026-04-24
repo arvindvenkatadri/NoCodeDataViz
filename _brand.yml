@@ -1,0 +1,89 @@
+# =============================================================
+#  _brand.yml — NoCodeDataViz
+#  Applies consistently to all HTML pages, module pages,
+#  listings, and any future Shiny / dashboard outputs.
+# =============================================================
+
+meta:
+  name: "No Code Data Visualization"
+  link: "https://nocodeviz.netlify.app"
+
+logo:
+  small: "content/materials/icon-park-twotone--concept-sharing.svg"
+
+# -------------------------------------------------------------
+# COLORS
+# -------------------------------------------------------------
+color:
+  palette:
+    # Core brand palette
+    indigo:    "#4361ee"   # primary — links, buttons, active nav
+    purple:    "#6a4c93"   # secondary — accents, sidebar bg
+    teal:      "#2ec4b6"   # success / callout tips
+    coral:     "#ff6b6b"   # danger / warnings
+    amber:     "#ffd166"   # warning / highlights
+    dark:      "#1a1a2e"   # near-black — headings, body text
+    mid:       "#2d3561"   # dark blue-grey — used in hero/navbar
+    light:     "#f8f9ff"   # off-white page background
+    white:     "#ffffff"
+    muted:     "#6c757d"   # secondary text / captions
+
+  # Bootstrap semantic role → palette name mapping
+  foreground: dark
+  background: white
+  primary:    indigo
+  secondary:  purple
+  success:    teal
+  info:       indigo
+  warning:    amber
+  danger:     coral
+  light:      light
+  dark:       dark
+
+# -------------------------------------------------------------
+# TYPOGRAPHY
+# -------------------------------------------------------------
+typography:
+  fonts:
+    # Display / heading font — literary feel, fits the Austen theme
+    - family: "Playfair Display"
+      source: google
+      weight: [700, 900]
+      style: [normal, italic]
+
+    # Body font — modern, highly legible at all sizes
+    - family: "Inter"
+      source: google
+      weight: [400, 500, 600, 700]
+
+    # Code font — clean monospace for code blocks
+    - family: "JetBrains Mono"
+      source: google
+      weight: [400, 700]
+
+  base:
+    family: "Inter"
+    size: 1rem
+    line-height: 1.75
+    weight: 400
+
+  headings:
+    family: "Playfair Display"
+    weight: 700
+    line-height: 1.25
+    color: dark
+
+  monospace:
+    family: "JetBrains Mono"
+    size: 0.875em
+
+  monospace-inline:
+    color: "#1a1a2e"
+    background-color: "#e8eaf0"
+
+  monospace-block:
+    background-color: "#f0f2f8"
+
+  link:
+    color: indigo
+    decoration: none
