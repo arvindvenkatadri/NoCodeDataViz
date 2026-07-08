@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,9 +10,6 @@
 
 <title> Experiments – No Code Data Visualization</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -38,18 +35,19 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" rel="icon" type="image/svg+xml">
 <script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2cc777d44eac7019516e29e3d231f5ef.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d2800b5aef52857891e752670e942548.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-dark-90572a579586fd439aef9543e2b2730b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark-3d3980ea3ab10218a589cdadeed0571b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -205,13 +203,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 2D Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -298,10 +296,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-1-i-am-an-intj" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-1-i-am-an-intj" class="nav-link active" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-1-i-am-an-intj"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #1: I am an INTJ</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-2-lets-go-to-chefstouch" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-2-lets-go-to-chefstouch" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-2-lets-go-to-chefstouch"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #2: Let’s Go to ChefsTouch(?)</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3-i-will-eat-my-tip-thank-you." id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3-i-will-eat-my-tip-thank-you." class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3-i-will-eat-my-tip-thank-you."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3: I will eat my tip, thank you.</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3.-art-design-and-vocation-are-all-diff-different." id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3.-art-design-and-vocation-are-all-diff-different." class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3.-art-design-and-vocation-are-all-diff-different."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3. Art, Design, and Vocation are all diff-different.</a></li>
+  <li><a href="#free-hunch-1-i-am-an-intj" id="toc-free-hunch-1-i-am-an-intj" class="nav-link active" data-scroll-target="#free-hunch-1-i-am-an-intj"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #1: I am an INTJ</a></li>
+  <li><a href="#free-hunch-2-lets-go-to-chefstouch" id="toc-free-hunch-2-lets-go-to-chefstouch" class="nav-link" data-scroll-target="#free-hunch-2-lets-go-to-chefstouch"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #2: Let’s Go to ChefsTouch(?)</a></li>
+  <li><a href="#free-hunch-3-i-will-eat-my-tip-thank-you." id="toc-free-hunch-3-i-will-eat-my-tip-thank-you." class="nav-link" data-scroll-target="#free-hunch-3-i-will-eat-my-tip-thank-you."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3: I will eat my tip, thank you.</a></li>
+  <li><a href="#free-hunch-3.-art-design-and-vocation-are-all-diff-different." id="toc-free-hunch-3.-art-design-and-vocation-are-all-diff-different." class="nav-link" data-scroll-target="#free-hunch-3.-art-design-and-vocation-are-all-diff-different."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3. Art, Design, and Vocation are all diff-different.</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -334,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 24, 2026</p>
+      <p class="date-modified">April 29, 2026</p>
     </div>
   </div>
     
@@ -345,8 +343,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-1-i-am-an-intj" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-1-i-am-an-intj"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #1: I am an INTJ</h2>
+<section id="free-hunch-1-i-am-an-intj" class="level2">
+<h2 class="anchored" data-anchor-id="free-hunch-1-i-am-an-intj"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #1: I am an INTJ</h2>
 <div class="callout callout-style-default callout-important no-icon callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -362,8 +360,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>What are we looking at, data-wise? A <em>proportion</em>, which if more than 50% would justify our hunch. So we do an MBTI on some unsuspecting <strong>sample</strong> of people, and try to generalize that result to the <strong>population</strong></p>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-2-lets-go-to-chefstouch" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-2-lets-go-to-chefstouch"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #2: Let’s Go to ChefsTouch(?)</h2>
+<section id="free-hunch-2-lets-go-to-chefstouch" class="level2">
+<h2 class="anchored" data-anchor-id="free-hunch-2-lets-go-to-chefstouch"><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #2: Let’s Go to ChefsTouch(?)</h2>
 <div class="callout callout-style-default callout-important no-icon callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -379,8 +377,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Again, a survey of a sample. Opinions, yes or no. A Proportion for the sample, and an extension to the population. A <em>proportion test</em>.</p>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3-i-will-eat-my-tip-thank-you." class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3-i-will-eat-my-tip-thank-you."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3: I will eat my tip, thank you.</h2>
+<section id="free-hunch-3-i-will-eat-my-tip-thank-you." class="level2">
+<h2 class="anchored" data-anchor-id="free-hunch-3-i-will-eat-my-tip-thank-you."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3: I will eat my tip, thank you.</h2>
 <div class="callout callout-style-default callout-important no-icon callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -397,8 +395,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Are vegetarians more kanjoos? Or it is the meat-eaters?</p>
 <p>So Swiggy/Zomato/Dining Out bills. For both sets of people. And then the t-t-t-t-t-test…</p>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3.-art-design-and-vocation-are-all-diff-different." class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920696e736563742073697a65203d20312e35656d203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320706f696e74792d686174203e7d7d-free-hunch-3.-art-design-and-vocation-are-all-diff-different."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3. Art, Design, and Vocation are all diff-different.</h2>
+<section id="free-hunch-3.-art-design-and-vocation-are-all-diff-different." class="level2">
+<h2 class="anchored" data-anchor-id="free-hunch-3.-art-design-and-vocation-are-all-diff-different."><iconify-icon role="img" inline="" icon="mdi:insect" style="font-size: 1.5em;" aria-label="Icon insect from mdi Iconify.design set." title="Icon insect from mdi Iconify.design set."></iconify-icon> <iconify-icon role="img" inline="" icon="game-icons:pointy-hat" aria-label="Icon pointy-hat from game-icons Iconify.design set." title="Icon pointy-hat from game-icons Iconify.design set."></iconify-icon> Free Hunch #3. Art, Design, and Vocation are all diff-different.</h2>
 <div class="callout callout-style-default callout-important no-icon callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

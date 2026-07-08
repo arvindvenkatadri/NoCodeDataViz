@@ -27,7 +27,7 @@ body-classes: ncv-page
  using only point-and-click tools. No code. No intimidation. Just insight.
   </p>
 
-  <a href="content/courses/NoCodeViz/listing.html" class="ncv-btn-primary">
+  <a href="content/courses/NoCodeDataViz/listing.html" class="ncv-btn-primary">
  Start the Course &rarr;
   </a>
   <a href="#about" class="ncv-btn-outline">Learn More</a>

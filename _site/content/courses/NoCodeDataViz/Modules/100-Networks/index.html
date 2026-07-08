@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,9 +10,6 @@
 
 <title> Networks – No Code Data Visualization</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,18 +36,19 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" rel="icon" type="image/svg+xml">
 <script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2cc777d44eac7019516e29e3d231f5ef.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d2800b5aef52857891e752670e942548.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-dark-90572a579586fd439aef9543e2b2730b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark-3d3980ea3ab10218a589cdadeed0571b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -211,13 +209,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 2D Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,21 +302,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today" class="nav-link active" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792069636f6e73382069646561203e7d7d-inspiration" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792069636f6e73382069646561203e7d7d-inspiration" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792069636f6e73382069646561203e7d7d-inspiration"><iconify-icon role="img" inline="" icon="icons8:idea" aria-label="Icon idea from icons8 Iconify.design set." title="Icon idea from icons8 Iconify.design set."></iconify-icon> Inspiration</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e206261722d6368617274203e7d7d-plotting-a-network-chart" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e206261722d6368617274203e7d7d-plotting-a-network-chart" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e206261722d6368617274203e7d7d-plotting-a-network-chart"><iconify-icon role="img" inline="" icon="ion:bar-chart" aria-label="Icon bar-chart from ion Iconify.design set." title="Icon bar-chart from ion Iconify.design set."></iconify-icon> Plotting a Network Chart</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-the-game-of-thrones" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-the-game-of-thrones" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-the-game-of-thrones"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: The Game of Thrones</a>
+  <li><a href="#what-graphs-will-we-see-today" id="toc-what-graphs-will-we-see-today" class="nav-link active" data-scroll-target="#what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</a></li>
+  <li><a href="#what-kind-of-data-variables-will-we-choose" id="toc-what-kind-of-data-variables-will-we-choose" class="nav-link" data-scroll-target="#what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</a></li>
+  <li><a href="#inspiration" id="toc-inspiration" class="nav-link" data-scroll-target="#inspiration"><iconify-icon role="img" inline="" icon="icons8:idea" aria-label="Icon idea from icons8 Iconify.design set." title="Icon idea from icons8 Iconify.design set."></iconify-icon> Inspiration</a></li>
+  <li><a href="#how-do-these-charts-work" id="toc-how-do-these-charts-work" class="nav-link" data-scroll-target="#how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</a></li>
+  <li><a href="#plotting-a-network-chart" id="toc-plotting-a-network-chart" class="nav-link" data-scroll-target="#plotting-a-network-chart"><iconify-icon role="img" inline="" icon="ion:bar-chart" aria-label="Icon bar-chart from ion Iconify.design set." title="Icon bar-chart from ion Iconify.design set."></iconify-icon> Plotting a Network Chart</a></li>
+  <li><a href="#dataset-the-game-of-thrones" id="toc-dataset-the-game-of-thrones" class="nav-link" data-scroll-target="#dataset-the-game-of-thrones"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: The Game of Thrones</a>
   <ul class="collapse">
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</a></li>
+  <li><a href="#examine-the-data" id="toc-examine-the-data" class="nav-link" data-scroll-target="#examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</a></li>
+  <li><a href="#what-is-the-story-here" id="toc-what-is-the-story-here" class="nav-link" data-scroll-target="#what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</a></li>
   </ul></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d-references" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d-references" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d-references"><iconify-icon role="img" inline="" icon="ooui:references-ltr" aria-label="Icon references-ltr from ooui Iconify.design set." title="Icon references-ltr from ooui Iconify.design set."></iconify-icon> References</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</a></li>
+  <li><a href="#wait-but-why" id="toc-wait-but-why" class="nav-link" data-scroll-target="#wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><iconify-icon role="img" inline="" icon="ooui:references-ltr" aria-label="Icon references-ltr from ooui Iconify.design set." title="Icon references-ltr from ooui Iconify.design set."></iconify-icon> References</a></li>
   </ul>
 </nav>
     </div>
@@ -352,7 +350,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 24, 2026</p>
+      <p class="date-modified">April 29, 2026</p>
     </div>
   </div>
     
@@ -369,8 +367,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</h2>
+<section id="what-graphs-will-we-see-today" class="level2">
+<h2 class="anchored" data-anchor-id="what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</h2>
 <table class="table">
 <colgroup>
 <col style="width: 21%">
@@ -396,8 +394,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</h2>
+<section id="what-kind-of-data-variables-will-we-choose" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</h2>
 <div class="column-page-inset-right">
 <div class="cell">
 <div class="cell-output-display">
@@ -427,14 +425,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792069636f6e73382069646561203e7d7d-inspiration" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792069636f6e73382069646561203e7d7d-inspiration"><iconify-icon role="img" inline="" icon="icons8:idea" aria-label="Icon idea from icons8 Iconify.design set." title="Icon idea from icons8 Iconify.design set."></iconify-icon> Inspiration</h2>
+<section id="inspiration" class="level2">
+<h2 class="anchored" data-anchor-id="inspiration"><iconify-icon role="img" inline="" icon="icons8:idea" aria-label="Icon idea from icons8 Iconify.design set." title="Icon idea from icons8 Iconify.design set."></iconify-icon> Inspiration</h2>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</h2>
+<section id="how-do-these-charts-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</h2>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e206261722d6368617274203e7d7d-plotting-a-network-chart" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e206261722d6368617274203e7d7d-plotting-a-network-chart"><iconify-icon role="img" inline="" icon="ion:bar-chart" aria-label="Icon bar-chart from ion Iconify.design set." title="Icon bar-chart from ion Iconify.design set."></iconify-icon> Plotting a Network Chart</h2>
+<section id="plotting-a-network-chart" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-a-network-chart"><iconify-icon role="img" inline="" icon="ion:bar-chart" aria-label="Icon bar-chart from ion Iconify.design set." title="Icon bar-chart from ion Iconify.design set."></iconify-icon> Plotting a Network Chart</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills" style="background: whitesmoke;">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Using Orange</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Using RAWgraphs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Using DataWrapper</a></li></ul>
 <div class="tab-content nav-pills" style="background: whitesmoke;">
@@ -450,12 +448,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-the-game-of-thrones" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-the-game-of-thrones"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: The Game of Thrones</h2>
+<section id="dataset-the-game-of-thrones" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-the-game-of-thrones"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: The Game of Thrones</h2>
 <p>Here is a dataset from Jeremy Singer-Vine’s blog, <a href="https://www.data-is-plural.com/">Data Is Plural</a>. This is a list of all books banned in schools across the US.</p>
 <p>Download this data to your machine and use it in Orange.</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
+<section id="examine-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
 <div id="fig-banned-books-data-table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-banned-books-data-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -479,8 +477,8 @@ Figure&nbsp;2: Banned Books Data Summary
 <p><a href="#fig-banned-books-data-table" class="quarto-xref">Figure&nbsp;1</a> states that we have 1586 rows, 7 columns. So 1586 banned books are on this list! 🙀 🙀 🙀</p>
 <p>The <a href="#fig-summary-1" class="quarto-xref">Figure&nbsp;2</a> already has a thumbnail-like bar chart. We will still make a “proper” one with the appropriate widget.</p>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</h3>
+<section id="data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</h3>
 <div class="callout callout-style-default callout-note callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -508,8 +506,8 @@ Figure&nbsp;2: Banned Books Data Summary
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</h3>
+<section id="research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -537,15 +535,15 @@ Note
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</h3>
+<section id="what-is-the-story-here" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</h3>
 <ul>
-<li>And what, <a href="https://youtu.be/JU01v6Ziz1A">Californians</a> are too busy making money to care about book-banning!!! The state does not even show up in the chart! 😄</li>
+<li>And what, <a href="https://youtu.be/JU01v6Ziz1A">Californians</a> are too busy making money to care about book-banning!!! The state does not even show up in the chart! 😂</li>
 </ul>
 </section>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</h2>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</h2>
 <ol type="1">
 <li>AiRbnb Price Data on the French Riviera:</li>
 </ol>
@@ -616,8 +614,8 @@ Note
 <li>Fertility: This rather large and interesting Fertility related dataset from <a href="https://vincentarelbundock.github.io/Rdatasets/csv/AER/Fertility.csv" class="uri">https://vincentarelbundock.github.io/Rdatasets/csv/AER/Fertility.csv</a></li>
 </ol>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</h2>
+<section id="wait-but-why" class="level2">
+<h2 class="anchored" data-anchor-id="wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</h2>
 <ul>
 <li>Networks show up in a very diverse set of domains: society, epidemiology, trade, logistics, transportation, innovation, ecology, geopolitics, information technology, cyber***…So it’s worthwhile to have a good grounding in networks.<br>
 </li>
@@ -627,8 +625,8 @@ Note
 </li>
 </ul>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d-references" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206f6f7569207265666572656e6365732d6c7472203e7d7d-references"><iconify-icon role="img" inline="" icon="ooui:references-ltr" aria-label="Icon references-ltr from ooui Iconify.design set." title="Icon references-ltr from ooui Iconify.design set."></iconify-icon> References</h2>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references"><iconify-icon role="img" inline="" icon="ooui:references-ltr" aria-label="Icon references-ltr from ooui Iconify.design set." title="Icon references-ltr from ooui Iconify.design set."></iconify-icon> References</h2>
 <ol type="1">
 <li><p>Network Repository. An Interactive Scientific Network Data Repository: the first scientific network data repository with interactive visual analytics. <a href="https://networkrepository.com" class="uri">https://networkrepository.com</a> &gt; A great source of network data from various domains!</p></li>
 <li><p>https://bookdown.org/markhoff/social_network_analysis/</p></li>

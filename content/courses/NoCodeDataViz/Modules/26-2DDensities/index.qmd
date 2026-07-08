@@ -1,5 +1,5 @@
 ---
-title: "\U0001F576 Happy Data are all Alike"
+title: "\U0001F576 2D Densities"
 subtitle: "Graphs for Single Quant Variables"
 date-modified: today
 order: 20

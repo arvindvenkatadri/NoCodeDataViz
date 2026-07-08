@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,9 +10,6 @@
 
 <title>Data Science with No Code! – No Code Data Visualization</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -40,18 +37,19 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2cc777d44eac7019516e29e3d231f5ef.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d2800b5aef52857891e752670e942548.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-90572a579586fd439aef9543e2b2730b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-3d3980ea3ab10218a589cdadeed0571b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -265,13 +263,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 2D Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,6 +300,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../content/courses/NoCodeDataViz/Modules/40-Flows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><iconify-icon icon="maki:watermill"></iconify-icon> Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/courses/NoCodeDataViz/Modules/50-Shares/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><iconify-icon icon="dashicons:share" width="1.2em" height="1.2em"></iconify-icon> Shares</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -378,7 +382,7 @@ window.Quarto = {
   <li><a href="#modules" id="toc-modules" class="nav-link" data-scroll-target="#modules">Modules</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(19)</span></div><div class="category" data-category="QU5PVkE=">ANOVA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmFyJTIwQ2hhcnRz">Bar Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qm94JTIwUGxvdHM=">Box Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QnVtcCUyMENoYXJ0cw==">Bump Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2FuZGxlc3RpY2slMjBQbG90">Candlestick Plot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2FydG9ncmFtcw==">Cartograms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2VudHJhbGl0eQ==">Centrality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2hvcm9wbGV0aCUyMG1hcHM=">Choropleth maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29sdW1uJTIwQ2hhcnRz">Column Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29ycmVsYXRpb25z">Correlations <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RHVtYmJlbGwlMjBDaGFydHM=">Dumbbell Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWRnZXM=">Edges <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXhwZXJpZW5jZQ==">Experience <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXhwZXJpbWVudHM=">Experiments <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RmF2b3VyaXRlJTIwU3RhdHM=">Favourite Stats <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvY29kaW5n">Geocoding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvbG9jYXRvciUyMG1hcHM=">Geolocator maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVhdG1hcA==">Heatmap <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGllcmFyY2h5">Hierarchy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGlzdG9ncmFtcyUyMGFuZCUyMERlbnNpdHklMjBQbG90cw==">Histograms and Density Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SHVuY2hlcw==">Hunches <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZSUyMENoYXJ0">Line Chart <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZSUyMFBsb3Rz">Line Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TG9sbGlwb3AlMjBDaGFydHM=">Lollipop Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFwcw==">Maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWVhc3VyZW1lbnQ=">Measurement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmF0dXJlJTIwb2YlMjBEYXRh">Nature of Data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmV0d29yaw==">Network <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmV0d29ya3M=">Networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Tm9kZXM=">Nodes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T2JzZXJ2YXRpb25z">Observations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3JnYW5pemF0aW9ucw==">Organizations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UXVhbCUyMFZhcmlhYmxlcw==">Qual Variables <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UXVhbCUyMFZhcmlhYmxlcyUyMGFuZCUyMFF1YW50JTIwVmFyaWFibGVz">Qual Variables and Quant Variables <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UXVhbnQlMjBWYXJpYWJsZXM=">Quant Variables <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmFkYXIlMjBQbG90cw==">Radar Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVncmVzc2lvbiUyMExpbmVz">Regression Lines <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2NhdHRlciUyMGFuZCUyMEJ1YmJsZSUyMFBsb3Rz">Scatter and Bubble Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2NpZW50aWZpYyUyMElucXVpcnk=">Scientific Inquiry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3VtbWFyeSUyMFN0YXRz">Summary Stats <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dC50ZXN0">t.test <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGltZSUyMFNlcmllcw==">Time Series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGltZSUyMFZhcmlhYmxlcw==">Time Variables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VHJlZQ==">Tree <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="QU5PVkE=">ANOVA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmFyJTIwQ2hhcnRz">Bar Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qm94JTIwUGxvdHM=">Box Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QnVtcCUyMENoYXJ0cw==">Bump Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2FuZGxlc3RpY2slMjBQbG90">Candlestick Plot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2FydG9ncmFtcw==">Cartograms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2VudHJhbGl0eQ==">Centrality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2hvcm9wbGV0aCUyMG1hcHM=">Choropleth maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29sdW1uJTIwQ2hhcnRz">Column Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29ycmVsYXRpb25z">Correlations <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RHVtYmJlbGwlMjBDaGFydHM=">Dumbbell Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWRnZXM=">Edges <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXhwZXJpZW5jZQ==">Experience <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXhwZXJpbWVudHM=">Experiments <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RmFucw==">Fans <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RmF2b3VyaXRlJTIwU3RhdHM=">Favourite Stats <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvY29kaW5n">Geocoding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvbG9jYXRvciUyMG1hcHM=">Geolocator maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVhdG1hcA==">Heatmap <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGllcmFyY2h5">Hierarchy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGlzdG9ncmFtcyUyMGFuZCUyMERlbnNpdHklMjBQbG90cw==">Histograms and Density Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SHVuY2hlcw==">Hunches <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZSUyMENoYXJ0">Line Chart <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZSUyMFBsb3Rz">Line Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TG9sbGlwb3AlMjBDaGFydHM=">Lollipop Charts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFwcw==">Maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWVhc3VyZW1lbnQ=">Measurement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmF0dXJlJTIwb2YlMjBEYXRh">Nature of Data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmV0d29yaw==">Network <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmV0d29ya3M=">Networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Tm9kZXM=">Nodes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T2JzZXJ2YXRpb25z">Observations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3JnYW5pemF0aW9ucw==">Organizations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGFybGlhbWVudHM=">Parliaments <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGllcw==">Pies <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UXVhbCUyMFZhcmlhYmxlcw==">Qual Variables <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UXVhbCUyMFZhcmlhYmxlcyUyMGFuZCUyMFF1YW50JTIwVmFyaWFibGVz">Qual Variables and Quant Variables <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UXVhbnQlMjBWYXJpYWJsZXM=">Quant Variables <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmFkYXIlMjBQbG90cw==">Radar Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVncmVzc2lvbiUyMExpbmVz">Regression Lines <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2NhdHRlciUyMGFuZCUyMEJ1YmJsZSUyMFBsb3Rz">Scatter and Bubble Plots <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2NpZW50aWZpYyUyMElucXVpcnk=">Scientific Inquiry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3VtbWFyeSUyMFN0YXRz">Summary Stats <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dC50ZXN0">t.test <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGltZSUyMFNlcmllcw==">Time Series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGltZSUyMFZhcmlhYmxlcw==">Time Variables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VHJlZQ==">Tree <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V2FmZmxlcw==">Waffles <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -633,10 +637,10 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="UXVhbCUyMFZhcmlhYmxlcyUyQ0JhciUyMENoYXJ0cyUyQ0NvbHVtbiUyMENoYXJ0cw==" data-listing-date-sort="1713205800000" data-listing-file-modified-sort="1777003818024" data-listing-date-modified-sort="1777055400000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1091">
+<div class="g-col-1" data-index="3" data-categories="UXVhbCUyMFZhcmlhYmxlcyUyQ0JhciUyMENoYXJ0cyUyQ0NvbHVtbiUyMENoYXJ0cw==" data-listing-date-sort="1713205800000" data-listing-file-modified-sort="1777003818024" data-listing-date-modified-sort="1783449000000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1091">
 <a href="../../../content/courses/NoCodeDataViz/Modules/20-Counts/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="Modules/20-Counts/images/capitals-vs-rest.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="Modules/20-Counts/images/capitals-vs-rest.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="eos-icons:counting" width="1.2em" height="1.2em"></iconify-icon> Counts
@@ -645,31 +649,31 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1777010705674" data-listing-reading-time-sort="4" data-listing-word-count-sort="730">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1777074880793" data-listing-reading-time-sort="4" data-listing-word-count-sort="730">
 <a href="../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="Modules/24-Densities/BarChart/TutorialBarChart.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="Modules/24-Densities/BarChart/TutorialBarChart.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-🕶 Happy Data are all Alike
+🕶 Densities
 </h5>
 <div class="listing-reading-time card-text text-muted">4 min</div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1777072386427" data-listing-reading-time-sort="4" data-listing-word-count-sort="727">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1777074866919" data-listing-reading-time-sort="4" data-listing-word-count-sort="727">
 <a href="../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="Modules/26-2DDensities/BarChart/TutorialBarChart.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="Modules/26-2DDensities/BarChart/TutorialBarChart.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-🕶 Happy Data are all Alike
+🕶 2D Densities
 </h5>
 <div class="listing-reading-time card-text text-muted">4 min</div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="UXVhbCUyMFZhcmlhYmxlcyUyMGFuZCUyMFF1YW50JTIwVmFyaWFibGVzJTJDSGlzdG9ncmFtcyUyMGFuZCUyMERlbnNpdHklMjBQbG90cw==" data-listing-date-sort="1713205800000" data-listing-file-modified-sort="1777010296675" data-listing-date-modified-sort="1777055400000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1834">
+<div class="g-col-1" data-index="6" data-categories="UXVhbCUyMFZhcmlhYmxlcyUyMGFuZCUyMFF1YW50JTIwVmFyaWFibGVzJTJDSGlzdG9ncmFtcyUyMGFuZCUyMERlbnNpdHklMjBQbG90cw==" data-listing-date-sort="1713205800000" data-listing-file-modified-sort="1777010296675" data-listing-date-modified-sort="1783449000000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1834">
 <a href="../../../content/courses/NoCodeDataViz/Modules/22-Quantity/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -700,7 +704,7 @@ window.Quarto = {
 <div class="g-col-1" data-index="8" data-categories="Q29ycmVsYXRpb25zJTJDU2NhdHRlciUyMGFuZCUyMEJ1YmJsZSUyMFBsb3RzJTJDUmVncmVzc2lvbiUyMExpbmVz" data-listing-date-sort="1713983400000" data-listing-file-modified-sort="1776961575066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2108">
 <a href="../../../content/courses/NoCodeDataViz/Modules/30-Change/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="Modules/30-Change/images/Evolution-belief-vs-GDP.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="Modules/30-Change/images/Evolution-belief-vs-GDP.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="icon-park-outline:change" width="1.2em" height="1.2em"></iconify-icon> Change
@@ -712,7 +716,7 @@ window.Quarto = {
 <div class="g-col-1" data-index="9" data-categories="Q29ycmVsYXRpb25zJTJDTGluZSUyMFBsb3Rz" data-listing-date-sort="1715452200000" data-listing-file-modified-sort="1776961574334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2998">
 <a href="../../../content/courses/NoCodeDataViz/Modules/32-Rhythm/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="Modules/32-Rhythm/images/ledecky.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="Modules/32-Rhythm/images/ledecky.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="fluent-mdl2:hour-glass" width="1.2em" height="1.2em"></iconify-icon> Rhythm
@@ -724,7 +728,7 @@ window.Quarto = {
 <div class="g-col-1" data-index="10" data-listing-date-sort="1714069800000" data-listing-file-modified-sort="1776961575320" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3447">
 <a href="../../../content/courses/NoCodeDataViz/Modules/35-Proportions/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="../../materials/images/VORO_Obesity-Rates_Site.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="../../materials/images/VORO_Obesity-Rates_Site.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="icon-park-outline:proportional-scaling"></iconify-icon> Proportions
@@ -736,7 +740,7 @@ window.Quarto = {
 <div class="g-col-1" data-index="11" data-categories="UXVhbCUyMFZhcmlhYmxlcyUyMGFuZCUyMFF1YW50JTIwVmFyaWFibGVz" data-listing-date-sort="1713724200000" data-listing-file-modified-sort="1776961575112" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1592">
 <a href="../../../content/courses/NoCodeDataViz/Modules/40-Flows/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="../../materials/images/sankey.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="../../materials/images/sankey.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="maki:watermill"></iconify-icon> Flow
@@ -745,7 +749,19 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="VHJlZSUyQ09yZ2FuaXphdGlvbnMlMkNIaWVyYXJjaHklMkNOZXR3b3Jr" data-listing-date-sort="1721759400000" data-listing-file-modified-sort="1777073658481" data-listing-date-modified-sort="1777055400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
+<div class="g-col-1" data-index="12" data-categories="UGllcyUyQ0ZhbnMlMkNXYWZmbGVzJTJDUGFybGlhbWVudHM=" data-listing-date-sort="1721759400000" data-listing-file-modified-sort="1776961575299" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../../../content/courses/NoCodeDataViz/Modules/50-Shares/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<iconify-icon icon="dashicons:share" width="1.2em" height="1.2em"></iconify-icon> Shares
+</h5>
+<div class="listing-reading-time card-text text-muted">1 min</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="VHJlZSUyQ09yZ2FuaXphdGlvbnMlMkNIaWVyYXJjaHklMkNOZXR3b3Jr" data-listing-date-sort="1721759400000" data-listing-file-modified-sort="1777073658481" data-listing-date-modified-sort="1783449000000" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
 <a href="../../../content/courses/NoCodeDataViz/Modules/54-Structures/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -757,7 +773,7 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="QnVtcCUyMENoYXJ0cyUyQ0xvbGxpcG9wJTIwQ2hhcnRzJTJDRHVtYmJlbGwlMjBDaGFydHMlMkNSYWRhciUyMFBsb3Rz" data-listing-date-sort="1721327400000" data-listing-file-modified-sort="1777073616165" data-listing-date-modified-sort="1777055400000" data-listing-reading-time-sort="11" data-listing-word-count-sort="2076">
+<div class="g-col-1" data-index="14" data-categories="QnVtcCUyMENoYXJ0cyUyQ0xvbGxpcG9wJTIwQ2hhcnRzJTJDRHVtYmJlbGwlMjBDaGFydHMlMkNSYWRhciUyMFBsb3Rz" data-listing-date-sort="1721327400000" data-listing-file-modified-sort="1777073616165" data-listing-date-modified-sort="1783449000000" data-listing-reading-time-sort="11" data-listing-word-count-sort="2076">
 <a href="../../../content/courses/NoCodeDataViz/Modules/60-Rankings/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -771,7 +787,7 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="TWFwcyUyQ0dlb2NvZGluZyUyQ0Nob3JvcGxldGglMjBtYXBzJTJDR2VvbG9jYXRvciUyMG1hcHMlMkNDYXJ0b2dyYW1z" data-listing-date-sort="1721759400000" data-listing-file-modified-sort="1776961575541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="899">
+<div class="g-col-1" data-index="15" data-categories="TWFwcyUyQ0dlb2NvZGluZyUyQ0Nob3JvcGxldGglMjBtYXBzJTJDR2VvbG9jYXRvciUyMG1hcHMlMkNDYXJ0b2dyYW1z" data-listing-date-sort="1721759400000" data-listing-file-modified-sort="1776961575541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="899">
 <a href="../../../content/courses/NoCodeDataViz/Modules/70-Maps/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -785,10 +801,10 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="15" data-categories="VGltZSUyMFZhcmlhYmxlcyUyQ1RpbWUlMjBTZXJpZXMlMkNMaW5lJTIwQ2hhcnQlMkNDYW5kbGVzdGljayUyMFBsb3QlMkNIZWF0bWFw" data-listing-date-sort="1716489000000" data-listing-file-modified-sort="1776961575509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1238">
+<div class="g-col-1" data-index="16" data-categories="VGltZSUyMFZhcmlhYmxlcyUyQ1RpbWUlMjBTZXJpZXMlMkNMaW5lJTIwQ2hhcnQlMkNDYW5kbGVzdGljayUyMFBsb3QlMkNIZWF0bWFw" data-listing-date-sort="1716489000000" data-listing-file-modified-sort="1776961575509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1238">
 <a href="../../../content/courses/NoCodeDataViz/Modules/80-Time/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="../../materials/images/births_over_days.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="../../materials/images/births_over_days.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="fluent-mdl2:hour-glass" width="1.2em" height="1.2em"></iconify-icon> Time
@@ -797,7 +813,7 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="16" data-categories="TmV0d29ya3MlMkNOb2RlcyUyQ0VkZ2VzJTJDQ2VudHJhbGl0eQ==" data-listing-date-sort="1716748200000" data-listing-file-modified-sort="1776961574972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="672">
+<div class="g-col-1" data-index="17" data-categories="TmV0d29ya3MlMkNOb2RlcyUyQ0VkZ2VzJTJDQ2VudHJhbGl0eQ==" data-listing-date-sort="1716748200000" data-listing-file-modified-sort="1776961574972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="672">
 <a href="../../../content/courses/NoCodeDataViz/Modules/100-Networks/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -811,10 +827,10 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="17" data-listing-date-sort="1714415400000" data-listing-file-modified-sort="1776961575281" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1764">
+<div class="g-col-1" data-index="18" data-listing-date-sort="1714415400000" data-listing-file-modified-sort="1776961575281" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1764">
 <a href="../../../content/courses/NoCodeDataViz/Modules/140-Surveys/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="Modules/140-Surveys/images/noun-bipolar-scale-139097.png" alt="Bipolar Scale by Aenne Brielmann from Noun Project (CC BY 3.0)" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img data-src="Modules/140-Surveys/images/noun-bipolar-scale-139097.png" alt="Bipolar Scale by Aenne Brielmann from Noun Project (CC BY 3.0)" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 <iconify-icon icon="wpf:survey" width="1.2em" height="1.2em"></iconify-icon> Surveys
@@ -823,7 +839,7 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="18" data-categories="SHVuY2hlcyUyQ0V4cGVyaW1lbnRz" data-listing-date-sort="1716489000000" data-listing-file-modified-sort="1776961575731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="309">
+<div class="g-col-1" data-index="19" data-categories="SHVuY2hlcyUyQ0V4cGVyaW1lbnRz" data-listing-date-sort="1716489000000" data-listing-file-modified-sort="1776961575731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="309">
 <a href="../../../content/courses/NoCodeDataViz/Modules/150-NoFreeHunch/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

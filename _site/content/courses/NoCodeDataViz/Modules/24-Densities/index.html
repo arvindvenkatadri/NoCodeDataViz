@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>🕶 Happy Data are all Alike – No Code Data Visualization</title>
+<title>🕶 Densities – No Code Data Visualization</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -38,18 +35,19 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" rel="icon" type="image/svg+xml">
 <script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2cc777d44eac7019516e29e3d231f5ef.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d2800b5aef52857891e752670e942548.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-dark-90572a579586fd439aef9543e2b2730b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark-3d3980ea3ab10218a589cdadeed0571b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -87,13 +85,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../../../../styles.css">
-<meta property="og:title" content="🕶 Happy Data are all Alike – No Code Data Visualization">
+<meta property="og:title" content="🕶 Densities – No Code Data Visualization">
 <meta property="og:description" content="Graphs for Single Quant Variables">
 <meta property="og:image" content="https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/24-Densities/BarChart/TutorialBarChart.png">
 <meta property="og:site_name" content="No Code Data Visualization">
 <meta property="og:image:height" content="720">
 <meta property="og:image:width" content="1480">
-<meta name="twitter:title" content="🕶 Happy Data are all Alike – No Code Data Visualization">
+<meta name="twitter:title" content="🕶 Densities – No Code Data Visualization">
 <meta name="twitter:description" content="Graphs for Single Quant Variables">
 <meta name="twitter:image" content="https://nocodedataviz.netlify.app/content/courses/NoCodeDataViz/Modules/24-Densities/BarChart/TutorialBarChart.png">
 <meta name="twitter:image-height" content="720">
@@ -146,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/listing.html">No Code Data Viz</a></li><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html">🕶 Happy Data are all Alike</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/listing.html">No Code Data Viz</a></li><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html">🕶 Densities</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -214,13 +212,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 2D Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -312,14 +310,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#how-do-these-work" id="toc-how-do-these-work" class="nav-link" data-scroll-target="#how-do-these-work">How do these Work?</a></li>
   </ul></li>
   <li><a href="#bar-and-column-charts-in-rawgraphs" id="toc-bar-and-column-charts-in-rawgraphs" class="nav-link" data-scroll-target="#bar-and-column-charts-in-rawgraphs">Bar and Column Charts in RAWgraphs</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206c6f676f73206e6574666c69782d69636f6e203e7d7d-dataset-netflix-original-series" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206c6f676f73206e6574666c69782d69636f6e203e7d7d-dataset-netflix-original-series" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206c6f676f73206e6574666c69782d69636f6e203e7d7d-dataset-netflix-original-series"><iconify-icon role="img" inline="" icon="logos:netflix-icon" aria-label="Icon netflix-icon from logos Iconify.design set." title="Icon netflix-icon from logos Iconify.design set."></iconify-icon> Dataset: Netflix Original Series</a>
+  <li><a href="#dataset-netflix-original-series" id="toc-dataset-netflix-original-series" class="nav-link" data-scroll-target="#dataset-netflix-original-series"><iconify-icon role="img" inline="" icon="logos:netflix-icon" aria-label="Icon netflix-icon from logos Iconify.design set." title="Icon netflix-icon from logos Iconify.design set."></iconify-icon> Dataset: Netflix Original Series</a>
   <ul class="collapse">
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
+  <li><a href="#examine-the-data" id="toc-examine-the-data" class="nav-link" data-scroll-target="#examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
   <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792070682063686172742d626172203e7d7d-plotting-a-bar-chart" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792070682063686172742d626172203e7d7d-plotting-a-bar-chart" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792070682063686172742d626172203e7d7d-plotting-a-bar-chart"><iconify-icon role="img" inline="" icon="ph:chart-bar" aria-label="Icon chart-bar from ph Iconify.design set." title="Icon chart-bar from ph Iconify.design set."></iconify-icon> Plotting a Bar Chart</a></li>
+  <li><a href="#plotting-a-bar-chart" id="toc-plotting-a-bar-chart" class="nav-link" data-scroll-target="#plotting-a-bar-chart"><iconify-icon role="img" inline="" icon="ph:chart-bar" aria-label="Icon chart-bar from ph Iconify.design set." title="Icon chart-bar from ph Iconify.design set."></iconify-icon> Plotting a Bar Chart</a></li>
   <li><a href="#what-is-the-story-here" id="toc-what-is-the-story-here" class="nav-link" data-scroll-target="#what-is-the-story-here">What is the Story Here?</a></li>
   </ul></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-banned-books-in-the-usa" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-banned-books-in-the-usa" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-banned-books-in-the-usa"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: Banned Books in the USA</a>
+  <li><a href="#dataset-banned-books-in-the-usa" id="toc-dataset-banned-books-in-the-usa" class="nav-link" data-scroll-target="#dataset-banned-books-in-the-usa"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: Banned Books in the USA</a>
   <ul class="collapse">
   <li><a href="#what-is-the-story-here-1" id="toc-what-is-the-story-here-1" class="nav-link" data-scroll-target="#what-is-the-story-here-1">What is the Story Here?</a></li>
   </ul></li>
@@ -342,9 +340,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/listing.html">No Code Data Viz</a></li><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html">🕶 Happy Data are all Alike</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/listing.html">No Code Data Viz</a></li><li class="breadcrumb-item"><a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html">🕶 Densities</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">🕶 Happy Data are all Alike</h1>
+<h1 class="title">🕶 Densities</h1>
 <p class="subtitle lead">Graphs for Single Quant Variables</p>
 </div>
 
@@ -357,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 24, 2026</p>
+      <p class="date-modified">April 29, 2026</p>
     </div>
   </div>
     
@@ -393,11 +391,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="bar-and-column-charts-in-rawgraphs">Bar and Column Charts in RAWgraphs</h2>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Enf_ddKCh5M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206c6f676f73206e6574666c69782d69636f6e203e7d7d-dataset-netflix-original-series" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206c6f676f73206e6574666c69782d69636f6e203e7d7d-dataset-netflix-original-series"><iconify-icon role="img" inline="" icon="logos:netflix-icon" aria-label="Icon netflix-icon from logos Iconify.design set." title="Icon netflix-icon from logos Iconify.design set."></iconify-icon> Dataset: Netflix Original Series</h2>
+<section id="dataset-netflix-original-series" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-netflix-original-series"><iconify-icon role="img" inline="" icon="logos:netflix-icon" aria-label="Icon netflix-icon from logos Iconify.design set." title="Icon netflix-icon from logos Iconify.design set."></iconify-icon> Dataset: Netflix Original Series</h2>
 <p>Here is a look at this data. It is readily available as on the in-bult datasets at RAWgraphs.</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
+<section id="examine-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -574,8 +572,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Let’s try a few questions and see if they are answerable with Bar Charts. Recall that Bar Charts show <strong>counts</strong> of Qualitative variables!</p>
 <p>Q1. How many movies of each <code>Genere</code>? Sort them by <code>Genere</code>! Q2. Which <code>Genere</code> has the highest average <code>IMDB_Rating</code>? Some grouping + aggregating needed here!</p>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792070682063686172742d626172203e7d7d-plotting-a-bar-chart" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792070682063686172742d626172203e7d7d-plotting-a-bar-chart"><iconify-icon role="img" inline="" icon="ph:chart-bar" aria-label="Icon chart-bar from ph Iconify.design set." title="Icon chart-bar from ph Iconify.design set."></iconify-icon> Plotting a Bar Chart</h3>
+<section id="plotting-a-bar-chart" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-a-bar-chart"><iconify-icon role="img" inline="" icon="ph:chart-bar" aria-label="Icon chart-bar from ph Iconify.design set." title="Icon chart-bar from ph Iconify.design set."></iconify-icon> Plotting a Bar Chart</h3>
 <p>Let us create this figure:<br>
 <img src="BarChart/TutorialBarChart.png" class="img-fluid"></p>
 </section>
@@ -586,8 +584,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-banned-books-in-the-usa" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920656d6f6a696f6e6520626f6f6b73203e7d7d-dataset-banned-books-in-the-usa"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: Banned Books in the USA</h2>
+<section id="dataset-banned-books-in-the-usa" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-banned-books-in-the-usa"><iconify-icon role="img" inline="" icon="emojione:books" aria-label="Icon books from emojione Iconify.design set." title="Icon books from emojione Iconify.design set."></iconify-icon> Dataset: Banned Books in the USA</h2>
 <p>Here is a dataset from Jeremy Singer-Vine’s blog, <a href="https://www.data-is-plural.com/">Data Is Plural</a>. This is a list of all books banned in schools across the US.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -1200,8 +1198,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="pagination-link" aria-label="🕶 Happy Data are all Alike">
-        <span class="nav-page-text">🕶 Happy Data are all Alike</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="pagination-link" aria-label="🕶 2D Densities">
+        <span class="nav-page-text">🕶 2D Densities</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

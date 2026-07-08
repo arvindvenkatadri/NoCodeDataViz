@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,9 +10,6 @@
 
 <title> Surveys – No Code Data Visualization</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,18 +71,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../../content/materials/icon-park-twotone--concept-sharing.svg" rel="icon" type="image/svg+xml">
 <script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2cc777d44eac7019516e29e3d231f5ef.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-c0f4ad33c246a932906da45bcb3168fc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d2800b5aef52857891e752670e942548.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-9fa6dbbe6219e357c3a17d5a2c09c803.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-dark-90572a579586fd439aef9543e2b2730b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../../site_libs/bootstrap/bootstrap-10b4b18a7b42c0a17ff827a18560b51e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark-3d3980ea3ab10218a589cdadeed0571b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-9033308510852dae18e1c97b5772c6c5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -121,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -280,13 +278,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/24-Densities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../../content/courses/NoCodeDataViz/Modules/26-2DDensities/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">🕶 Happy Data are all Alike</span></a>
+ <span class="menu-text">🕶 2D Densities</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -373,26 +371,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today" class="nav-link active" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e2073746174732d6368617274203e7d7d-plotting-likert-charts" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e2073746174732d6368617274203e7d7d-plotting-likert-charts" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e2073746174732d6368617274203e7d7d-plotting-likert-charts"><iconify-icon role="img" inline="" icon="ion:stats-chart" aria-label="Icon stats-chart from ion Iconify.design set." title="Icon stats-chart from ion Iconify.design set."></iconify-icon> Plotting Likert Charts</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320696365626572672073697a653d3378203e7d7d-dataset-caregivers" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320696365626572672073697a653d3378203e7d7d-dataset-caregivers" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320696365626572672073697a653d3378203e7d7d-dataset-caregivers"><iconify-icon role="img" inline="" icon="game-icons:iceberg" style="font-size: 3em;" aria-label="Icon iceberg from game-icons Iconify.design set." title="Icon iceberg from game-icons Iconify.design set."></iconify-icon> Dataset: CareGivers</a>
+  <li><a href="#what-graphs-will-we-see-today" id="toc-what-graphs-will-we-see-today" class="nav-link active" data-scroll-target="#what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</a></li>
+  <li><a href="#what-kind-of-data-variables-will-we-choose" id="toc-what-kind-of-data-variables-will-we-choose" class="nav-link" data-scroll-target="#what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</a></li>
+  <li><a href="#how-do-these-charts-work" id="toc-how-do-these-charts-work" class="nav-link" data-scroll-target="#how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</a></li>
+  <li><a href="#plotting-likert-charts" id="toc-plotting-likert-charts" class="nav-link" data-scroll-target="#plotting-likert-charts"><iconify-icon role="img" inline="" icon="ion:stats-chart" aria-label="Icon stats-chart from ion Iconify.design set." title="Icon stats-chart from ion Iconify.design set."></iconify-icon> Plotting Likert Charts</a></li>
+  <li><a href="#dataset-caregivers" id="toc-dataset-caregivers" class="nav-link" data-scroll-target="#dataset-caregivers"><iconify-icon role="img" inline="" icon="game-icons:iceberg" style="font-size: 3em;" aria-label="Icon iceberg from game-icons Iconify.design set." title="Icon iceberg from game-icons Iconify.design set."></iconify-icon> Dataset: CareGivers</a>
   <ul class="collapse">
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</a></li>
+  <li><a href="#examine-the-data" id="toc-examine-the-data" class="nav-link" data-scroll-target="#examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</a></li>
+  <li><a href="#what-is-the-story-here" id="toc-what-is-the-story-here" class="nav-link" data-scroll-target="#what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</a></li>
   </ul></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206865616c746869636f6e7320636c65616e696e672073697a65203d203278203e7d7d-dataset-who-does-the-housework" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206865616c746869636f6e7320636c65616e696e672073697a65203d203278203e7d7d-dataset-who-does-the-housework" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206865616c746869636f6e7320636c65616e696e672073697a65203d203278203e7d7d-dataset-who-does-the-housework"><iconify-icon role="img" inline="" icon="healthicons:cleaning" style="font-size: 2em;" aria-label="Icon cleaning from healthicons Iconify.design set." title="Icon cleaning from healthicons Iconify.design set."></iconify-icon> Dataset: Who Does the Housework?</a>
+  <li><a href="#dataset-who-does-the-housework" id="toc-dataset-who-does-the-housework" class="nav-link" data-scroll-target="#dataset-who-does-the-housework"><iconify-icon role="img" inline="" icon="healthicons:cleaning" style="font-size: 2em;" aria-label="Icon cleaning from healthicons Iconify.design set." title="Icon cleaning from healthicons Iconify.design set."></iconify-icon> Dataset: Who Does the Housework?</a>
   <ul class="collapse">
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data-1" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data-1" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data-1"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary-1" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary-1" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary-1"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions-1" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions-1" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions-1"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here-1" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here-1" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here-1"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</a></li>
+  <li><a href="#examine-the-data-1" id="toc-examine-the-data-1" class="nav-link" data-scroll-target="#examine-the-data-1"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</a></li>
+  <li><a href="#data-dictionary-1" id="toc-data-dictionary-1" class="nav-link" data-scroll-target="#data-dictionary-1"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</a></li>
+  <li><a href="#research-questions-1" id="toc-research-questions-1" class="nav-link" data-scroll-target="#research-questions-1"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</a></li>
+  <li><a href="#what-is-the-story-here-1" id="toc-what-is-the-story-here-1" class="nav-link" data-scroll-target="#what-is-the-story-here-1"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</a></li>
   </ul></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</a></li>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why" class="nav-link" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</a></li>
+  <li><a href="#wait-but-why" id="toc-wait-but-why" class="nav-link" data-scroll-target="#wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</a></li>
   <li><a href="#dataset-edible-insects" id="toc-dataset-edible-insects" class="nav-link" data-scroll-target="#dataset-edible-insects">Dataset: Edible Insects</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -422,7 +420,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 24, 2026</p>
+      <p class="date-modified">April 29, 2026</p>
     </div>
   </div>
     
@@ -433,8 +431,8 @@ window.Quarto = {
 </header>
 
 
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920666520626567696e6e6572203e7d7d-what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</h2>
+<section id="what-graphs-will-we-see-today" class="level2">
+<h2 class="anchored" data-anchor-id="what-graphs-will-we-see-today"><iconify-icon role="img" inline="" icon="fe:beginner" aria-label="Icon beginner from fe Iconify.design set." title="Icon beginner from fe Iconify.design set."></iconify-icon> What graphs will we see today?</h2>
 <table class="table">
 <colgroup>
 <col style="width: 20%">
@@ -460,8 +458,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679207461626c6572207661726961626c65203e7d7d-what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</h2>
+<section id="what-kind-of-data-variables-will-we-choose" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-kind-of-data-variables-will-we-choose"><iconify-icon role="img" inline="" icon="tabler:variable" aria-label="Icon variable from tabler Iconify.design set." title="Icon variable from tabler Iconify.design set."></iconify-icon> What kind of Data Variables will we choose?</h2>
 <div class="column-page-inset-right">
 <div class="cell">
 <div class="cell-output-display">
@@ -491,8 +489,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d646920666f6f642d70726f636573736f722d6f75746c696e65203e7d7d-how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</h2>
+<section id="how-do-these-charts-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-these-charts-work"><iconify-icon role="img" inline="" icon="mdi:food-processor-outline" aria-label="Icon food-processor-outline from mdi Iconify.design set." title="Icon food-processor-outline from mdi Iconify.design set."></iconify-icon> How do these Chart(s) Work?</h2>
 <p>In many design project situations, we perform say <em>target audience surveys</em> to get <a href="https://www.simplypsychology.org/likert-scale.html">Likert Scale</a> data, where several respondents rate a product or a service on a scale of <code>Very much like</code>, <code>somewhat like</code>, <code>neutral</code>, <code>Dislike</code> and <code>Very much dislike,</code> for example.</p>
 <p>Some examples of Likert Scales are shown below.</p>
 <div id="fig-likert-scales" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -521,8 +519,8 @@ Figure&nbsp;1: Likert Scale Questionnaire Samples
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e2073746174732d6368617274203e7d7d-plotting-likert-charts" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920696f6e2073746174732d6368617274203e7d7d-plotting-likert-charts"><iconify-icon role="img" inline="" icon="ion:stats-chart" aria-label="Icon stats-chart from ion Iconify.design set." title="Icon stats-chart from ion Iconify.design set."></iconify-icon> Plotting Likert Charts</h2>
+<section id="plotting-likert-charts" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-likert-charts"><iconify-icon role="img" inline="" icon="ion:stats-chart" aria-label="Icon stats-chart from ion Iconify.design set." title="Icon stats-chart from ion Iconify.design set."></iconify-icon> Plotting Likert Charts</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills" style="background: whitesmoke;">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Using Orange</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Using RAWgraphs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Using DataWrapper</a></li></ul>
 <div class="tab-content nav-pills" style="background: whitesmoke;">
@@ -541,8 +539,8 @@ Figure&nbsp;1: Likert Scale Questionnaire Samples
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320696365626572672073697a653d3378203e7d7d-dataset-caregivers" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e7320696365626572672073697a653d3378203e7d7d-dataset-caregivers"><iconify-icon role="img" inline="" icon="game-icons:iceberg" style="font-size: 3em;" aria-label="Icon iceberg from game-icons Iconify.design set." title="Icon iceberg from game-icons Iconify.design set."></iconify-icon> Dataset: CareGivers</h2>
+<section id="dataset-caregivers" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="dataset-caregivers"><iconify-icon role="img" inline="" icon="game-icons:iceberg" style="font-size: 3em;" aria-label="Icon iceberg from game-icons Iconify.design set." title="Icon iceberg from game-icons Iconify.design set."></iconify-icon> Dataset: CareGivers</h2>
 <p>Here is another example of Likert data from the <em>healthcare industry</em>.</p>
 <p><code>efc</code> is a German data set from a European study titled <a href="https://doi.org/10.1093/geront/48.6.752"><strong>EUROFAM study</strong></a>, on <em>family care of older people</em>. Following a common protocol, data were collected from national samples of approximately 1,000 family carers (i.e.&nbsp;caregivers) per country and clustered into comparable subgroups to facilitate cross-national analysis. The <em>research questions</em> in <a href="https://doi.org/10.1093/geront/48.6.752"><strong>this EUROFAM study</strong></a> were:</p>
 <blockquote class="blockquote">
@@ -620,8 +618,8 @@ Figure&nbsp;1: Likert Scale Questionnaire Samples
 </div>
 </div>
 <p>The <code>cop</code>ing related variables have responses on the Likert Scale <code>(1,2,3,4)</code> which correspond to <code>(never, sometimes, often, always)</code>, <strong>and</strong> each variable also has a <code>label</code> defining each variable. The labels are actually ( and perhaps usually ) the <em>questions</em> in the survey.</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
+<section id="examine-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="examine-the-data"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
 <div id="fig-titanic-data" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-titanic-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -658,8 +656,8 @@ Figure&nbsp;2
 </figure>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</h3>
+<section id="data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -692,8 +690,8 @@ Figure&nbsp;2
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</h3>
+<section id="research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -741,8 +739,8 @@ Figure&nbsp;4: Titanic Mosaic Chart
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</h3>
+<section id="what-is-the-story-here" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-story-here"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</h3>
 <p>In <a href="#fig-titanic-mosaic" class="quarto-xref">Figure&nbsp;4</a>, we have plotted <code>sex</code> vs <code>status</code>, and coloured by whether the (subset of) people survived or not. (Red is YES, Blue is NO!). As can be seen the areas are very dissimilar across both variables. More deaths occurred among the crew than among the passengers; and first class passengers have survived more than third class passengers. And of course, more men died than women.</p>
 <p>So we can state that:</p>
 <ul>
@@ -793,11 +791,11 @@ Figure&nbsp;4: Titanic Mosaic Chart
 </div>
 </section>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206865616c746869636f6e7320636c65616e696e672073697a65203d203278203e7d7d-dataset-who-does-the-housework" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206865616c746869636f6e7320636c65616e696e672073697a65203d203278203e7d7d-dataset-who-does-the-housework"><iconify-icon role="img" inline="" icon="healthicons:cleaning" style="font-size: 2em;" aria-label="Icon cleaning from healthicons Iconify.design set." title="Icon cleaning from healthicons Iconify.design set."></iconify-icon> Dataset: Who Does the Housework?</h2>
+<section id="dataset-who-does-the-housework" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="dataset-who-does-the-housework"><iconify-icon role="img" inline="" icon="healthicons:cleaning" style="font-size: 2em;" aria-label="Icon cleaning from healthicons Iconify.design set." title="Icon cleaning from healthicons Iconify.design set."></iconify-icon> Dataset: Who Does the Housework?</h2>
 <p>Let us take this dataset on household tasks, and who does them. Download this dataset and import in into your Mosaic Chart workflow.</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792066696c652d69636f6e7320696e666c757864617461203e7d7d-examine-the-data-1"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
+<section id="examine-the-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="examine-the-data-1"><iconify-icon role="img" inline="" icon="file-icons:influxdata" aria-label="Icon influxdata from file-icons Iconify.design set." title="Icon influxdata from file-icons Iconify.design set."></iconify-icon> Examine the Data</h3>
 <div id="fig-household-tasks-raw-data" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-household-tasks-raw-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -809,8 +807,8 @@ Figure&nbsp;5: Household Tasks Distribution Raw Data
 </figure>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary-1" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792073747265616d6c696e652064696374696f6e6172792d6c616e67756167652d626f6f6b2d736f6c6964203e7d7d-data-dictionary-1"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</h3>
+<section id="data-dictionary-1" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="data-dictionary-1"><iconify-icon role="img" inline="" icon="streamline:dictionary-language-book-solid" aria-label="Icon dictionary-language-book-solid from streamline Iconify.design set." title="Icon dictionary-language-book-solid from streamline Iconify.design set."></iconify-icon> Data Dictionary</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -877,8 +875,8 @@ Figure&nbsp;6: Household Tasks Distribution Raw Data
 </ul>
 <p>All this is (to the best of my ability) <strong>not possible</strong> in any of <a href="https://storymirror.com/read/gujarati/poem/uuntt-khe/sf6dazbo">these trifling tools</a> that we are using here, and can be done in a jiffy in R or Python. Didn’t I tell you coding was far far far far simpler? Peasants.</p>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions-1" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d6174657269616c2d73796d626f6c732071756572792d7374617473203e7d7d-research-questions-1"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</h3>
+<section id="research-questions-1" class="level3">
+<h3 class="anchored" data-anchor-id="research-questions-1"><iconify-icon role="img" inline="" icon="material-symbols:query-stats" aria-label="Icon query-stats from material-symbols Iconify.design set." title="Icon query-stats from material-symbols Iconify.design set."></iconify-icon> Research Questions</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -902,12 +900,12 @@ Figure&nbsp;7: Household Tasks Mosaic
 </div>
 </div>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here-1" class="level3">
-<h3 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e6966792067616d652d69636f6e73207365637265742d626f6f6b203e7d7d-what-is-the-story-here-1"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</h3>
+<section id="what-is-the-story-here-1" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-story-here-1"><iconify-icon role="img" inline="" icon="game-icons:secret-book" aria-label="Icon secret-book from game-icons Iconify.design set." title="Icon secret-book from game-icons Iconify.design set."></iconify-icon> What is the Story Here?</h3>
 </section>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e69667920626920706572736f6e2d7570203e7d7d-your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</h2>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn"><iconify-icon role="img" inline="" icon="bi:person-up" aria-label="Icon person-up from bi Iconify.design set." title="Icon person-up from bi Iconify.design set."></iconify-icon> Your Turn</h2>
 <ol type="1">
 <li><a href="https://vincentarelbundock.github.io/Rdatasets/doc/vcdExtra/Gilby.html">Clothing and Intelligence Rating of Children!!</a> Are well-dressed actually smarter? Is that the exact reverse with SMI faculty?</li>
 </ol>
@@ -915,8 +913,8 @@ Figure&nbsp;7: Household Tasks Mosaic
 <li><a href="https://vincentarelbundock.github.io/Rdatasets/doc/vcd/PreSex.html">Pre-marital Sex and Divorce</a></li>
 </ol>
 </section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2069636f6e696679206d696e67637574652074686f756768742d6c696e65203e7d7d-wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</h2>
+<section id="wait-but-why" class="level2">
+<h2 class="anchored" data-anchor-id="wait-but-why"><iconify-icon role="img" inline="" icon="mingcute:thought-line" aria-label="Icon thought-line from mingcute Iconify.design set." title="Icon thought-line from mingcute Iconify.design set."></iconify-icon> Wait, But Why?</h2>
 </section>
 <section id="dataset-edible-insects" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-edible-insects">Dataset: Edible Insects</h2>
